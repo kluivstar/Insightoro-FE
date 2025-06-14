@@ -7,8 +7,8 @@ const EmotionalJourneySection = () => {
       timeRange: "0-3 Seconds",
       title: "First Impression Formation",
       icon: Eye,
-      gradient: "from-blue-500 to-blue-600",
-      bgGradient: "from-blue-50 to-blue-100/50",
+      gradient: "from-purple-500 to-purple-600",
+      bgGradient: "from-purple-50 to-purple-100/50",
       description: "Visitors instantly judge your credibility and relevance. Visual hierarchy and clarity determine if they stay or leave within these crucial opening moments.",
       emotions: ["Curious", "Interested", "Engaged"],
       keyFactors: ["Does this look professional?", "Can I trust this company?", "Is this what I'm looking for?"]
@@ -17,8 +17,8 @@ const EmotionalJourneySection = () => {
       timeRange: "3-7 Seconds",
       title: "Understanding & Navigation",
       icon: Brain,
-      gradient: "from-indigo-500 to-indigo-600",
-      bgGradient: "from-indigo-50 to-indigo-100/50",
+      gradient: "from-orange-500 to-orange-600",
+      bgGradient: "from-orange-50 to-orange-100/50",
       description: "Users attempt to understand your offering and find what they need. Information architecture and navigation ease become critical factors in keeping them engaged.",
       emotions: ["Confused", "Frustrated", "Impatient"],
       keyFactors: ["Where do I go next?", "What exactly do you do?", "How do I find what I need?"]
@@ -27,8 +27,8 @@ const EmotionalJourneySection = () => {
       timeRange: "7-10 Seconds",
       title: "Decision Making",
       icon: Lightbulb,
-      gradient: "from-blue-600 to-indigo-500",
-      bgGradient: "from-blue-50 to-indigo-50",
+      gradient: "from-teal-500 to-teal-600",
+      bgGradient: "from-teal-50 to-teal-100/50",
       description: "Final emotional assessment before taking action or leaving. Trust indicators, urgency, and clear calls-to-action determine the ultimate outcome.",
       emotions: ["Skeptical", "Doubtful", "Ready to Leave"],
       keyFactors: ["Should I stay or go?", "What's in it for me?", "Is this worth my time?"]
@@ -63,7 +63,7 @@ const EmotionalJourneySection = () => {
           </p>
         </div>
 
-        {/* Journey Steps */}
+        {/* Journey Steps - Restored original colors */}
         <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {journeySteps.map((step, index) => (
             <div 

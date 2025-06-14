@@ -39,28 +39,28 @@ const BeforeAfterSection = () => {
         
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-8 items-center">
-            {/* Before Section */}
+            {/* Before Section - Restored original red colors */}
             <div className="relative">
-              <div className="bg-white p-8 rounded-2xl border border-blue-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-white p-8 rounded-2xl border border-red-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                    <TrendingDown className="w-6 h-6 text-blue-600" />
+                  <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                    <TrendingDown className="w-6 h-6 text-red-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900">Before</h3>
-                    <p className="text-blue-600 font-medium">The Problem</p>
+                    <p className="text-red-600 font-medium">The Problem</p>
                   </div>
                 </div>
                 
                 <div className="space-y-4">
                   {beforeItems.map((item, index) => (
-                    <div key={index} className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
-                      <div className="w-5 h-5 bg-blue-200 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <X className="w-3 h-3 text-blue-700" />
+                    <div key={index} className="flex items-start gap-3 p-3 bg-red-50 rounded-lg">
+                      <div className="w-5 h-5 bg-red-200 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <X className="w-3 h-3 text-red-700" />
                       </div>
                       <div className="flex-1">
                         <p className="text-gray-800 font-medium text-sm leading-relaxed mb-1">{item.text}</p>
-                        <span className="inline-block px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-md">
+                        <span className="inline-block px-2 py-1 bg-red-100 text-red-700 text-xs font-medium rounded-md">
                           {item.metric}
                         </span>
                       </div>
@@ -92,28 +92,28 @@ const BeforeAfterSection = () => {
               </div>
             </div>
             
-            {/* After Section */}
+            {/* After Section - Restored original green colors */}
             <div className="relative">
-              <div className="bg-white p-8 rounded-2xl border border-indigo-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-white p-8 rounded-2xl border border-green-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
-                    <TrendingUp className="w-6 h-6 text-indigo-600" />
+                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                    <TrendingUp className="w-6 h-6 text-green-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900">After</h3>
-                    <p className="text-indigo-600 font-medium">The Solution</p>
+                    <p className="text-green-600 font-medium">The Solution</p>
                   </div>
                 </div>
                 
                 <div className="space-y-4">
                   {afterItems.map((item, index) => (
-                    <div key={index} className="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg">
-                      <div className="w-5 h-5 bg-indigo-200 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-3 h-3 text-indigo-700" />
+                    <div key={index} className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
+                      <div className="w-5 h-5 bg-green-200 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-green-700" />
                       </div>
                       <div className="flex-1">
                         <p className="text-gray-800 font-medium text-sm leading-relaxed mb-1">{item.text}</p>
-                        <span className="inline-block px-2 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md">
+                        <span className="inline-block px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-md">
                           {item.metric}
                         </span>
                       </div>

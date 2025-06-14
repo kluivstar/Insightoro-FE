@@ -135,6 +135,94 @@ export default {
 					'100%': {
 						transform: 'translateX(200%)'
 					}
+				},
+				'scan-slow': {
+					'0%': {
+						transform: 'translateX(-100%)',
+						opacity: '0'
+					},
+					'10%': {
+						opacity: '1'
+					},
+					'90%': {
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'translateX(200%)',
+						opacity: '0'
+					}
+				},
+				'scan-medium': {
+					'0%': {
+						transform: 'translateX(-100%)',
+						opacity: '0'
+					},
+					'15%': {
+						opacity: '1'
+					},
+					'85%': {
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'translateX(200%)',
+						opacity: '0'
+					}
+				},
+				'scan-fast': {
+					'0%': {
+						transform: 'translateX(-100%)',
+						opacity: '0'
+					},
+					'20%': {
+						opacity: '1'
+					},
+					'80%': {
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'translateX(200%)',
+						opacity: '0'
+					}
+				},
+				'scan-reverse': {
+					'0%': {
+						transform: 'translateX(200%)',
+						opacity: '0'
+					},
+					'20%': {
+						opacity: '1'
+					},
+					'80%': {
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'translateX(-100%)',
+						opacity: '0'
+					}
+				},
+				'float-slow': {
+					'0%, 100%': {
+						transform: 'translateY(0px) rotate(0deg)'
+					},
+					'50%': {
+						transform: 'translateY(-20px) rotate(5deg)'
+					}
+				},
+				'float-medium': {
+					'0%, 100%': {
+						transform: 'translateY(0px) rotate(0deg)'
+					},
+					'50%': {
+						transform: 'translateY(-15px) rotate(-3deg)'
+					}
+				},
+				'float-fast': {
+					'0%, 100%': {
+						transform: 'translateY(0px) rotate(0deg)'
+					},
+					'50%': {
+						transform: 'translateY(-10px) rotate(3deg)'
+					}
 				}
 			},
 			animation: {
@@ -143,7 +231,14 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'slide-in-left': 'slide-in-left 0.6s ease-out',
 				'slide-in-right': 'slide-in-right 0.6s ease-out',
-				'scan': 'scan 3s ease-in-out infinite'
+				'scan': 'scan 3s ease-in-out infinite',
+				'scan-slow': 'scan-slow 4s ease-in-out infinite',
+				'scan-medium': 'scan-medium 3.5s ease-in-out infinite 1s',
+				'scan-fast': 'scan-fast 3s ease-in-out infinite 2s',
+				'scan-reverse': 'scan-reverse 5s ease-in-out infinite 0.5s',
+				'float-slow': 'float-slow 6s ease-in-out infinite',
+				'float-medium': 'float-medium 4s ease-in-out infinite 1s',
+				'float-fast': 'float-fast 3s ease-in-out infinite 2s'
 			}
 		}
 	},
