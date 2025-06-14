@@ -70,10 +70,15 @@ const BeforeAfterSection = () => {
               </div>
             </div>
             
-            {/* Arrow */}
+            {/* Animated Arrow */}
             <div className="flex justify-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center shadow-lg">
-                <ArrowRight className="w-8 h-8 text-white" />
+              <div className="relative">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                  <ArrowRight className="w-8 h-8 text-white animate-bounce" />
+                </div>
+                {/* Ripple effect */}
+                <div className="absolute inset-0 w-16 h-16 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-full animate-ping"></div>
+                <div className="absolute inset-2 w-12 h-12 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-full animate-pulse"></div>
               </div>
             </div>
             
