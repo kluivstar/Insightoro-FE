@@ -1,12 +1,12 @@
 
-import { Brain, Eye, Lightbulb } from 'lucide-react';
+import { Gauge, MousePointer, Search } from 'lucide-react';
 
 const EmotionalJourneySection = () => {
   const journeySteps = [
     {
       timeRange: "0-3 Seconds",
       title: "First Impression Formation",
-      icon: Eye,
+      icon: Gauge,
       gradient: "from-purple-500 to-purple-600",
       bgGradient: "from-purple-50 to-purple-100/50",
       description: "Visitors instantly judge your credibility and relevance. Visual hierarchy and clarity determine if they stay or leave within these crucial opening moments.",
@@ -16,7 +16,7 @@ const EmotionalJourneySection = () => {
     {
       timeRange: "3-7 Seconds",
       title: "Understanding & Navigation",
-      icon: Brain,
+      icon: Search,
       gradient: "from-orange-500 to-orange-600",
       bgGradient: "from-orange-50 to-orange-100/50",
       description: "Users attempt to understand your offering and find what they need. Information architecture and navigation ease become critical factors in keeping them engaged.",
@@ -26,7 +26,7 @@ const EmotionalJourneySection = () => {
     {
       timeRange: "7-10 Seconds",
       title: "Decision Making",
-      icon: Lightbulb,
+      icon: MousePointer,
       gradient: "from-teal-500 to-teal-600",
       bgGradient: "from-teal-50 to-teal-100/50",
       description: "Final emotional assessment before taking action or leaving. Trust indicators, urgency, and clear calls-to-action determine the ultimate outcome.",
@@ -44,7 +44,7 @@ const EmotionalJourneySection = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 px-4 py-2 rounded-full mb-6">
-            <Brain className="w-4 h-4 text-blue-600" />
+            <Gauge className="w-4 h-4 text-blue-600" />
             <span className="text-sm font-semibold text-blue-900">Emotional Intelligence</span>
           </div>
           
