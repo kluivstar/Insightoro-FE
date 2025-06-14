@@ -22,15 +22,6 @@ const SignatureFeaturesSection = () => {
       bgGradient: "from-blue-50 to-cyan-50"
     },
     {
-      icon: Brain,
-      title: "Cognitive Load Assessment",
-      subtitle: "Reduce mental friction",
-      description: "Identify elements that create confusion or overwhelm visitors. We analyze visual complexity, information hierarchy, and decision fatigue to streamline your user experience.",
-      businessImpact: "Improve conversion rates by reducing bounce rate",
-      gradient: "from-purple-500 to-pink-500",
-      bgGradient: "from-purple-50 to-pink-50"
-    },
-    {
       icon: Heart,
       title: "Emotional Response Mapping",
       subtitle: "Build trust instantly",
@@ -64,7 +55,7 @@ const SignatureFeaturesSection = () => {
           </div>
           
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight">
-            Five Pillars of
+            Four Pillars of
             <br />
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               First Impressions
@@ -80,7 +71,7 @@ const SignatureFeaturesSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className={`relative p-10 rounded-3xl bg-gradient-to-br ${feature.bgGradient} border border-white/60 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 animate-fade-in group overflow-hidden ${index === 4 ? 'lg:col-span-2 lg:max-w-2xl lg:mx-auto' : ''}`}
+              className={`relative p-10 rounded-3xl bg-gradient-to-br ${feature.bgGradient} border border-white/60 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 animate-fade-in group overflow-hidden`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Modern hover effect */}

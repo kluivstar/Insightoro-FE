@@ -1,5 +1,4 @@
-
-import { Eye, Brain, Heart, TrendingUp, Star, AlertCircle, CheckCircle, Clock, Target, Zap, ThumbsUp, HelpCircle, Lock, Crown, BarChart3, Users, Timer, Activity } from 'lucide-react';
+import { Eye, Brain, Heart, TrendingUp, Star, AlertCircle, CheckCircle, Clock, Target, Zap, ThumbsUp, HelpCircle, Lock, Crown, BarChart3, Users, Timer, Activity, FileText } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
 
 const DemoSection = () => {
@@ -43,20 +42,13 @@ const DemoSection = () => {
   ];
 
   const emotionalAnalysis = [
-    { emotion: "Trust", level: 78, color: "blue", impact: "Higher trust leads to 32% more conversions" },
-    { emotion: "Clarity", level: 92, color: "green", impact: "Clear messaging reduces bounce rate by 45%" },
-    { emotion: "Engagement", level: 85, color: "purple", impact: "Strong engagement increases time on site by 60%" },
-    { emotion: "Urgency", level: 65, color: "orange", impact: "Optimal urgency can boost immediate actions by 25%" }
+    { emotion: "Trust", level: 78, color: "blue", impact: "Higher trust leads to 32% more conversions and reduces cart abandonment by 40%" },
+    { emotion: "Clarity", level: 92, color: "green", impact: "Clear messaging reduces bounce rate by 45% and increases page engagement by 2.3x" },
+    { emotion: "Engagement", level: 85, color: "purple", impact: "Strong engagement increases time on site by 60% and improves lead generation by 35%" },
+    { emotion: "Urgency", level: 65, color: "orange", impact: "Optimal urgency can boost immediate actions by 25% and email signups by 18%" }
   ];
 
   const priorityRecommendations = [
-    { 
-      type: "critical", 
-      text: "Increase CTA button size by 40% and improve contrast ratio", 
-      impact: "High", 
-      category: "Conversion",
-      mockup: "Primary CTA - Above fold section"
-    },
     { 
       type: "medium", 
       text: "Reduce headline complexity - currently 18 words, optimal is 8-12", 
@@ -70,6 +62,13 @@ const DemoSection = () => {
       impact: "Medium", 
       category: "Trust",
       mockup: "Trust signals - Header area"
+    },
+    { 
+      type: "medium", 
+      text: "Improve button text contrast ratio for better accessibility", 
+      impact: "Medium", 
+      category: "Usability",
+      mockup: "CTA buttons - Throughout page"
     }
   ];
 
@@ -165,7 +164,7 @@ const DemoSection = () => {
                   ))}
                 </div>
 
-                {/* Emotional Impact Analysis & Visual Hierarchy Side by Side */}
+                {/* Emotional Impact Analysis & CTA Visibility Details Side by Side */}
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
                   {/* Emotional Impact Analysis */}
                   <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border border-purple-100">
@@ -205,13 +204,13 @@ const DemoSection = () => {
                     </div>
                   </div>
 
-                  {/* Visual Hierarchy Score */}
-                  <div className="bg-gradient-to-br from-orange-50 to-yellow-50 p-8 rounded-2xl border border-orange-100">
+                  {/* CTA Visibility Details */}
+                  <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl border border-blue-100">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl flex items-center justify-center">
-                        <BarChart3 className="w-5 h-5 text-white" />
+                      <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
+                        <Target className="w-5 h-5 text-white" />
                       </div>
-                      <h4 className="text-xl font-bold text-gray-900">Visual Hierarchy Score</h4>
+                      <h4 className="text-xl font-bold text-gray-900">CTA Visibility Analysis</h4>
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <button className="text-gray-400 hover:text-gray-600">
@@ -219,28 +218,35 @@ const DemoSection = () => {
                           </button>
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p className="max-w-xs">Evaluates how well your page guides visitor attention through your content</p>
+                          <p className="max-w-xs">Evaluates how well your call-to-action buttons capture visitor attention and drive conversions</p>
                         </TooltipContent>
                       </Tooltip>
                     </div>
                     
                     <div className="text-center mb-6">
-                      <div className="text-6xl font-bold text-gray-900 mb-2">A-</div>
-                      <div className="text-sm text-gray-600 mb-4">Excellent structure with minor improvements needed</div>
+                      <div className="text-6xl font-bold text-gray-900 mb-2">78%</div>
+                      <div className="text-sm text-gray-600 mb-4">Good visibility with room for improvement</div>
+                      <div className="text-xs text-blue-600 font-medium bg-blue-100 px-3 py-2 rounded-full inline-block">
+                        Potential 25-35% conversion uplift
+                      </div>
                     </div>
 
                     <div className="space-y-3">
                       <div className="flex justify-between items-center p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-white/50">
-                        <span className="text-sm font-medium text-gray-700">Header Priority</span>
+                        <span className="text-sm font-medium text-gray-700">Button Contrast</span>
                         <span className="text-sm font-bold text-green-600">Excellent</span>
                       </div>
                       <div className="flex justify-between items-center p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-white/50">
-                        <span className="text-sm font-medium text-gray-700">Content Flow</span>
+                        <span className="text-sm font-medium text-gray-700">Placement Score</span>
                         <span className="text-sm font-bold text-blue-600">Good</span>
                       </div>
                       <div className="flex justify-between items-center p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-white/50">
-                        <span className="text-sm font-medium text-gray-700">CTA Prominence</span>
+                        <span className="text-sm font-medium text-gray-700">Button Size</span>
                         <span className="text-sm font-bold text-yellow-600">Needs Work</span>
+                      </div>
+                      <div className="p-3 bg-blue-100/50 rounded-lg border border-blue-200/50">
+                        <div className="text-xs font-semibold text-blue-800 mb-1">Business Impact:</div>
+                        <div className="text-xs text-blue-700">Improving CTA visibility typically increases conversion rates by 15-40% and reduces visitor hesitation by 60%</div>
                       </div>
                     </div>
                   </div>
@@ -255,24 +261,38 @@ const DemoSection = () => {
                     Priority Recommendations
                   </h4>
                   
+                  {/* Premium High Impact - Blurred */}
+                  <div className="mb-6 relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-amber-100/80 to-yellow-100/80 rounded-xl backdrop-blur-sm z-10 flex items-center justify-center">
+                      <div className="text-center">
+                        <Crown className="w-8 h-8 text-amber-600 mx-auto mb-2" />
+                        <div className="text-sm font-bold text-amber-800">Premium Feature</div>
+                        <div className="text-xs text-amber-700">High Impact Recommendations</div>
+                      </div>
+                    </div>
+                    <div className="blur-sm p-6 bg-white/70 backdrop-blur-sm rounded-xl border border-white/60">
+                      <div className="flex items-start gap-6">
+                        <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                          <AlertCircle className="w-5 h-5 text-red-600" />
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-gray-800 font-medium mb-3">Increase CTA button size by 40% and improve contrast ratio</p>
+                          <span className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-medium">High Impact</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="space-y-6 mb-8">
                     {priorityRecommendations.map((rec, index) => (
                       <div key={index} className="flex items-start gap-6 p-6 bg-white/70 backdrop-blur-sm rounded-xl border border-white/60">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                          rec.type === 'critical' ? 'bg-red-100' : 'bg-yellow-100'
-                        }`}>
-                          {rec.type === 'critical' ? 
-                            <AlertCircle className="w-5 h-5 text-red-600" /> :
-                            <CheckCircle className="w-5 h-5 text-yellow-600" />
-                          }
+                        <div className="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                          <CheckCircle className="w-5 h-5 text-yellow-600" />
                         </div>
                         <div className="flex-1">
                           <p className="text-gray-800 font-medium mb-3">{rec.text}</p>
                           <div className="flex items-center gap-3 mb-3">
-                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                              rec.impact === 'High' ? 'bg-red-100 text-red-700' :
-                              'bg-yellow-100 text-yellow-700'
-                            }`}>
+                            <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-medium">
                               {rec.impact} Impact
                             </span>
                             <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
@@ -341,7 +361,7 @@ const DemoSection = () => {
                           Premium In-depth Analysis
                           <Lock className="w-4 h-4 text-amber-600" />
                         </h5>
-                        <p className="text-gray-600">Unlock advanced insights including heatmap analysis, user journey mapping, and A/B test recommendations</p>
+                        <p className="text-gray-600">Unlock advanced insights including user journey mapping, high-impact recommendations, and PDF reports</p>
                       </div>
                     </div>
                     <button className="px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
@@ -355,12 +375,12 @@ const DemoSection = () => {
                       <span className="text-sm font-medium text-gray-700">User Journey Mapping</span>
                     </div>
                     <div className="flex items-center gap-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg">
-                      <BarChart3 className="w-5 h-5 text-amber-600" />
-                      <span className="text-sm font-medium text-gray-700">Heatmap Analysis</span>
+                      <AlertCircle className="w-5 h-5 text-amber-600" />
+                      <span className="text-sm font-medium text-gray-700">High-Impact Recommendations</span>
                     </div>
                     <div className="flex items-center gap-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg">
-                      <TrendingUp className="w-5 h-5 text-amber-600" />
-                      <span className="text-sm font-medium text-gray-700">A/B Test Recommendations</span>
+                      <FileText className="w-5 h-5 text-amber-600" />
+                      <span className="text-sm font-medium text-gray-700">Report - PDF Export</span>
                     </div>
                   </div>
                 </div>

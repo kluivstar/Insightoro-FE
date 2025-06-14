@@ -38,7 +38,7 @@ const BeforeAfterSection = () => {
         </div>
         
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-3 gap-8 items-center">
             {/* Before Section */}
             <div className="animate-slide-in-left">
               <div className="relative">
@@ -74,7 +74,7 @@ const BeforeAfterSection = () => {
             </div>
             
             {/* Arrow */}
-            <div className="hidden lg:flex justify-center">
+            <div className="flex justify-center">
               <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center animate-pulse shadow-2xl">
                 <ArrowRight className="w-10 h-10 text-white" />
               </div>

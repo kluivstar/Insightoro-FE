@@ -1,7 +1,6 @@
-
 import { Heart, Eye, Brain } from 'lucide-react';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
-import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Area, AreaChart } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 
 const EmotionalJourneySection = () => {
   const emotionData = [
@@ -96,13 +95,7 @@ const EmotionalJourneySection = () => {
             </h3>
             <div className="h-80">
               <ChartContainer config={chartConfig}>
-                <AreaChart data={emotionData}>
-                  <defs>
-                    <linearGradient id="colorEmotion" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.8}/>
-                      <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0.1}/>
-                    </linearGradient>
-                  </defs>
+                <BarChart data={emotionData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
                   <XAxis 
                     dataKey="time" 
                     axisLine={false}
@@ -123,15 +116,12 @@ const EmotionalJourneySection = () => {
                       'Engagement'
                     ]}
                   />
-                  <Area 
-                    type="monotone" 
+                  <Bar 
                     dataKey="emotion" 
-                    stroke="hsl(var(--primary))" 
-                    fillOpacity={1} 
-                    fill="url(#colorEmotion)"
-                    strokeWidth={3}
+                    fill="hsl(var(--primary))"
+                    radius={[4, 4, 0, 0]}
                   />
-                </AreaChart>
+                </BarChart>
               </ChartContainer>
             </div>
           </div>
