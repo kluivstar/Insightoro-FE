@@ -301,15 +301,15 @@ const DemoSection = () => {
                   ))}
                 </div>
 
-                {/* Detailed Emotional Impact Analysis & CTA Visibility Details Side by Side */}
+                {/* First 5 Second Test - Comprehensive Analysis (Full Width) & CTA Visibility Details Side by Side */}
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  {/* Detailed Emotional Analysis */}
-                  <div className="bg-gradient-to-br from-blue-50/80 to-cyan-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-blue-200/50">
+                  {/* Enhanced First 5 Second Test - Expanded */}
+                  <div className="bg-gradient-to-br from-orange-50/80 to-red-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-orange-200/50">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-                        <Heart className="w-5 h-5 text-white" />
+                      <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
+                        <Timer className="w-5 h-5 text-white" />
                       </div>
-                      <h4 className="text-lg md:text-xl font-bold text-gray-900">Detailed Emotional Analysis</h4>
+                      <h4 className="text-lg md:text-xl font-bold text-gray-900">First 5 Second Test - Detailed Analysis</h4>
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <button className="text-gray-400 hover:text-gray-600">
@@ -317,25 +317,61 @@ const DemoSection = () => {
                           </button>
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p className="max-w-xs">Measures the emotional responses your website triggers and their business impact</p>
+                          <p className="max-w-xs">Comprehensive analysis of how visitors process your page in the critical first 5 seconds</p>
                         </TooltipContent>
                       </Tooltip>
                     </div>
                     
-                    <div className="space-y-4">
-                      {emotionalAnalysis.map((emotion, index) => (
-                        <EmotionalAnalysisCard key={index} emotion={emotion} />
+                    <div className="text-center mb-6">
+                      <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-2">4.2s</div>
+                      <div className="text-sm text-gray-600 mb-2">Average recognition time</div>
+                      <div className="text-xs text-orange-600 font-medium bg-orange-100/70 backdrop-blur-sm px-3 py-2 rounded-full inline-block border border-orange-200/50 mb-4">
+                        85% visitors understand your value proposition quickly
+                      </div>
+                      <div className="text-xs text-gray-600">
+                        <strong>Business Impact:</strong> Fast recognition reduces bounce rate by 42% and increases page engagement by 2.1x
+                      </div>
+                    </div>
+
+                    {/* Detailed metrics grid */}
+                    <div className="grid grid-cols-1 gap-4 mb-4">
+                      {firstFiveSecondData.slice(0, 2).map((item, index) => (
+                        <FirstFiveSecondCard key={index} item={item} />
                       ))}
+                    </div>
+
+                    {/* Key findings summary */}
+                    <div className="bg-gradient-to-r from-orange-100/80 to-red-100/80 backdrop-blur-sm p-4 rounded-xl border border-orange-300/50">
+                      <h5 className="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4 text-orange-600" />
+                        Key Findings & Revenue Impact
+                      </h5>
+                      <div className="grid grid-cols-1 gap-3 text-xs">
+                        <div>
+                          <div className="font-semibold text-gray-800 mb-1">Strengths:</div>
+                          <ul className="text-gray-700 space-y-1">
+                            <li>• Strong brand recognition (0.8s)</li>
+                            <li>• Clear value proposition messaging</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gray-800 mb-1">Opportunities:</div>
+                          <ul className="text-gray-700 space-y-1">
+                            <li>• Reduce cognitive load by 18%</li>
+                            <li>• Potential 28% conversion increase</li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
                   {/* CTA Visibility Details */}
-                  <div className="bg-gradient-to-br from-blue-50/80 to-cyan-50/80 backdrop-blur-sm p-8 rounded-2xl border border-blue-200/50">
+                  <div className="bg-gradient-to-br from-blue-50/80 to-cyan-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-blue-200/50">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
                         <Target className="w-5 h-5 text-white" />
                       </div>
-                      <h4 className="text-xl font-bold text-gray-900">CTA Visibility Analysis</h4>
+                      <h4 className="text-lg md:text-xl font-bold text-gray-900">CTA Visibility Analysis</h4>
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <button className="text-gray-400 hover:text-gray-600">
@@ -349,7 +385,7 @@ const DemoSection = () => {
                     </div>
                     
                     <div className="text-center mb-6">
-                      <div className="text-6xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">78%</div>
+                      <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">78%</div>
                       <div className="text-sm text-gray-600 mb-4">Good visibility with room for improvement</div>
                       <div className="text-xs text-blue-600 font-medium bg-blue-100/70 backdrop-blur-sm px-3 py-2 rounded-full inline-block border border-blue-200/50">
                         Potential 25-35% conversion uplift
@@ -377,67 +413,19 @@ const DemoSection = () => {
                   </div>
                 </div>
 
-                {/* Enhanced First 5 Second Test */}
+                {/* Additional First 5 Second Test Metrics - Full Width */}
                 <div className="bg-gradient-to-br from-orange-50/80 to-red-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-orange-200/50 mb-8">
-                  <div className="flex items-center gap-3 mb-6">
+                  <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                     <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
                       <Timer className="w-5 h-5 text-white" />
                     </div>
-                    <h4 className="text-lg md:text-xl font-bold text-gray-900">First 5 Second Test - Detailed Analysis</h4>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <button className="text-gray-400 hover:text-gray-600">
-                          <HelpCircle className="w-4 h-4" />
-                        </button>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p className="max-w-xs">Comprehensive analysis of how visitors process your page in the critical first 5 seconds</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </div>
+                    Additional First 5 Second Metrics
+                  </h4>
                   
-                  <div className="text-center mb-8">
-                    <div className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-2">4.2s</div>
-                    <div className="text-sm text-gray-600 mb-2">Average recognition time</div>
-                    <div className="text-xs text-orange-600 font-medium bg-orange-100/70 backdrop-blur-sm px-3 py-2 rounded-full inline-block border border-orange-200/50 mb-4">
-                      85% visitors understand your value proposition quickly
-                    </div>
-                    <div className="text-xs text-gray-600">
-                      <strong>Business Impact:</strong> Fast recognition reduces bounce rate by 42% and increases page engagement by 2.1x
-                    </div>
-                  </div>
-
-                  {/* Detailed metrics grid */}
-                  <div className="grid md:grid-cols-2 gap-6 mb-6">
-                    {firstFiveSecondData.map((item, index) => (
-                      <FirstFiveSecondCard key={index} item={item} />
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {firstFiveSecondData.slice(2).map((item, index) => (
+                      <FirstFiveSecondCard key={index + 2} item={item} />
                     ))}
-                  </div>
-
-                  {/* Key findings summary */}
-                  <div className="bg-gradient-to-r from-orange-100/80 to-red-100/80 backdrop-blur-sm p-5 rounded-xl border border-orange-300/50">
-                    <h5 className="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
-                      <AlertCircle className="w-4 h-4 text-orange-600" />
-                      Key Findings & Revenue Impact
-                    </h5>
-                    <div className="grid md:grid-cols-2 gap-4 text-xs">
-                      <div>
-                        <div className="font-semibold text-gray-800 mb-1">Strengths:</div>
-                        <ul className="text-gray-700 space-y-1">
-                          <li>• Strong brand recognition (0.8s)</li>
-                          <li>• Clear value proposition messaging</li>
-                          <li>• Optimal visual hierarchy compliance</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-800 mb-1">Opportunities:</div>
-                        <ul className="text-gray-700 space-y-1">
-                          <li>• Reduce cognitive load by 18%</li>
-                          <li>• Improve CTA recognition speed</li>
-                          <li>• Potential 28% conversion increase</li>
-                        </ul>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
@@ -514,9 +502,9 @@ const DemoSection = () => {
                   </div>
                 </div>
 
-                {/* Premium In-depth Analysis Feature - Made responsive */}
+                {/* Premium In-depth Analysis Feature - Enhanced with Emotional Analysis */}
                 <div className="bg-gradient-to-r from-amber-50/80 to-yellow-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border-2 border-amber-200/50 border-dashed">
-                  <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                  <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
                       <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
                         <Crown className="w-6 h-6 text-white" />
@@ -526,7 +514,7 @@ const DemoSection = () => {
                           Premium In-depth Analysis
                           <Lock className="w-4 h-4 text-amber-600" />
                         </h5>
-                        <p className="text-sm md:text-base text-gray-600">Unlock advanced insights including user journey mapping, high-impact recommendations, and PDF reports</p>
+                        <p className="text-sm md:text-base text-gray-600">Unlock advanced insights including emotional analysis, user journey mapping, and high-impact recommendations</p>
                       </div>
                     </div>
                     <button className="w-full md:w-auto px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
@@ -534,7 +522,11 @@ const DemoSection = () => {
                     </button>
                   </div>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
+                      <Heart className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                      <span className="text-sm font-medium text-gray-700">Emotional Impact Analysis</span>
+                    </div>
                     <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
                       <Users className="w-5 h-5 text-amber-600 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700">User Journey Mapping</span>
