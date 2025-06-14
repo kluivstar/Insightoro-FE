@@ -1,5 +1,5 @@
 
-import { Eye, Target, AlertTriangle, Zap, Timer, Brain, Heart, TrendingUp, Clock } from 'lucide-react';
+import { Target, AlertTriangle, Zap, Timer, Brain, Heart, TrendingUp, Clock } from 'lucide-react';
 
 const SignatureFeaturesSection = () => {
   const features = [
@@ -7,7 +7,7 @@ const SignatureFeaturesSection = () => {
       icon: Clock,
       title: "First 5 Second Test",
       subtitle: "Make or break moments",
-      description: "Analyze what visitors see and feel in their crucial first 5 seconds on your site. Research shows that users form lasting impressions within milliseconds - we ensure yours is compelling and clear.",
+      description: "Deep behavioral analysis reveals what visitors see and feel in their crucial first 5 seconds on your site. Research shows that users form lasting impressions within milliseconds - we ensure yours is compelling and clear.",
       businessImpact: "Reduce bounce rate by up to 50%",
       gradient: "from-indigo-500 to-blue-500",
       bgGradient: "from-indigo-50 to-blue-50"
@@ -16,7 +16,7 @@ const SignatureFeaturesSection = () => {
       icon: Timer,
       title: "Visual Clarity Analysis",
       subtitle: "First impressions matter",
-      description: "Measure how quickly visitors understand your core message and value proposition. Research shows 55% of visitors spend less than 15 seconds on a website - we help you maximize those crucial opening moments.",
+      description: "Comprehensive evaluation of how quickly visitors understand your core message and value proposition. Research shows 55% of visitors spend less than 15 seconds on a website - we help you maximize those crucial opening moments.",
       businessImpact: "Increase engagement rates by up to 40%",
       gradient: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-50 to-cyan-50"
@@ -25,7 +25,7 @@ const SignatureFeaturesSection = () => {
       icon: Heart,
       title: "Emotional Response Mapping",
       subtitle: "Build trust instantly",
-      description: "Understand the emotional journey of your visitors from landing to action. We analyze trust signals, credibility markers, and emotional triggers that influence purchasing decisions.",
+      description: "Advanced psychological analysis of the emotional journey your visitors experience from landing to action. We analyze trust signals, credibility markers, and emotional triggers that influence purchasing decisions.",
       businessImpact: "Increase customer trust and brand perception",
       gradient: "from-red-500 to-orange-500",
       bgGradient: "from-red-50 to-orange-50"
@@ -34,7 +34,7 @@ const SignatureFeaturesSection = () => {
       icon: Target,
       title: "CTA Visibility Score",
       subtitle: "Drive more conversions",
-      description: "Optimize your call-to-action placement, design, and messaging for maximum impact. We analyze visual hierarchy, contrast ratios, and positioning to ensure your CTAs command attention.",
+      description: "Data-driven optimization of your call-to-action placement, design, and messaging for maximum impact. We analyze visual hierarchy, contrast ratios, and positioning to ensure your CTAs command attention.",
       businessImpact: "Boost click-through rates by 25-60%",
       gradient: "from-green-500 to-emerald-500",
       bgGradient: "from-green-50 to-emerald-50"
@@ -43,12 +43,11 @@ const SignatureFeaturesSection = () => {
 
   return (
     <section className="py-32 bg-white relative overflow-hidden">
-      {/* Modern background pattern */}
+      {/* Minimal background pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-blue-50/30"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-24 animate-fade-in">
+        <div className="text-center mb-24">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 px-6 py-3 rounded-full mb-8">
             <Zap className="w-5 h-5 text-blue-600" />
             <span className="text-sm font-semibold text-blue-900">Signature Analysis</span>
@@ -62,7 +61,7 @@ const SignatureFeaturesSection = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Our AI-powered analysis reveals exactly what your visitors experience in those critical first moments, 
+            Advanced behavioral analysis reveals exactly what your visitors experience in those critical first moments, 
             providing actionable insights to transform confusion into clarity and browsers into customers.
           </p>
         </div>
@@ -71,20 +70,19 @@ const SignatureFeaturesSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className={`relative p-10 rounded-3xl bg-gradient-to-br ${feature.bgGradient} border border-white/60 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 animate-fade-in group overflow-hidden`}
-              style={{ animationDelay: `${index * 150}ms` }}
+              className={`relative p-10 rounded-3xl bg-gradient-to-br ${feature.bgGradient} border border-white/60 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group overflow-hidden`}
             >
-              {/* Modern hover effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+              {/* Minimal hover effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
               
               <div className="relative z-10">
                 <div className="flex items-start gap-6 mb-8">
-                  <div className={`w-20 h-20 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-20 h-20 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center shadow-xl`}>
                     <feature.icon className="w-10 h-10 text-white" />
                   </div>
                   
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
                       {feature.title}
                     </h3>
                     <p className="text-lg font-medium text-gray-600 mb-4">
@@ -103,10 +101,8 @@ const SignatureFeaturesSection = () => {
                 </div>
               </div>
               
-              {/* Decorative elements */}
-              <div className={`absolute -top-4 -right-4 w-32 h-32 bg-gradient-to-r ${feature.gradient} rounded-full opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
-              <div className="absolute bottom-4 left-4 w-2 h-2 bg-white/30 rounded-full"></div>
-              <div className="absolute bottom-8 left-8 w-1 h-1 bg-white/40 rounded-full"></div>
+              {/* Minimal decorative elements */}
+              <div className={`absolute -top-4 -right-4 w-32 h-32 bg-gradient-to-r ${feature.gradient} rounded-full opacity-5`}></div>
             </div>
           ))}
         </div>

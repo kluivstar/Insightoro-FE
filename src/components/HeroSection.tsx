@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
-import { Eye, MousePointer, Clock } from 'lucide-react';
+import { AlertCircle, CheckCircle, Zap } from 'lucide-react';
 
 const HeroSection = () => {
   const [email, setEmail] = useState('');
@@ -17,19 +17,26 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 overflow-hidden">
-      {/* Modern background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-orange-400/10 to-amber-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Modern geometric background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-0 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+          <div className="absolute top-0 right-0 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+          <div className="absolute -bottom-8 right-0 w-72 h-72 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+        </div>
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="1.5"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
       </div>
       
       <div className="container mx-auto px-6 text-center relative z-10">
-        <div className="max-w-5xl mx-auto animate-fade-in">
+        <div className="max-w-5xl mx-auto">
           {/* Main headline with modern typography */}
           <div className="mb-8">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-200/50 mb-8">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-200/50 mb-8">
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
               <span className="text-sm font-medium text-gray-700">Feel what your visitors feel</span>
             </div>
             
@@ -50,7 +57,7 @@ const HeroSection = () => {
           
           {/* Email collection with modern design */}
           <div className="max-w-lg mx-auto mb-20">
-            <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-4 p-2 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 shadow-lg">
+            <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-4 p-2 bg-white/70 backdrop-blur-sm rounded-2xl border border-gray-200/50 shadow-lg">
               <Input
                 type="email"
                 placeholder="Enter your email"
@@ -61,7 +68,7 @@ const HeroSection = () => {
               />
               <Button 
                 type="submit"
-                className="h-12 px-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
+                className="h-12 px-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-lg"
               >
                 Get Early Access
               </Button>
@@ -72,45 +79,39 @@ const HeroSection = () => {
             </p>
           </div>
           
-          {/* Modern visual metaphor */}
+          {/* Improved visual metaphor */}
           <div className="flex justify-center items-center gap-12 md:gap-20">
-            <div className="text-center group animate-slide-in-left">
+            <div className="text-center group">
               <div className="relative">
-                <div className="w-24 h-24 bg-gradient-to-br from-red-100 to-orange-100 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <div className="flex items-center gap-1">
-                    <Eye className="w-6 h-6 text-red-500" />
-                    <div className="w-1 h-1 bg-red-400 rounded-full animate-pulse"></div>
-                  </div>
+                <div className="w-24 h-24 bg-gradient-to-br from-red-100 to-orange-100 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg">
+                  <AlertCircle className="w-8 h-8 text-red-500" />
                 </div>
                 <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs">?</span>
+                  <span className="text-white text-xs font-bold">!</span>
                 </div>
               </div>
-              <p className="text-gray-600 font-medium">Confused<br />Experience</p>
+              <p className="text-gray-700 font-medium">Visitors feel lost<br />and leave quickly</p>
             </div>
             
-            <div className="flex flex-col items-center animate-fade-in delay-300">
+            <div className="flex flex-col items-center">
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mb-4 shadow-lg">
-                <MousePointer className="w-8 h-8 text-white" />
+                <Zap className="w-8 h-8 text-white" />
               </div>
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 Insightoro
               </div>
             </div>
             
-            <div className="text-center group animate-slide-in-right">
+            <div className="text-center group">
               <div className="relative">
-                <div className="w-24 h-24 bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <div className="flex items-center gap-1">
-                    <Eye className="w-6 h-6 text-green-500" />
-                    <Clock className="w-4 h-4 text-green-400" />
-                  </div>
+                <div className="w-24 h-24 bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg">
+                  <CheckCircle className="w-8 h-8 text-green-500" />
                 </div>
                 <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
                   <span className="text-white text-xs">✓</span>
                 </div>
               </div>
-              <p className="text-gray-600 font-medium">Clear<br />Experience</p>
+              <p className="text-gray-700 font-medium">Visitors understand<br />and take action</p>
             </div>
           </div>
         </div>
