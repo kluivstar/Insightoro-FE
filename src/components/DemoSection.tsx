@@ -94,6 +94,38 @@ const DemoSection = () => {
     "Add urgency indicator to special offer"
   ];
 
+  // New detailed First 5 Second Test data
+  const firstFiveSecondData = [
+    { 
+      metric: "Message Clarity", 
+      score: 88, 
+      description: "Visitors understand your main value proposition",
+      businessImpact: "Clear messaging reduces bounce rate by 35% and increases conversions by 22%",
+      scanData: "Headline readability: 8th grade level, Key benefits visible in 2.1 seconds"
+    },
+    { 
+      metric: "Visual Hierarchy", 
+      score: 82, 
+      description: "Eye-tracking shows optimal content flow",
+      businessImpact: "Good hierarchy increases page engagement by 40% and time on site by 1.8 minutes",
+      scanData: "F-pattern compliance: 82%, Primary CTA noticed in 3.4 seconds"
+    },
+    { 
+      metric: "Brand Recognition", 
+      score: 91, 
+      description: "Logo and brand elements create instant recognition",
+      businessImpact: "Strong brand recall increases trust by 45% and repeat visits by 28%",
+      scanData: "Logo visibility: 0.8 seconds, Brand consistency score: 91/100"
+    },
+    { 
+      metric: "Cognitive Load", 
+      score: 76, 
+      description: "Information density and complexity analysis",
+      businessImpact: "Lower cognitive load reduces abandonment by 25% and improves user satisfaction by 33%",
+      scanData: "Text density: 42 words above fold, Visual elements: 7 (optimal: 5-8)"
+    }
+  ];
+
   return (
     <TooltipProvider>
       <section className="py-32 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
@@ -263,13 +295,13 @@ const DemoSection = () => {
                   </div>
                 </div>
 
-                {/* First 5 Second Test */}
+                {/* Enhanced First 5 Second Test */}
                 <div className="bg-gradient-to-br from-orange-50/80 to-red-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-orange-200/50 mb-8">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
                       <Timer className="w-5 h-5 text-white" />
                     </div>
-                    <h4 className="text-lg md:text-xl font-bold text-gray-900">First 5 Second Test</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-gray-900">First 5 Second Test - Detailed Analysis</h4>
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <button className="text-gray-400 hover:text-gray-600">
@@ -277,31 +309,76 @@ const DemoSection = () => {
                         </button>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p className="max-w-xs">Tests whether visitors can understand what you do and why it matters within 5 seconds</p>
+                        <p className="max-w-xs">Comprehensive analysis of how visitors process your page in the critical first 5 seconds</p>
                       </TooltipContent>
                     </Tooltip>
                   </div>
                   
-                  <div className="text-center mb-6">
+                  <div className="text-center mb-8">
                     <div className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-2">4.2s</div>
-                    <div className="text-sm text-gray-600 mb-4">Recognition time - Good performance</div>
-                    <div className="text-xs text-orange-600 font-medium bg-orange-100/70 backdrop-blur-sm px-3 py-2 rounded-full inline-block border border-orange-200/50">
+                    <div className="text-sm text-gray-600 mb-2">Average recognition time</div>
+                    <div className="text-xs text-orange-600 font-medium bg-orange-100/70 backdrop-blur-sm px-3 py-2 rounded-full inline-block border border-orange-200/50 mb-4">
                       85% visitors understand your value proposition quickly
+                    </div>
+                    <div className="text-xs text-gray-600">
+                      <strong>Business Impact:</strong> Fast recognition reduces bounce rate by 42% and increases page engagement by 2.1x
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-3 gap-3">
-                    <div className="flex justify-between items-center p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <span className="text-xs md:text-sm font-medium text-gray-700">Message Clarity</span>
-                      <span className="text-xs md:text-sm font-bold text-green-600">Excellent</span>
-                    </div>
-                    <div className="flex justify-between items-center p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <span className="text-xs md:text-sm font-medium text-gray-700">Visual Impact</span>
-                      <span className="text-xs md:text-sm font-bold text-blue-600">Good</span>
-                    </div>
-                    <div className="flex justify-between items-center p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <span className="text-xs md:text-sm font-medium text-gray-700">Comprehension</span>
-                      <span className="text-xs md:text-sm font-bold text-orange-600">Needs Work</span>
+                  {/* Detailed metrics grid */}
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    {firstFiveSecondData.map((item, index) => (
+                      <div key={index} className="bg-white/80 backdrop-blur-sm p-5 rounded-xl border border-white/80">
+                        <div className="flex items-center justify-between mb-3">
+                          <h5 className="text-sm font-bold text-gray-800">{item.metric}</h5>
+                          <div className="text-2xl font-bold text-orange-600">{item.score}%</div>
+                        </div>
+                        
+                        <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-3">
+                          <div 
+                            className="h-full bg-gradient-to-r from-orange-400 to-red-500 rounded-full transition-all duration-1000"
+                            style={{ width: `${item.score}%` }}
+                          ></div>
+                        </div>
+                        
+                        <p className="text-xs text-gray-700 mb-3">{item.description}</p>
+                        
+                        <div className="bg-orange-50/80 backdrop-blur-sm p-3 rounded-lg border border-orange-200/50 mb-3">
+                          <div className="text-xs font-semibold text-orange-800 mb-1">Business Impact:</div>
+                          <div className="text-xs text-orange-700">{item.businessImpact}</div>
+                        </div>
+                        
+                        <div className="bg-gray-50/80 backdrop-blur-sm p-3 rounded-lg border border-gray-200/50">
+                          <div className="text-xs font-semibold text-gray-800 mb-1">Scan Data:</div>
+                          <div className="text-xs text-gray-600">{item.scanData}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Key findings summary */}
+                  <div className="bg-gradient-to-r from-orange-100/80 to-red-100/80 backdrop-blur-sm p-5 rounded-xl border border-orange-300/50">
+                    <h5 className="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 text-orange-600" />
+                      Key Findings & Revenue Impact
+                    </h5>
+                    <div className="grid md:grid-cols-2 gap-4 text-xs">
+                      <div>
+                        <div className="font-semibold text-gray-800 mb-1">Strengths:</div>
+                        <ul className="text-gray-700 space-y-1">
+                          <li>• Strong brand recognition (0.8s)</li>
+                          <li>• Clear value proposition messaging</li>
+                          <li>• Optimal visual hierarchy compliance</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-gray-800 mb-1">Opportunities:</div>
+                        <ul className="text-gray-700 space-y-1">
+                          <li>• Reduce cognitive load by 18%</li>
+                          <li>• Improve CTA recognition speed</li>
+                          <li>• Potential 28% conversion increase</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
