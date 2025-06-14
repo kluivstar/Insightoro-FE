@@ -138,16 +138,16 @@ const DemoSection = () => {
               
               {/* Content */}
               <div className="p-10">
-                {/* Core Metrics */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                {/* Core Metrics - Refined size */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
                   {insights.map((insight, index) => (
-                    <div key={index} className="bg-gradient-to-br from-white to-gray-50/50 p-6 rounded-2xl border border-gray-200/60 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
+                    <div key={index} className="bg-gradient-to-br from-white to-gray-50/50 p-5 rounded-2xl border border-gray-200/60 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className={`w-12 h-12 bg-gradient-to-r from-${insight.color}-500 to-${insight.color}-600 rounded-xl flex items-center justify-center shadow-lg`}>
-                          <insight.icon className="w-6 h-6 text-white" />
+                        <div className={`w-10 h-10 bg-gradient-to-r from-${insight.color}-500 to-${insight.color}-600 rounded-xl flex items-center justify-center shadow-lg`}>
+                          <insight.icon className="w-5 h-5 text-white" />
                         </div>
                         <div className="flex-1">
-                          <div className="text-3xl font-bold text-gray-900">{insight.score}</div>
+                          <div className="text-2xl font-bold text-gray-900">{insight.score}</div>
                           <div className="text-xs text-gray-500 font-medium">/ 100</div>
                         </div>
                         <Tooltip>
@@ -178,10 +178,10 @@ const DemoSection = () => {
 
                 {/* Detailed Emotional Impact Analysis & CTA Visibility Details Side by Side */}
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  {/* Detailed Emotional Impact Analysis */}
-                  <div className="bg-gradient-to-br from-purple-50/80 to-pink-50/80 backdrop-blur-sm p-8 rounded-2xl border border-purple-200/50">
+                  {/* Detailed Emotional Impact Analysis - Updated to amber/yellow theme */}
+                  <div className="bg-gradient-to-br from-amber-50/80 to-yellow-50/80 backdrop-blur-sm p-8 rounded-2xl border border-amber-200/50">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                      <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center">
                         <Heart className="w-5 h-5 text-white" />
                       </div>
                       <h4 className="text-xl font-bold text-gray-900">Detailed Emotional Analysis</h4>
@@ -204,7 +204,7 @@ const DemoSection = () => {
                             <span className="text-sm font-semibold text-gray-700">{emotion.emotion}</span>
                             <span className="text-lg font-bold text-gray-900">{emotion.level}%</span>
                           </div>
-                          <div className="h-2 bg-gray-300 rounded-full overflow-hidden mb-2">
+                          <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
                             <div 
                               className={`h-full bg-gradient-to-r from-${emotion.color}-400 to-${emotion.color}-500 rounded-full transition-all duration-1000`}
                               style={{ width: `${emotion.level}%` }}
@@ -311,27 +311,34 @@ const DemoSection = () => {
                     ))}
                   </div>
 
-                  {/* High Impact Recommendations */}
+                  {/* High Impact Recommendations - Now marked as Premium */}
                   <div className="space-y-6 mb-8">
                     <h5 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-                      <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center">
-                        <AlertCircle className="w-4 h-4 text-red-600" />
+                      <div className="w-6 h-6 bg-amber-100 rounded-full flex items-center justify-center">
+                        <Crown className="w-4 h-4 text-amber-600" />
                       </div>
                       High Impact Changes
+                      <div className="flex items-center gap-1 bg-amber-100/80 backdrop-blur-sm px-2 py-1 rounded-full border border-amber-200/50">
+                        <Lock className="w-3 h-3 text-amber-600" />
+                        <span className="text-xs font-medium text-amber-700">Premium</span>
+                      </div>
                     </h5>
                     {highImpactRecommendations.map((rec, index) => (
-                      <div key={index} className="flex items-start gap-6 p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-white/80 shadow-sm">
-                        <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-                          <AlertCircle className="w-5 h-5 text-red-600" />
+                      <div key={index} className="flex items-start gap-6 p-6 bg-gradient-to-r from-amber-50/80 to-yellow-50/80 backdrop-blur-sm rounded-xl border-2 border-amber-200/50 border-dashed opacity-60">
+                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
+                          <Lock className="w-5 h-5 text-amber-600" />
                         </div>
                         <div className="flex-1">
                           <p className="text-gray-800 font-medium mb-3">{rec.text}</p>
                           <div className="flex items-center gap-3 mb-3">
-                            <span className="px-3 py-1 bg-red-100/80 backdrop-blur-sm text-red-700 rounded-full text-xs font-medium border border-red-200/50">
+                            <span className="px-3 py-1 bg-amber-100/80 backdrop-blur-sm text-amber-700 rounded-full text-xs font-medium border border-amber-200/50">
                               {rec.impact} Impact
                             </span>
                             <span className="px-3 py-1 bg-gray-100/80 backdrop-blur-sm text-gray-700 rounded-full text-xs font-medium border border-gray-200/50">
                               {rec.category}
+                            </span>
+                            <span className="px-2 py-1 bg-amber-200/60 backdrop-blur-sm text-amber-800 rounded-full text-xs font-bold border border-amber-300/50">
+                              PREMIUM ONLY
                             </span>
                           </div>
                           <div className="bg-gradient-to-r from-gray-100/80 to-gray-200/80 backdrop-blur-sm p-4 rounded-lg border border-gray-300/50">
