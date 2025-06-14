@@ -8,7 +8,7 @@ const DemoSection = () => {
       score: 92, 
       metric: "2.3s", 
       metricLabel: "Clarity Time",
-      color: "emerald", 
+      color: "blue", 
       icon: Eye,
       tooltip: "How quickly visitors understand your main message and value proposition"
     },
@@ -26,18 +26,18 @@ const DemoSection = () => {
       score: 85, 
       metric: "4.2s", 
       metricLabel: "Recognition Time",
-      color: "orange", 
+      color: "blue", 
       icon: Timer,
       tooltip: "Whether visitors can understand what you do and why it matters within 5 seconds"
     },
     { 
-      category: "Visual Hierarchy", 
+      category: "Confusion Triggers", 
       score: 88, 
       metric: "A-", 
-      metricLabel: "Structure Grade",
-      color: "purple", 
-      icon: BarChart3,
-      tooltip: "How well your page guides the visitor's eye through your content flow"
+      metricLabel: "Clarity Grade",
+      color: "blue", 
+      icon: AlertCircle,
+      tooltip: "Elements that may confuse visitors and prevent them from taking action"
     }
   ];
 
@@ -174,7 +174,7 @@ const DemoSection = () => {
                   {insights.map((insight, index) => (
                     <div key={index} className="bg-gradient-to-br from-white to-gray-50/50 p-5 rounded-2xl border border-gray-200/60 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className={`w-10 h-10 bg-gradient-to-r from-${insight.color}-500 to-${insight.color}-600 rounded-xl flex items-center justify-center shadow-lg`}>
+                        <div className={`w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg`}>
                           <insight.icon className="w-5 h-5 text-white" />
                         </div>
                         <div className="flex-1">
@@ -199,7 +199,7 @@ const DemoSection = () => {
                       </div>
                       <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                         <div 
-                          className={`h-full bg-gradient-to-r from-${insight.color}-400 to-${insight.color}-500 rounded-full transition-all duration-1000`}
+                          className="h-full bg-gradient-to-r from-blue-400 to-blue-500 rounded-full transition-all duration-1000"
                           style={{ width: `${insight.score}%` }}
                         ></div>
                       </div>
@@ -237,7 +237,7 @@ const DemoSection = () => {
                           </div>
                           <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
                             <div 
-                              className={`h-full bg-gradient-to-r from-${emotion.color}-400 to-${emotion.color}-500 rounded-full transition-all duration-1000`}
+                              className="h-full bg-gradient-to-r from-blue-400 to-blue-500 rounded-full transition-all duration-1000"
                               style={{ width: `${emotion.level}%` }}
                             ></div>
                           </div>
@@ -336,7 +336,7 @@ const DemoSection = () => {
                         
                         <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-3">
                           <div 
-                            className="h-full bg-gradient-to-r from-orange-400 to-red-500 rounded-full transition-all duration-1000"
+                            className="h-full bg-gradient-to-r from-blue-400 to-blue-500 rounded-full transition-all duration-1000"
                             style={{ width: `${item.score}%` }}
                           ></div>
                         </div>
