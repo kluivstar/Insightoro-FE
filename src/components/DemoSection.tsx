@@ -1,3 +1,4 @@
+
 import { Eye, Heart, Star, AlertCircle, CheckCircle, Target, Zap, ThumbsUp, HelpCircle, Lock, Crown, Users, Timer, Activity, FileText } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
 
@@ -177,7 +178,7 @@ const EmotionalAnalysisCard = ({ emotion }) => (
 );
 
 const FirstFiveSecondCard = ({ item }) => (
-  <div className="bg-white/80 backdrop-blur-sm p-5 rounded-xl border border-white/80">
+  <div className="bg-white/80 backdrop-blur-sm p-5 rounded-xl border border-白/80">
     <div className="flex items-center justify-between mb-3">
       <h5 className="text-sm font-bold text-gray-800">{item.metric}</h5>
       <div className="text-2xl font-bold text-orange-600">{item.score}%</div>
@@ -301,131 +302,112 @@ const DemoSection = () => {
                   ))}
                 </div>
 
-                {/* First 5 Second Test - Comprehensive Analysis (Full Width) & CTA Visibility Details Side by Side */}
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  {/* Enhanced First 5 Second Test - Expanded */}
-                  <div className="bg-gradient-to-br from-orange-50/80 to-red-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-orange-200/50">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
-                        <Timer className="w-5 h-5 text-white" />
-                      </div>
-                      <h4 className="text-lg md:text-xl font-bold text-gray-900">First 5 Second Test - Detailed Analysis</h4>
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <button className="text-gray-400 hover:text-gray-600">
-                            <HelpCircle className="w-4 h-4" />
-                          </button>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p className="max-w-xs">Comprehensive analysis of how visitors process your page in the critical first 5 seconds</p>
-                        </TooltipContent>
-                      </Tooltip>
+                {/* First 5 Second Test - Comprehensive Analysis (Full Width) */}
+                <div className="bg-gradient-to-br from-orange-50/80 to-red-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-orange-200/50 mb-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
+                      <Timer className="w-5 h-5 text-white" />
                     </div>
-                    
-                    <div className="text-center mb-6">
-                      <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-2">4.2s</div>
-                      <div className="text-sm text-gray-600 mb-2">Average recognition time</div>
-                      <div className="text-xs text-orange-600 font-medium bg-orange-100/70 backdrop-blur-sm px-3 py-2 rounded-full inline-block border border-orange-200/50 mb-4">
-                        85% visitors understand your value proposition quickly
-                      </div>
-                      <div className="text-xs text-gray-600">
-                        <strong>Business Impact:</strong> Fast recognition reduces bounce rate by 42% and increases page engagement by 2.1x
-                      </div>
+                    <h4 className="text-lg md:text-xl font-bold text-gray-900">First 5 Second Test - Detailed Analysis</h4>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <button className="text-gray-400 hover:text-gray-600">
+                          <HelpCircle className="w-4 h-4" />
+                        </button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p className="max-w-xs">Comprehensive analysis of how visitors process your page in the critical first 5 seconds</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </div>
+                  
+                  <div className="text-center mb-6">
+                    <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-2">4.2s</div>
+                    <div className="text-sm text-gray-600 mb-2">Average recognition time</div>
+                    <div className="text-xs text-orange-600 font-medium bg-orange-100/70 backdrop-blur-sm px-3 py-2 rounded-full inline-block border border-orange-200/50 mb-4">
+                      85% visitors understand your value proposition quickly
                     </div>
-
-                    {/* Detailed metrics grid */}
-                    <div className="grid grid-cols-1 gap-4 mb-4">
-                      {firstFiveSecondData.slice(0, 2).map((item, index) => (
-                        <FirstFiveSecondCard key={index} item={item} />
-                      ))}
-                    </div>
-
-                    {/* Key findings summary */}
-                    <div className="bg-gradient-to-r from-orange-100/80 to-red-100/80 backdrop-blur-sm p-4 rounded-xl border border-orange-300/50">
-                      <h5 className="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
-                        <AlertCircle className="w-4 h-4 text-orange-600" />
-                        Key Findings & Revenue Impact
-                      </h5>
-                      <div className="grid grid-cols-1 gap-3 text-xs">
-                        <div>
-                          <div className="font-semibold text-gray-800 mb-1">Strengths:</div>
-                          <ul className="text-gray-700 space-y-1">
-                            <li>• Strong brand recognition (0.8s)</li>
-                            <li>• Clear value proposition messaging</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <div className="font-semibold text-gray-800 mb-1">Opportunities:</div>
-                          <ul className="text-gray-700 space-y-1">
-                            <li>• Reduce cognitive load by 18%</li>
-                            <li>• Potential 28% conversion increase</li>
-                          </ul>
-                        </div>
-                      </div>
+                    <div className="text-xs text-gray-600">
+                      <strong>Business Impact:</strong> Fast recognition reduces bounce rate by 42% and increases page engagement by 2.1x
                     </div>
                   </div>
 
-                  {/* CTA Visibility Details */}
-                  <div className="bg-gradient-to-br from-blue-50/80 to-cyan-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-blue-200/50">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-                        <Target className="w-5 h-5 text-white" />
-                      </div>
-                      <h4 className="text-lg md:text-xl font-bold text-gray-900">CTA Visibility Analysis</h4>
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <button className="text-gray-400 hover:text-gray-600">
-                            <HelpCircle className="w-4 h-4" />
-                          </button>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p className="max-w-xs">Evaluates how well your call-to-action buttons capture visitor attention and drive conversions</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </div>
-                    
-                    <div className="text-center mb-6">
-                      <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">78%</div>
-                      <div className="text-sm text-gray-600 mb-4">Good visibility with room for improvement</div>
-                      <div className="text-xs text-blue-600 font-medium bg-blue-100/70 backdrop-blur-sm px-3 py-2 rounded-full inline-block border border-blue-200/50">
-                        Potential 25-35% conversion uplift
-                      </div>
-                    </div>
+                  {/* Detailed metrics grid */}
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    {firstFiveSecondData.map((item, index) => (
+                      <FirstFiveSecondCard key={index} item={item} />
+                    ))}
+                  </div>
 
-                    <div className="space-y-3">
-                      <div className="flex justify-between items-center p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                        <span className="text-sm font-medium text-gray-700">Button Contrast</span>
-                        <span className="text-sm font-bold text-green-600">Excellent</span>
+                  {/* Key findings summary */}
+                  <div className="bg-gradient-to-r from-orange-100/80 to-red-100/80 backdrop-blur-sm p-4 rounded-xl border border-orange-300/50">
+                    <h5 className="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 text-orange-600" />
+                      Key Findings & Revenue Impact
+                    </h5>
+                    <div className="grid grid-cols-1 gap-3 text-xs">
+                      <div>
+                        <div className="font-semibold text-gray-800 mb-1">Strengths:</div>
+                        <ul className="text-gray-700 space-y-1">
+                          <li>• Strong brand recognition (0.8s)</li>
+                          <li>• Clear value proposition messaging</li>
+                        </ul>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                        <span className="text-sm font-medium text-gray-700">Placement Score</span>
-                        <span className="text-sm font-bold text-blue-600">Good</span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                        <span className="text-sm font-medium text-gray-700">Button Size</span>
-                        <span className="text-sm font-bold text-yellow-600">Needs Work</span>
-                      </div>
-                      <div className="p-3 bg-blue-100/70 backdrop-blur-sm rounded-lg border border-blue-200/50">
-                        <div className="text-xs font-semibold text-blue-800 mb-1">Business Impact:</div>
-                        <div className="text-xs text-black font-medium">Improving CTA visibility typically increases conversion rates by 15-40% and reduces visitor hesitation by 60%</div>
+                      <div>
+                        <div className="font-semibold text-gray-800 mb-1">Opportunities:</div>
+                        <ul className="text-gray-700 space-y-1">
+                          <li>• Reduce cognitive load by 18%</li>
+                          <li>• Potential 28% conversion increase</li>
+                        </ul>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Additional First 5 Second Test Metrics - Full Width */}
-                <div className="bg-gradient-to-br from-orange-50/80 to-red-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-orange-200/50 mb-8">
-                  <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
-                      <Timer className="w-5 h-5 text-white" />
+                {/* CTA Visibility Details */}
+                <div className="bg-gradient-to-br from-blue-50/80 to-cyan-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-blue-200/50 mb-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
+                      <Target className="w-5 h-5 text-white" />
                     </div>
-                    Additional First 5 Second Metrics
-                  </h4>
+                    <h4 className="text-lg md:text-xl font-bold text-gray-900">CTA Visibility Analysis</h4>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <button className="text-gray-400 hover:text-gray-600">
+                          <HelpCircle className="w-4 h-4" />
+                        </button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p className="max-w-xs">Evaluates how well your call-to-action buttons capture visitor attention and drive conversions</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </div>
                   
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {firstFiveSecondData.slice(2).map((item, index) => (
-                      <FirstFiveSecondCard key={index + 2} item={item} />
-                    ))}
+                  <div className="text-center mb-6">
+                    <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">78%</div>
+                    <div className="text-sm text-gray-600 mb-4">Good visibility with room for improvement</div>
+                    <div className="text-xs text-blue-600 font-medium bg-blue-100/70 backdrop-blur-sm px-3 py-2 rounded-full inline-block border border-blue-200/50">
+                      Potential 25-35% conversion uplift
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
+                      <span className="text-sm font-medium text-gray-700">Button Contrast</span>
+                      <span className="text-sm font-bold text-green-600">Excellent</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
+                      <span className="text-sm font-medium text-gray-700">Placement Score</span>
+                      <span className="text-sm font-bold text-blue-600">Good</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
+                      <span className="text-sm font-medium text-gray-700">Button Size</span>
+                      <span className="text-sm font-bold text-yellow-600">Needs Work</span>
+                    </div>
+                    <div className="p-3 bg-blue-100/70 backdrop-blur-sm rounded-lg border border-blue-200/50">
+                      <div className="text-xs font-semibold text-blue-800 mb-1">Business Impact:</div>
+                      <div className="text-xs text-black font-medium">Improving CTA visibility typically increases conversion rates by 15-40% and reduces visitor hesitation by 60%</div>
+                    </div>
                   </div>
                 </div>
 
@@ -524,19 +506,19 @@ const DemoSection = () => {
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <Heart className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                      <Heart className="w-5 h-5 text-rose-600 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700">Emotional Impact Analysis</span>
                     </div>
                     <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <Users className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                      <Users className="w-5 h-5 text-indigo-600 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700">User Journey Mapping</span>
                     </div>
                     <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                      <AlertCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700">High-Impact Recommendations</span>
                     </div>
                     <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <FileText className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                      <FileText className="w-5 h-5 text-purple-600 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700">Report - PDF Export</span>
                     </div>
                   </div>
