@@ -209,7 +209,7 @@ const DemoSection = () => {
 
                 {/* Detailed Emotional Impact Analysis & CTA Visibility Details Side by Side */}
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  {/* Detailed Emotional Analysis - Changed to blue theme */}
+                  {/* Detailed Emotional Analysis */}
                   <div className="bg-gradient-to-br from-blue-50/80 to-cyan-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-blue-200/50">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
@@ -241,7 +241,7 @@ const DemoSection = () => {
                               style={{ width: `${emotion.level}%` }}
                             ></div>
                           </div>
-                          <p className="text-xs text-gray-600">{emotion.impact}</p>
+                          <p className="text-xs text-black font-medium">{emotion.impact}</p>
                         </div>
                       ))}
                     </div>
@@ -289,7 +289,7 @@ const DemoSection = () => {
                       </div>
                       <div className="p-3 bg-blue-100/70 backdrop-blur-sm rounded-lg border border-blue-200/50">
                         <div className="text-xs font-semibold text-blue-800 mb-1">Business Impact:</div>
-                        <div className="text-xs text-blue-700">Improving CTA visibility typically increases conversion rates by 15-40% and reduces visitor hesitation by 60%</div>
+                        <div className="text-xs text-black font-medium">Improving CTA visibility typically increases conversion rates by 15-40% and reduces visitor hesitation by 60%</div>
                       </div>
                     </div>
                   </div>
@@ -345,7 +345,7 @@ const DemoSection = () => {
                         
                         <div className="bg-orange-50/80 backdrop-blur-sm p-3 rounded-lg border border-orange-200/50 mb-3">
                           <div className="text-xs font-semibold text-orange-800 mb-1">Business Impact:</div>
-                          <div className="text-xs text-orange-700">{item.businessImpact}</div>
+                          <div className="text-xs text-black font-medium">{item.businessImpact}</div>
                         </div>
                         
                         <div className="bg-gray-50/80 backdrop-blur-sm p-3 rounded-lg border border-gray-200/50">
