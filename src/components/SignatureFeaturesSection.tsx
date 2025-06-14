@@ -1,43 +1,43 @@
 
-import { Target, AlertTriangle, Zap, Timer, Brain, Heart, TrendingUp, Clock } from 'lucide-react';
+import { Scan, Eye, Brain, MousePointer, Zap, TrendingUp } from 'lucide-react';
 
 const SignatureFeaturesSection = () => {
   const features = [
     {
-      icon: Clock,
+      icon: Scan,
       title: "First 5 Second Test",
       subtitle: "Make or break moments",
       description: "Deep behavioral analysis reveals what visitors see and feel in their crucial first 5 seconds on your site. Research shows that users form lasting impressions within milliseconds - we ensure yours is compelling and clear.",
       businessImpact: "Reduce bounce rate by up to 50%",
-      gradient: "from-indigo-500 to-blue-500",
-      bgGradient: "from-indigo-50 to-blue-50"
+      gradient: "from-blue-500 to-blue-600",
+      bgGradient: "from-blue-50 to-blue-100/50"
     },
     {
-      icon: Timer,
+      icon: Eye,
       title: "Visual Clarity Analysis",
       subtitle: "First impressions matter",
       description: "Comprehensive evaluation of how quickly visitors understand your core message and value proposition. Research shows 55% of visitors spend less than 15 seconds on a website - we help you maximize those crucial opening moments.",
       businessImpact: "Increase engagement rates by up to 40%",
-      gradient: "from-blue-500 to-cyan-500",
-      bgGradient: "from-blue-50 to-cyan-50"
+      gradient: "from-indigo-500 to-indigo-600",
+      bgGradient: "from-indigo-50 to-indigo-100/50"
     },
     {
-      icon: Heart,
+      icon: Brain,
       title: "Emotional Response Mapping",
       subtitle: "Build trust instantly",
       description: "Advanced psychological analysis of the emotional journey your visitors experience from landing to action. We analyze trust signals, credibility markers, and emotional triggers that influence purchasing decisions.",
       businessImpact: "Increase customer trust and brand perception",
-      gradient: "from-red-500 to-orange-500",
-      bgGradient: "from-red-50 to-orange-50"
+      gradient: "from-blue-600 to-indigo-500",
+      bgGradient: "from-blue-50 to-indigo-50"
     },
     {
-      icon: Target,
+      icon: MousePointer,
       title: "CTA Visibility Score",
       subtitle: "Drive more conversions",
       description: "Data-driven optimization of your call-to-action placement, design, and messaging for maximum impact. We analyze visual hierarchy, contrast ratios, and positioning to ensure your CTAs command attention.",
       businessImpact: "Boost click-through rates by 25-60%",
-      gradient: "from-green-500 to-emerald-500",
-      bgGradient: "from-green-50 to-emerald-50"
+      gradient: "from-indigo-600 to-blue-500",
+      bgGradient: "from-indigo-50 to-blue-50"
     }
   ];
 
@@ -96,8 +96,8 @@ const SignatureFeaturesSection = () => {
                 </p>
                 
                 <div className="flex items-center gap-2 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/80">
-                  <TrendingUp className="w-5 h-5 text-green-600" />
-                  <span className="text-sm font-semibold text-green-800">{feature.businessImpact}</span>
+                  <TrendingUp className="w-5 h-5 text-blue-600" />
+                  <span className="text-sm font-semibold text-blue-800">{feature.businessImpact}</span>
                 </div>
               </div>
               

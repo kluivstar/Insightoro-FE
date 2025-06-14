@@ -1,5 +1,5 @@
 
-import { Heart, Eye, Brain } from 'lucide-react';
+import { Brain, Eye, Lightbulb } from 'lucide-react';
 
 const EmotionalJourneySection = () => {
   const journeySteps = [
@@ -7,8 +7,8 @@ const EmotionalJourneySection = () => {
       timeRange: "0-3 Seconds",
       title: "First Impression Formation",
       icon: Eye,
-      gradient: "from-blue-500 to-cyan-500",
-      bgGradient: "from-blue-50 to-cyan-50",
+      gradient: "from-blue-500 to-blue-600",
+      bgGradient: "from-blue-50 to-blue-100/50",
       description: "Visitors instantly judge your credibility and relevance. Visual hierarchy and clarity determine if they stay or leave within these crucial opening moments.",
       emotions: ["Curious", "Interested", "Engaged"],
       keyFactors: ["Does this look professional?", "Can I trust this company?", "Is this what I'm looking for?"]
@@ -17,8 +17,8 @@ const EmotionalJourneySection = () => {
       timeRange: "3-7 Seconds",
       title: "Understanding & Navigation",
       icon: Brain,
-      gradient: "from-purple-500 to-pink-500",
-      bgGradient: "from-purple-50 to-pink-50",
+      gradient: "from-indigo-500 to-indigo-600",
+      bgGradient: "from-indigo-50 to-indigo-100/50",
       description: "Users attempt to understand your offering and find what they need. Information architecture and navigation ease become critical factors in keeping them engaged.",
       emotions: ["Confused", "Frustrated", "Impatient"],
       keyFactors: ["Where do I go next?", "What exactly do you do?", "How do I find what I need?"]
@@ -26,9 +26,9 @@ const EmotionalJourneySection = () => {
     {
       timeRange: "7-10 Seconds",
       title: "Decision Making",
-      icon: Heart,
-      gradient: "from-red-500 to-orange-500",
-      bgGradient: "from-red-50 to-orange-50",
+      icon: Lightbulb,
+      gradient: "from-blue-600 to-indigo-500",
+      bgGradient: "from-blue-50 to-indigo-50",
       description: "Final emotional assessment before taking action or leaving. Trust indicators, urgency, and clear calls-to-action determine the ultimate outcome.",
       emotions: ["Skeptical", "Doubtful", "Ready to Leave"],
       keyFactors: ["Should I stay or go?", "What's in it for me?", "Is this worth my time?"]
@@ -38,27 +38,27 @@ const EmotionalJourneySection = () => {
   return (
     <section className="py-24 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 relative overflow-hidden">
       {/* Minimal background elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.03),transparent_60%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.03),transparent_60%)]"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-purple-100 px-4 py-2 rounded-full mb-6">
-            <Heart className="w-4 h-4 text-indigo-600" />
-            <span className="text-sm font-semibold text-indigo-900">Emotional Intelligence</span>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 px-4 py-2 rounded-full mb-6">
+            <Brain className="w-4 h-4 text-blue-600" />
+            <span className="text-sm font-semibold text-blue-900">Emotional Intelligence</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Experience What Your
             <br />
-            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Visitors Feel
             </span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-3">
             Step into your visitor's shoes and see exactly what happens in those critical first moments when someone lands on your homepage.
           </p>
-          <p className="text-base font-semibold text-indigo-600">
+          <p className="text-base font-semibold text-blue-600">
             The 10-Second Journey: Every visitor goes through this emotional rollercoaster
           </p>
         </div>
