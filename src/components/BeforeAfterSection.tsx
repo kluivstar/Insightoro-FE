@@ -6,16 +6,14 @@ const BeforeAfterSection = () => {
     { text: "Visitors leave within 3 seconds without engaging", metric: "High bounce rate" },
     { text: "Trust signals are buried or completely missing", metric: "Low credibility" },
     { text: "Call-to-actions blend into the background", metric: "Poor conversion" },
-    { text: "Message clarity creates cognitive overload", metric: "User confusion" },
-    { text: "Revenue opportunities slip away silently", metric: "Lost potential" }
+    { text: "Message clarity creates cognitive overload", metric: "User confusion" }
   ];
 
   const afterItems = [
     { text: "Visitors immediately understand your value", metric: "Clear messaging" },
     { text: "Trust is established within the first glance", metric: "Strong credibility" },
     { text: "CTAs command attention and drive action", metric: "Higher conversions" },
-    { text: "Smooth, intuitive user journey flows naturally", metric: "Seamless UX" },
-    { text: "More qualified leads convert into customers", metric: "Revenue growth" }
+    { text: "Smooth, intuitive user journey flows naturally", metric: "Seamless UX" }
   ];
 
   return (
