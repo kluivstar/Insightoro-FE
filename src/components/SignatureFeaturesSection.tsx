@@ -1,12 +1,21 @@
 
-import { Eye, Target, AlertTriangle, Zap, Timer, Brain, Heart, TrendingUp } from 'lucide-react';
+import { Eye, Target, AlertTriangle, Zap, Timer, Brain, Heart, TrendingUp, Clock } from 'lucide-react';
 
 const SignatureFeaturesSection = () => {
   const features = [
     {
+      icon: Clock,
+      title: "First 5 Second Test",
+      subtitle: "Make or break moments",
+      description: "Analyze what visitors see and feel in their crucial first 5 seconds on your site. Research shows that users form lasting impressions within milliseconds - we ensure yours is compelling and clear.",
+      businessImpact: "Reduce bounce rate by up to 50%",
+      gradient: "from-indigo-500 to-blue-500",
+      bgGradient: "from-indigo-50 to-blue-50"
+    },
+    {
       icon: Timer,
       title: "Visual Clarity Analysis",
-      subtitle: "First 3 seconds are critical",
+      subtitle: "First impressions matter",
       description: "Measure how quickly visitors understand your core message and value proposition. Research shows 55% of visitors spend less than 15 seconds on a website - we help you maximize those crucial opening moments.",
       businessImpact: "Increase engagement rates by up to 40%",
       gradient: "from-blue-500 to-cyan-500",
@@ -55,7 +64,7 @@ const SignatureFeaturesSection = () => {
           </div>
           
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight">
-            Four Pillars of
+            Five Pillars of
             <br />
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               First Impressions
@@ -71,7 +80,7 @@ const SignatureFeaturesSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className={`relative p-10 rounded-3xl bg-gradient-to-br ${feature.bgGradient} border border-white/60 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 animate-fade-in group overflow-hidden`}
+              className={`relative p-10 rounded-3xl bg-gradient-to-br ${feature.bgGradient} border border-white/60 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 animate-fade-in group overflow-hidden ${index === 4 ? 'lg:col-span-2 lg:max-w-2xl lg:mx-auto' : ''}`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Modern hover effect */}
