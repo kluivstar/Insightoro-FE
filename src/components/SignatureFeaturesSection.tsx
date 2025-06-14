@@ -5,29 +5,37 @@ const SignatureFeaturesSection = () => {
   const features = [
     {
       icon: Timer,
-      title: "First 3 Seconds Analysis",
-      description: "Capture the critical moment when visitors form their first impression of your website.",
+      title: "Visual Clarity Analysis",
+      subtitle: "First 3 seconds are critical",
+      description: "Measure how quickly visitors understand your core message and value proposition. Research shows 55% of visitors spend less than 15 seconds on a website - we help you maximize those crucial opening moments.",
+      businessImpact: "Increase engagement rates by up to 40%",
       gradient: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-50 to-cyan-50"
     },
     {
       icon: Brain,
       title: "Cognitive Load Assessment",
-      description: "Measure how much mental effort visitors need to understand your message.",
+      subtitle: "Reduce mental friction",
+      description: "Identify elements that create confusion or overwhelm visitors. We analyze visual complexity, information hierarchy, and decision fatigue to streamline your user experience.",
+      businessImpact: "Improve conversion rates by reducing bounce rate",
       gradient: "from-purple-500 to-pink-500",
       bgGradient: "from-purple-50 to-pink-50"
     },
     {
       icon: Heart,
       title: "Emotional Response Mapping",
-      description: "Understand the feelings your homepage evokes in first-time visitors.",
+      subtitle: "Build trust instantly",
+      description: "Understand the emotional journey of your visitors from landing to action. We analyze trust signals, credibility markers, and emotional triggers that influence purchasing decisions.",
+      businessImpact: "Increase customer trust and brand perception",
       gradient: "from-red-500 to-orange-500",
       bgGradient: "from-red-50 to-orange-50"
     },
     {
-      icon: TrendingUp,
-      title: "Clarity Impact Score",
-      description: "Get actionable metrics on how clarity improvements affect user behavior.",
+      icon: Target,
+      title: "CTA Visibility Score",
+      subtitle: "Drive more conversions",
+      description: "Optimize your call-to-action placement, design, and messaging for maximum impact. We analyze visual hierarchy, contrast ratios, and positioning to ensure your CTAs command attention.",
+      businessImpact: "Boost click-through rates by 25-60%",
       gradient: "from-green-500 to-emerald-500",
       bgGradient: "from-green-50 to-emerald-50"
     }
@@ -35,55 +43,70 @@ const SignatureFeaturesSection = () => {
 
   return (
     <section className="py-32 bg-white relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.05)_25%,rgba(68,68,68,.05)_50%,transparent_50%,transparent_75%,rgba(68,68,68,.05)_75%,rgba(68,68,68,.05))] bg-[length:20px_20px]"></div>
+      {/* Modern background pattern */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-blue-50/30"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20 animate-fade-in">
+        <div className="text-center mb-24 animate-fade-in">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 px-6 py-3 rounded-full mb-8">
             <Zap className="w-5 h-5 text-blue-600" />
-            <span className="text-sm font-semibold text-blue-900">Signature Insights</span>
+            <span className="text-sm font-semibold text-blue-900">Signature Analysis</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight">
-            Four Dimensions of
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight">
+            Four Pillars of
             <br />
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               First Impressions
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Our AI analyzes the complete emotional and visual journey of your first-time visitors, 
-            revealing insights that traditional analytics miss.
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Our AI-powered analysis reveals exactly what your visitors experience in those critical first moments, 
+            providing actionable insights to transform confusion into clarity and browsers into customers.
           </p>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-10 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <div 
               key={index}
-              className={`relative p-8 rounded-3xl bg-gradient-to-br ${feature.bgGradient} border border-white/20 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in group overflow-hidden`}
+              className={`relative p-10 rounded-3xl bg-gradient-to-br ${feature.bgGradient} border border-white/60 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 animate-fade-in group overflow-hidden`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              {/* Hover effect overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+              {/* Modern hover effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
               
               <div className="relative z-10">
-                <div className={`w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <feature.icon className="w-8 h-8 text-white" />
+                <div className="flex items-start gap-6 mb-8">
+                  <div className={`w-20 h-20 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                    <feature.icon className="w-10 h-10 text-white" />
+                  </div>
+                  
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors">
+                      {feature.title}
+                    </h3>
+                    <p className="text-lg font-medium text-gray-600 mb-4">
+                      {feature.subtitle}
+                    </p>
+                  </div>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-gray-800 transition-colors">
-                  {feature.title}
-                </h3>
-                
-                <p className="text-gray-700 leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg mb-6">
                   {feature.description}
                 </p>
+                
+                <div className="flex items-center gap-2 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/80">
+                  <TrendingUp className="w-5 h-5 text-green-600" />
+                  <span className="text-sm font-semibold text-green-800">{feature.businessImpact}</span>
+                </div>
               </div>
               
-              {/* Decorative element */}
-              <div className={`absolute top-4 right-4 w-20 h-20 bg-gradient-to-r ${feature.gradient} rounded-full opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
+              {/* Decorative elements */}
+              <div className={`absolute -top-4 -right-4 w-32 h-32 bg-gradient-to-r ${feature.gradient} rounded-full opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
+              <div className="absolute bottom-4 left-4 w-2 h-2 bg-white/30 rounded-full"></div>
+              <div className="absolute bottom-8 left-8 w-1 h-1 bg-white/40 rounded-full"></div>
             </div>
           ))}
         </div>
