@@ -33,7 +33,7 @@ const EmailFooter = () => {
               <span className="text-sm font-semibold text-blue-100">Join the Beta</span>
             </div>
             
-            <h2 className="text-4xl md:text-6xl font-playfair font-bold text-white mb-8 tracking-tight">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
               Ready to Transform
               <br />
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">

@@ -48,7 +48,7 @@ const EmotionalJourneySection = () => {
             <span className="text-sm font-semibold text-blue-900">Emotional Intelligence</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Experience What Your
             <br />
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">

@@ -53,7 +53,7 @@ const SignatureFeaturesSection = () => {
             <span className="text-sm font-semibold text-blue-900">Signature Analysis</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-gray-900 mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
             Four Pillars of
             <br />
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
