@@ -1,3 +1,4 @@
+
 import { ArrowRight, ArrowDown, X, Check, TrendingDown, TrendingUp, Sparkles } from 'lucide-react';
 
 const BeforeAfterSection = () => {

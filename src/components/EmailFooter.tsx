@@ -8,7 +8,7 @@ import { Sparkles, Clock, Shield } from 'lucide-react';
 const EmailFooter = () => {
   const [email, setEmail] = useState('');
 
-  const handleEmailSubmit = (e) => {
+  const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
       toast.success("Welcome to the future of website clarity! We'll be in touch soon.");

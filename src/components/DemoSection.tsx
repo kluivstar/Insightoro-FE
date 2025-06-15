@@ -178,7 +178,7 @@ const EmotionalAnalysisCard = ({ emotion }) => (
 );
 
 const FirstFiveSecondCard = ({ item }) => (
-  <div className="bg-white/80 backdrop-blur-sm p-5 rounded-xl border border-white/80">
+  <div className="bg-white/80 backdrop-blur-sm p-5 rounded-xl border border-白/80">
     <div className="flex items-center justify-between mb-3">
       <h5 className="text-sm font-bold text-gray-800">{item.metric}</h5>
       <div className="text-2xl font-bold text-orange-600">{item.score}%</div>
@@ -510,16 +510,16 @@ const DemoSection = () => {
                       <span className="text-sm font-medium text-gray-700">Emotional Impact Analysis</span>
                     </div>
                     <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <Users className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                      <Users className="w-5 h-5 text-indigo-600 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700">User Journey Mapping</span>
                     </div>
                     <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <FileText className="w-5 h-5 text-indigo-600 flex-shrink-0" />
-                      <span className="text-sm font-medium text-gray-700">Detailed Action Plan</span>
+                      <AlertCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                      <span className="text-sm font-medium text-gray-700">High-Impact Recommendations</span>
                     </div>
                     <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <Crown className="w-5 h-5 text-amber-600 flex-shrink-0" />
-                      <span className="text-sm font-medium text-gray-700">Priority Support</span>
+                      <FileText className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                      <span className="text-sm font-medium text-gray-700">Report - PDF Export</span>
                     </div>
                   </div>
                 </div>
