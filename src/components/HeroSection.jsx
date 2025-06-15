@@ -41,8 +41,8 @@ const HeroSection = () => {
             <span className="text-sm font-medium text-gray-700">Feel what your visitors feel</span>
           </div>
           
-          {/* Main headline - more modern typography */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-8 leading-[0.9] tracking-tight">
+          {/* Main headline - with Playfair Display font */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-playfair font-black text-gray-900 mb-8 leading-[0.9] tracking-tight">
             Your website might be{' '}
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 bg-clip-text text-transparent relative inline-block">
               pushing people away
