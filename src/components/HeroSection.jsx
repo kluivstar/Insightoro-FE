@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
-import { TrendingUp, Zap } from 'lucide-react';
+import { TrendingDown, TrendingUp, Zap } from 'lucide-react';
 
 const HeroSection = () => {
   const [email, setEmail] = useState('');
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = (e) => {
     e.preventDefault();
     if (email) {
       toast.success("Thanks! You're on the list for early access.");
@@ -80,8 +80,20 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Simplified visual metaphor - professional and clean */}
+          {/* Visual metaphor - more compact and modern */}
           <div className="flex justify-center items-center gap-8 md:gap-16">
+            <div className="text-center group">
+              <div className="relative">
+                <div className="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <TrendingDown className="w-7 h-7 text-red-600" />
+                </div>
+                <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-600 rounded-full flex items-center justify-center animate-bounce">
+                  <span className="text-white text-xs font-bold">!</span>
+                </div>
+              </div>
+              <p className="text-gray-700 font-medium text-sm">Visitors feel lost<br />and leave quickly</p>
+            </div>
+            
             <div className="flex flex-col items-center">
               <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mb-3 shadow-lg animate-pulse">
                 <Zap className="w-7 h-7 text-white" />
