@@ -1,5 +1,5 @@
 
-import { ArrowRight, X, Check, TrendingDown, TrendingUp, Sparkles } from 'lucide-react';
+import { ArrowRight, ArrowDown, X, Check, TrendingDown, TrendingUp, Sparkles } from 'lucide-react';
 
 const BeforeAfterSection = () => {
   const beforeItems = [
@@ -72,8 +72,8 @@ const BeforeAfterSection = () => {
               </div>
             </div>
             
-            {/* Enhanced Animated Arrow */}
-            <div className="flex justify-center">
+            {/* Enhanced Animated Arrow - Desktop (Right) / Mobile (Down) */}
+            <div className="flex justify-center lg:order-none order-2">
               <div className="relative">
                 {/* Multiple pulse rings */}
                 <div className="absolute inset-0 w-20 h-20 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 rounded-full animate-ping"></div>
@@ -81,7 +81,10 @@ const BeforeAfterSection = () => {
                 
                 {/* Main arrow container with enhanced styling */}
                 <div className="relative w-20 h-20 bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600 rounded-full flex items-center justify-center shadow-2xl transform hover:scale-110 transition-all duration-500 hover:shadow-blue-500/25">
-                  <ArrowRight className="w-8 h-8 text-white animate-[bounce_1s_ease-in-out_infinite] transform translate-x-1" />
+                  {/* Desktop: Right Arrow */}
+                  <ArrowRight className="hidden lg:block w-8 h-8 text-white animate-[bounce_1s_ease-in-out_infinite] transform translate-x-1" />
+                  {/* Mobile: Down Arrow */}
+                  <ArrowDown className="lg:hidden w-8 h-8 text-white animate-[bounce_1s_ease-in-out_infinite] transform translate-y-1" />
                 </div>
                 
                 {/* Enhanced scanning effect */}
@@ -92,7 +95,7 @@ const BeforeAfterSection = () => {
             </div>
             
             {/* After Section */}
-            <div className="relative group">
+            <div className="relative group lg:order-none order-3">
               <div className="absolute inset-0 bg-gradient-to-br from-green-100/30 to-green-200/20 rounded-2xl blur-xl transition-all duration-500"></div>
               <div className="relative bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-green-100/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
                 <div className="flex items-center gap-3 mb-6">
