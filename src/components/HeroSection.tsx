@@ -17,114 +17,102 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Scanning effect background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50">
-        {/* Multiple animated scanning lines */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-200/30 to-transparent w-full h-2 animate-scan-slow top-1/4"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-200/20 to-transparent w-full h-3 animate-scan-medium top-2/3"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-300/15 to-transparent w-full h-1 animate-scan-fast top-1/2"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-100/25 to-transparent w-full h-2 animate-scan-reverse top-3/4"></div>
-        </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/50">
+      {/* Modern geometric background */}
+      <div className="absolute inset-0">
+        {/* Gradient orbs */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-blue-400/10 to-indigo-400/10 rounded-full mix-blend-multiply filter blur-xl animate-float-slow"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-indigo-400/10 to-blue-400/10 rounded-full mix-blend-multiply filter blur-xl animate-float-medium"></div>
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-br from-blue-300/8 to-indigo-300/8 rounded-full mix-blend-multiply filter blur-2xl animate-float-fast"></div>
         
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 opacity-20">
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-[0.03]">
           <div className="w-full h-full" style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3cpattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'%3e%3cpath d='m 60 0 l 0 0 0 60' fill='none' stroke='%233B82F6' stroke-width='0.8' opacity='0.4'/%3e%3cpath d='m 0 60 l 60 0 0 0' fill='none' stroke='%233B82F6' stroke-width='0.8' opacity='0.4'/%3e%3c/pattern%3e%3c/defs%3e%3crect width='100%25' height='100%25' fill='url(%23grid)'/%3e%3c/svg%3e")`,
+            backgroundImage: `url("data:image/svg+xml,%3csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3cpattern id='grid' width='40' height='40' patternUnits='userSpaceOnUse'%3e%3cpath d='m 40 0 l 0 0 0 40' fill='none' stroke='%233B82F6' stroke-width='1' opacity='0.5'/%3e%3cpath d='m 0 40 l 40 0 0 0' fill='none' stroke='%233B82F6' stroke-width='1' opacity='0.5'/%3e%3c/pattern%3e%3c/defs%3e%3crect width='100%25' height='100%25' fill='url(%23grid)'/%3e%3c/svg%3e")`,
           }} />
-        </div>
-        
-        {/* Dynamic floating elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200/20 rounded-full mix-blend-multiply filter blur-xl animate-float-slow"></div>
-          <div className="absolute bottom-40 right-20 w-24 h-24 bg-indigo-200/25 rounded-full mix-blend-multiply filter blur-lg animate-float-fast"></div>
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-300/15 rounded-full mix-blend-multiply filter blur-md animate-float-medium"></div>
         </div>
       </div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            {/* Main headline */}
-            <div className="mb-8">
-              <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-200/50 mb-8">
-                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium text-gray-700">Feel what your visitors feel</span>
-              </div>
-              
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
-                Your website might be{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent relative">
-                  pushing people away
-                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400/30 to-indigo-400/30 rounded-full"></div>
-                </span>
-                {' '}in seconds.
-              </h1>
-            </div>
-            
-            <p className="text-xl md:text-2xl text-gray-600 mb-16 max-w-4xl mx-auto leading-relaxed font-light">
-              Insightoro reveals the emotional journey of your first-time visitors — what they see, feel, and experience before they decide to stay or leave.
+        <div className="max-w-6xl mx-auto text-center">
+          {/* Status badge */}
+          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-full border border-blue-200/30 mb-8 shadow-lg">
+            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-gray-700">Feel what your visitors feel</span>
+          </div>
+          
+          {/* Main headline - more modern typography */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-8 leading-[0.9] tracking-tight">
+            Your website might be{' '}
+            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 bg-clip-text text-transparent relative inline-block">
+              pushing people away
+              <div className="absolute -bottom-3 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-400/40 to-indigo-400/40 rounded-full"></div>
+            </span>
+            {' '}in seconds.
+          </h1>
+          
+          {/* Subtitle - refined spacing and typography */}
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed font-normal">
+            Insightoro reveals the emotional journey of your first-time visitors — what they see, feel, and experience before they decide to stay or leave.
+          </p>
+          
+          {/* Modern email capture */}
+          <div className="max-w-md mx-auto mb-16">
+            <form onSubmit={handleEmailSubmit} className="flex gap-3 p-1.5 bg-white/90 backdrop-blur-md rounded-2xl border border-gray-200/50 shadow-xl">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 h-14 text-base border-0 bg-transparent focus:ring-0 focus:outline-none placeholder:text-gray-500"
+                required
+              />
+              <Button 
+                type="submit"
+                className="h-14 px-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl"
+              >
+                Get Early Access
+              </Button>
+            </form>
+            <p className="text-sm text-gray-500 mt-4 flex items-center justify-center gap-2">
+              <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
+              Join 500+ business owners • No spam, just insights
             </p>
-            
-            {/* Email collection */}
-            <div className="max-w-lg mx-auto mb-12">
-              <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-4 p-2 bg-white/70 backdrop-blur-sm rounded-2xl border border-gray-200/50 shadow-lg">
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 h-12 text-base border-0 bg-transparent focus:ring-0 focus:outline-none"
-                  required
-                />
-                <Button 
-                  type="submit"
-                  className="h-12 px-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-lg"
-                >
-                  Get Early Access
-                </Button>
-              </form>
-              <p className="text-sm text-gray-500 mt-4 flex items-center justify-center gap-2">
-                <div className="w-1 h-1 bg-blue-500 rounded-full animate-pulse"></div>
-                Join 500+ business owners • No spam, just insights
-              </p>
-            </div>
+          </div>
 
-            {/* Visual metaphor section */}
-            <div className="flex justify-center items-center gap-12 md:gap-20 mt-20">
-              <div className="text-center group">
-                <div className="relative">
-                  <div className="w-24 h-24 bg-gradient-to-br from-red-100 to-red-200 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg">
-                    <TrendingDown className="w-8 h-8 text-red-600" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-600 rounded-full flex items-center justify-center animate-bounce">
-                    <span className="text-white text-xs font-bold">!</span>
-                  </div>
+          {/* Visual metaphor - more compact and modern */}
+          <div className="flex justify-center items-center gap-8 md:gap-16">
+            <div className="text-center group">
+              <div className="relative">
+                <div className="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <TrendingDown className="w-7 h-7 text-red-600" />
                 </div>
-                <p className="text-gray-700 font-medium">Visitors feel lost<br />and leave quickly</p>
-              </div>
-              
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mb-4 shadow-lg animate-pulse">
-                  <Zap className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  Insightoro
+                <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-600 rounded-full flex items-center justify-center animate-bounce">
+                  <span className="text-white text-xs font-bold">!</span>
                 </div>
               </div>
-              
-              <div className="text-center group">
-                <div className="relative">
-                  <div className="w-24 h-24 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg">
-                    <TrendingUp className="w-8 h-8 text-green-600" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-600 rounded-full flex items-center justify-center animate-pulse">
-                    <span className="text-white text-xs">✓</span>
-                  </div>
-                </div>
-                <p className="text-gray-700 font-medium">Visitors understand<br />and take action</p>
+              <p className="text-gray-700 font-medium text-sm">Visitors feel lost<br />and leave quickly</p>
+            </div>
+            
+            <div className="flex flex-col items-center">
+              <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mb-3 shadow-lg animate-pulse">
+                <Zap className="w-7 h-7 text-white" />
               </div>
+              <div className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                Insightoro
+              </div>
+            </div>
+            
+            <div className="text-center group">
+              <div className="relative">
+                <div className="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <TrendingUp className="w-7 h-7 text-green-600" />
+                </div>
+                <div className="absolute -top-1 -right-1 w-5 h-5 bg-green-600 rounded-full flex items-center justify-center animate-pulse">
+                  <span className="text-white text-xs">✓</span>
+                </div>
+              </div>
+              <p className="text-gray-700 font-medium text-sm">Visitors understand<br />and take action</p>
             </div>
           </div>
         </div>
