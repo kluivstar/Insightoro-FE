@@ -8,7 +8,7 @@ import { TrendingDown, TrendingUp, Zap } from 'lucide-react';
 const HeroSection = () => {
   const [email, setEmail] = useState('');
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = (e) => {
     e.preventDefault();
     if (email) {
       toast.success("Thanks! You're on the list for early access.");
