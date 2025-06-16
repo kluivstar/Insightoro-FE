@@ -9,8 +9,8 @@ const SignatureFeaturesSection = () => {
       subtitle: "Make or break moments",
       description: "Deep behavioral analysis reveals what visitors see and feel in their crucial first 5 seconds. Research shows users form lasting impressions within milliseconds.",
       businessImpact: "Reduce bounce rate by up to 50%",
-      gradient: "from-blue-500 to-blue-600",
-      bgGradient: "from-blue-50 to-blue-100/50"
+      gradient: "from-gray-600 to-gray-700",
+      bgGradient: "from-gray-50 to-gray-100/50"
     },
     {
       icon: Eye,
@@ -18,8 +18,8 @@ const SignatureFeaturesSection = () => {
       subtitle: "First impressions matter",
       description: "Comprehensive evaluation of how quickly visitors understand your core message and value proposition. 55% of visitors spend less than 15 seconds on a website.",
       businessImpact: "Increase engagement rates by up to 40%",
-      gradient: "from-indigo-500 to-indigo-600",
-      bgGradient: "from-indigo-50 to-indigo-100/50"
+      gradient: "from-gray-600 to-gray-700",
+      bgGradient: "from-gray-50 to-gray-100/50"
     },
     {
       icon: Brain,
@@ -27,8 +27,8 @@ const SignatureFeaturesSection = () => {
       subtitle: "Build trust instantly",
       description: "Advanced psychological analysis of the emotional journey your visitors experience. We analyze trust signals, credibility markers, and emotional triggers.",
       businessImpact: "Increase customer trust and brand perception",
-      gradient: "from-blue-600 to-indigo-500",
-      bgGradient: "from-blue-50 to-indigo-50"
+      gradient: "from-gray-600 to-gray-700",
+      bgGradient: "from-gray-50 to-gray-100/50"
     },
     {
       icon: MousePointer,
@@ -36,8 +36,8 @@ const SignatureFeaturesSection = () => {
       subtitle: "Drive more conversions",
       description: "Data-driven optimization of your call-to-action placement, design, and messaging. We analyze visual hierarchy, contrast ratios, and positioning.",
       businessImpact: "Boost click-through rates by 25-60%",
-      gradient: "from-indigo-600 to-blue-500",
-      bgGradient: "from-indigo-50 to-blue-50"
+      gradient: "from-gray-600 to-gray-700",
+      bgGradient: "from-gray-50 to-gray-100/50"
     }
   ];
 
@@ -69,10 +69,10 @@ const SignatureFeaturesSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className={`relative p-6 rounded-2xl bg-gradient-to-br ${feature.bgGradient} border border-white/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group overflow-hidden`}
+              className={`relative p-6 rounded-lg bg-gradient-to-br ${feature.bgGradient} border border-white/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group overflow-hidden`}
             >
               {/* Minimal hover effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
               
               <div className="relative z-10">
                 <div className="flex items-start gap-4 mb-4">

@@ -1,123 +1,105 @@
-
-import { Gauge, MousePointer, Search } from 'lucide-react';
+import { Clock } from 'lucide-react';
 
 const EmotionalJourneySection = () => {
   const journeySteps = [
     {
-      timeRange: "0-3 Seconds",
-      title: "First Impression Formation",
-      icon: Gauge,
-      gradient: "from-purple-500 to-purple-600",
-      bgGradient: "from-purple-50 to-purple-100/50",
-      description: "Visitors instantly judge your credibility and relevance. Visual hierarchy and clarity determine if they stay or leave within these crucial opening moments.",
-      emotions: ["Curious", "Interested", "Engaged"],
-      keyFactors: ["Does this look professional?", "Can I trust this company?", "Is this what I'm looking for?"]
+      time: "0-2 seconds",
+      title: "First Glance",
+      description: "Visitors form instant judgments about credibility and relevance",
+      emotion: "Curiosity vs Skepticism",
+      color: "from-gray-50 to-gray-100/50",
+      borderColor: "border-gray-200/60",
+      icon: "⚪",
+      textColor: "text-gray-700"
     },
     {
-      timeRange: "3-7 Seconds",
-      title: "Understanding & Navigation",
-      icon: Search,
-      gradient: "from-orange-500 to-orange-600",
-      bgGradient: "from-orange-50 to-orange-100/50",
-      description: "Users attempt to understand your offering and find what they need. Information architecture and navigation ease become critical factors in keeping them engaged.",
-      emotions: ["Confused", "Frustrated", "Impatient"],
-      keyFactors: ["Where do I go next?", "What exactly do you do?", "How do I find what I need?"]
+      time: "3-8 seconds", 
+      title: "Value Recognition",
+      description: "They're scanning for clear value propositions and social proof",
+      emotion: "Interest vs Confusion",
+      color: "from-gray-50 to-gray-100/50",
+      borderColor: "border-gray-200/60", 
+      icon: "⚪",
+      textColor: "text-gray-700"
     },
     {
-      timeRange: "7-10 Seconds",
-      title: "Decision Making",
-      icon: MousePointer,
-      gradient: "from-teal-500 to-teal-600",
-      bgGradient: "from-teal-50 to-teal-100/50",
-      description: "Final emotional assessment before taking action or leaving. Trust indicators, urgency, and clear calls-to-action determine the ultimate outcome.",
-      emotions: ["Skeptical", "Doubtful", "Ready to Leave"],
-      keyFactors: ["Should I stay or go?", "What's in it for me?", "Is this worth my time?"]
+      time: "8-15 seconds",
+      title: "Decision Point", 
+      description: "The critical moment where they decide to engage or leave forever",
+      emotion: "Confidence vs Doubt",
+      color: "from-gray-50 to-gray-100/50",
+      borderColor: "border-gray-200/60",
+      icon: "⚪", 
+      textColor: "text-gray-700"
     }
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 relative overflow-hidden">
-      {/* Minimal background elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.03),transparent_60%)]"></div>
+    <section className="py-20 bg-gradient-to-br from-white via-slate-50/30 to-blue-50/20 relative overflow-hidden">
+      {/* Subtle background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-10 right-20 w-64 h-64 bg-gradient-to-br from-blue-100/20 to-indigo-100/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-gradient-to-br from-indigo-100/15 to-blue-100/15 rounded-full blur-3xl"></div>
+      </div>
       
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 px-4 py-2 rounded-full mb-6">
-            <Gauge className="w-4 h-4 text-blue-600" />
-            <span className="text-sm font-semibold text-blue-900">Emotional Intelligence</span>
+          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-5 py-2.5 rounded-full mb-8 border border-gray-200/50 shadow-lg">
+            <Clock className="w-4 h-4 text-indigo-600" />
+            <span className="text-sm font-semibold text-gray-700">Experience What Your Visitors Feel</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Experience What Your
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+            The Emotional Journey of
             <br />
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              Visitors Feel
+            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 bg-clip-text text-transparent">
+              Every First Visit
             </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-3">
-            Step into your visitor's shoes and see exactly what happens in those critical first moments when someone lands on your homepage.
-          </p>
-          <p className="text-base font-semibold text-blue-600">
-            The 10-Second Journey: Every visitor goes through this emotional rollercoaster
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Understanding what happens in your visitor's mind during those critical first 15 seconds
           </p>
         </div>
-
-        {/* Journey Steps - Restored original colors */}
-        <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {journeySteps.map((step, index) => (
-            <div 
-              key={index}
-              className={`relative p-6 rounded-2xl bg-gradient-to-br ${step.bgGradient} border border-white/60 shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden`}
-            >
-              <div className="relative z-10">
-                {/* Header */}
-                <div className="flex items-center gap-3 mb-5">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${step.gradient} rounded-xl flex items-center justify-center shadow-md`}>
-                    <step.icon className="w-6 h-6 text-white" />
+            <div key={index} className="group relative">
+              {/* Connection line for desktop */}
+              {index < journeySteps.length - 1 && (
+                <div className="hidden md:block absolute top-16 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-300 to-transparent z-10"></div>
+              )}
+              
+              <div className={`relative bg-gradient-to-br ${step.color} backdrop-blur-sm p-6 rounded-2xl border ${step.borderColor} shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full`}>
+                {/* Decorative background element */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-200/10 to-indigo-200/10 rounded-full blur-xl"></div>
+                
+                <div className="relative z-10">
+                  {/* Time indicator */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="text-2xl">{step.icon}</div>
+                    <div className="text-sm font-bold text-blue-600 bg-blue-50/80 backdrop-blur-sm px-3 py-1 rounded-full border border-blue-200/50">
+                      {step.time}
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-xs font-semibold text-gray-600 mb-1">{step.timeRange}</div>
-                    <h3 className="text-lg font-bold text-gray-900">{step.title}</h3>
-                  </div>
-                </div>
-
-                {/* Description */}
-                <p className="text-gray-700 text-sm leading-relaxed mb-5">
-                  {step.description}
-                </p>
-
-                {/* Emotions */}
-                <div className="mb-5">
-                  <h4 className="text-xs font-semibold text-gray-800 mb-2">Emotional States:</h4>
-                  <div className="flex flex-wrap gap-1">
-                    {step.emotions.map((emotion, idx) => (
-                      <span 
-                        key={idx}
-                        className="px-2 py-1 bg-white/60 backdrop-blur-sm text-gray-700 text-xs font-medium rounded-full border border-white/80"
-                      >
-                        {emotion}
-                      </span>
-                    ))}
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {step.title}
+                  </h3>
+                  
+                  <p className={`text-base ${step.textColor} leading-relaxed mb-4`}>
+                    {step.description}
+                  </p>
+                  
+                  {/* Emotional state indicator */}
+                  <div className="bg-white/70 backdrop-blur-sm p-3 rounded-lg border border-white/80">
+                    <div className="text-xs font-semibold text-gray-800 mb-1">Emotional State:</div>
+                    <div className="text-sm font-medium text-gray-700">{step.emotion}</div>
                   </div>
                 </div>
-
-                {/* Key Factors */}
-                <div>
-                  <h4 className="text-xs font-semibold text-gray-800 mb-2">What they're thinking:</h4>
-                  <ul className="space-y-1">
-                    {step.keyFactors.map((factor, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-xs text-gray-700">
-                        <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                        "{factor}"
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                
+                {/* Animated gradient border on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/0 via-indigo-500/20 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               </div>
-
-              {/* Subtle decorative element */}
-              <div className={`absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-r ${step.gradient} rounded-full opacity-5`}></div>
             </div>
           ))}
         </div>

@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,6 +14,12 @@ const EmailFooter = () => {
       setEmail('');
     }
   };
+
+  const features = [
+    { text: "Already signed up", emoji: "🤍" },
+    { text: "Only valuable insights", emoji: "🤍" }, 
+    { text: "Be among the first", emoji: "🤍" }
+  ];
 
   return (
     <section className="py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
