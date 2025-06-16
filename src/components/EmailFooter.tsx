@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
-import { Sparkles, Clock, Shield } from 'lucide-react';
+import { Rocket, Shield, Zap } from 'lucide-react';
 
 const EmailFooter = () => {
   const [email, setEmail] = useState('');
@@ -29,7 +29,7 @@ const EmailFooter = () => {
           {/* Header */}
           <div className="mb-16">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 mb-8">
-              <Sparkles className="w-5 h-5 text-blue-300" />
+              <Rocket className="w-5 h-5 text-blue-300" />
               <span className="text-sm font-semibold text-blue-100">Join the Beta</span>
             </div>
             
@@ -81,7 +81,7 @@ const EmailFooter = () => {
             
             <div className="flex flex-col items-center gap-3">
               <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center">
-                <Sparkles className="w-6 h-6 text-white" />
+                <Zap className="w-6 h-6 text-white" />
               </div>
               <div>
                 <div className="text-white font-semibold">No Spam Promise</div>
@@ -91,7 +91,7 @@ const EmailFooter = () => {
             
             <div className="flex flex-col items-center gap-3">
               <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
-                <Clock className="w-6 h-6 text-white" />
+                <Rocket className="w-6 h-6 text-white" />
               </div>
               <div>
                 <div className="text-white font-semibold">Early 2025 Launch</div>

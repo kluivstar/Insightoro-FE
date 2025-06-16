@@ -1,5 +1,4 @@
-
-import { Eye, Heart, Star, AlertCircle, CheckCircle, Target, Zap, ThumbsUp, HelpCircle, Lock, Crown, Users, Timer, Activity, FileText } from 'lucide-react';
+import { Eye, Heart, Star, AlertCircle, CheckCircle, Target, Zap, ThumbsUp, HelpCircle, Users, Timer, Activity, FileText } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
 
 const insights = [
@@ -42,10 +41,10 @@ const insights = [
 ];
 
 const emotionalAnalysis = [
-  { emotion: "Trust", level: 78, color: "blue", impact: "Higher trust leads to 32% more conversions and reduces cart abandonment by 40%" },
-  { emotion: "Clarity", level: 92, color: "green", impact: "Clear messaging reduces bounce rate by 45% and increases page engagement by 2.3x" },
-  { emotion: "Engagement", level: 85, color: "purple", impact: "Strong engagement increases time on site by 60% and improves lead generation by 35%" },
-  { emotion: "Urgency", level: 65, color: "orange", impact: "Optimal urgency can boost immediate actions by 25% and email signups by 18%" }
+  { emotion: "Trust", level: 78, color: "gray", impact: "Higher trust leads to 32% more conversions and reduces cart abandonment by 40%" },
+  { emotion: "Clarity", level: 92, color: "gray", impact: "Clear messaging reduces bounce rate by 45% and increases page engagement by 2.3x" },
+  { emotion: "Engagement", level: 85, color: "gray", impact: "Strong engagement increases time on site by 60% and improves lead generation by 35%" },
+  { emotion: "Urgency", level: 65, color: "gray", impact: "Optimal urgency can boost immediate actions by 25% and email signups by 18%" }
 ];
 
 const highImpactRecommendations = [
@@ -129,7 +128,7 @@ const firstFiveSecondData = [
 const InsightCard = ({ insight }) => (
   <div className="bg-gradient-to-br from-white to-gray-50/50 p-5 rounded-2xl border border-gray-200/60 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
     <div className="flex items-center gap-3 mb-4">
-      <div className={`w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg`}>
+      <div className={`w-10 h-10 bg-gradient-to-r from-slate-600 to-slate-700 rounded-xl flex items-center justify-center shadow-lg`}>
         <insight.icon className="w-5 h-5 text-white" />
       </div>
       <div className="flex-1">
@@ -154,7 +153,7 @@ const InsightCard = ({ insight }) => (
     </div>
     <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
       <div 
-        className="h-full bg-gradient-to-r from-blue-400 to-blue-500 rounded-full transition-all duration-1000"
+        className="h-full bg-gradient-to-r from-slate-500 to-slate-600 rounded-full transition-all duration-1000"
         style={{ width: `${insight.score}%` }}
       ></div>
     </div>
@@ -162,40 +161,40 @@ const InsightCard = ({ insight }) => (
 );
 
 const EmotionalAnalysisCard = ({ emotion }) => (
-  <div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-white/80">
+  <div className="bg-white/90 backdrop-blur-sm p-4 rounded-xl border border-gray-200/80">
     <div className="flex items-center justify-between mb-2">
       <span className="text-sm font-semibold text-gray-700">{emotion.emotion}</span>
       <span className="text-lg font-bold text-gray-900">{emotion.level}%</span>
     </div>
     <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
       <div 
-        className="h-full bg-gradient-to-r from-blue-400 to-blue-500 rounded-full transition-all duration-1000"
+        className="h-full bg-gradient-to-r from-slate-400 to-slate-500 rounded-full transition-all duration-1000"
         style={{ width: `${emotion.level}%` }}
       ></div>
     </div>
-    <p className="text-xs text-black font-medium">{emotion.impact}</p>
+    <p className="text-xs text-gray-700 font-medium">{emotion.impact}</p>
   </div>
 );
 
 const FirstFiveSecondCard = ({ item }) => (
-  <div className="bg-white/80 backdrop-blur-sm p-5 rounded-xl border border-白/80">
+  <div className="bg-white/90 backdrop-blur-sm p-5 rounded-xl border border-gray-200/80">
     <div className="flex items-center justify-between mb-3">
       <h5 className="text-sm font-bold text-gray-800">{item.metric}</h5>
-      <div className="text-2xl font-bold text-orange-600">{item.score}%</div>
+      <div className="text-2xl font-bold text-slate-600">{item.score}%</div>
     </div>
     
     <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-3">
       <div 
-        className="h-full bg-gradient-to-r from-orange-400 to-red-500 rounded-full transition-all duration-1000"
+        className="h-full bg-gradient-to-r from-slate-500 to-slate-600 rounded-full transition-all duration-1000"
         style={{ width: `${item.score}%` }}
       ></div>
     </div>
     
     <p className="text-xs text-gray-700 mb-3">{item.description}</p>
     
-    <div className="bg-orange-50/80 backdrop-blur-sm p-3 rounded-lg border border-orange-200/50 mb-3">
-      <div className="text-xs font-semibold text-orange-800 mb-1">Business Impact:</div>
-      <div className="text-xs text-black font-medium">{item.businessImpact}</div>
+    <div className="bg-slate-50/80 backdrop-blur-sm p-3 rounded-lg border border-slate-200/50 mb-3">
+      <div className="text-xs font-semibold text-slate-800 mb-1">Business Impact:</div>
+      <div className="text-xs text-gray-700 font-medium">{item.businessImpact}</div>
     </div>
     
     <div className="bg-gray-50/80 backdrop-blur-sm p-3 rounded-lg border border-gray-200/50">
@@ -205,46 +204,31 @@ const FirstFiveSecondCard = ({ item }) => (
   </div>
 );
 
-const RecommendationCard = ({ rec, isPremium }) => (
-  <div className={isPremium ? "relative" : ""}>
-    {isPremium && (
-      <div className="absolute inset-0 bg-white/20 backdrop-blur-[2px] rounded-xl z-10 flex items-center justify-center">
-        <div className="bg-amber-100/90 backdrop-blur-sm px-4 py-2 rounded-full border border-amber-200/80 flex items-center gap-2">
-          <Lock className="w-4 h-4 text-amber-600" />
-          <span className="text-sm font-semibold text-amber-800">Premium Feature</span>
-        </div>
+const RecommendationCard = ({ rec }) => (
+  <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6 p-4 md:p-6 rounded-xl border bg-white/90 backdrop-blur-sm border border-gray-200/80">
+    <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-slate-100">
+      <CheckCircle className="w-5 h-5 text-slate-600" />
+    </div>
+    <div className="flex-1 w-full">
+      <p className="text-gray-800 font-medium mb-3 text-sm md:text-base">{rec.text}</p>
+      <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-3">
+        <span className="px-2 md:px-3 py-1 rounded-full text-xs font-medium border bg-slate-100/80 backdrop-blur-sm text-slate-700 border-slate-200/50">
+          {rec.impact} Impact
+        </span>
+        <span className="px-2 md:px-3 py-1 bg-gray-100/80 backdrop-blur-sm text-gray-700 rounded-full text-xs font-medium border border-gray-200/50">
+          {rec.category}
+        </span>
       </div>
-    )}
-    <div className={`flex flex-col md:flex-row items-start gap-4 md:gap-6 p-4 md:p-6 rounded-xl border ${isPremium ? "bg-gradient-to-r from-amber-50/80 to-yellow-50/80 backdrop-blur-sm border-2 border-amber-200/50 border-dashed" : "bg-white/80 backdrop-blur-sm border border-white/80"}`}>
-      <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${isPremium ? "bg-amber-100" : "bg-yellow-100"}`}>
-        {isPremium ? <Crown className="w-5 h-5 text-amber-600" /> : <CheckCircle className="w-5 h-5 text-yellow-600" />}
-      </div>
-      <div className="flex-1 w-full">
-        <p className="text-gray-800 font-medium mb-3 text-sm md:text-base">{rec.text}</p>
-        <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-3">
-          <span className={`px-2 md:px-3 py-1 rounded-full text-xs font-medium border ${isPremium ? "bg-amber-100/80 backdrop-blur-sm text-amber-700 border-amber-200/50" : "bg-yellow-100/80 backdrop-blur-sm text-yellow-700 border-yellow-200/50"}`}>
-            {rec.impact} Impact
-          </span>
-          <span className="px-2 md:px-3 py-1 bg-gray-100/80 backdrop-blur-sm text-gray-700 rounded-full text-xs font-medium border border-gray-200/50">
-            {rec.category}
-          </span>
-          {isPremium && (
-            <span className="px-2 py-1 bg-amber-200/60 backdrop-blur-sm text-amber-800 rounded-full text-xs font-bold border border-amber-300/50">
-              PREMIUM ONLY
-            </span>
-          )}
+      <div className="bg-gradient-to-r from-gray-100/80 to-gray-200/80 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-gray-300/50">
+        <div className="flex flex-col md:flex-row md:items-center gap-2 text-xs md:text-sm text-gray-600 mb-2">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-gray-400 rounded-full"></div>
+            <span className="font-medium">Affected Section:</span>
+          </div>
+          <span className="md:ml-0">{rec.mockup}</span>
         </div>
-        <div className="bg-gradient-to-r from-gray-100/80 to-gray-200/80 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-gray-300/50">
-          <div className="flex flex-col md:flex-row md:items-center gap-2 text-xs md:text-sm text-gray-600 mb-2">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-gray-400 rounded-full"></div>
-              <span className="font-medium">Affected Section:</span>
-            </div>
-            <span className="md:ml-0">{rec.mockup}</span>
-          </div>
-          <div className="bg-white/60 backdrop-blur-sm h-6 md:h-8 rounded border border-gray-300/50 flex items-center px-2 md:px-3">
-            <div className="text-xs text-gray-500">Visual mockup preview</div>
-          </div>
+        <div className="bg-white/60 backdrop-blur-sm h-6 md:h-8 rounded border border-gray-300/50 flex items-center px-2 md:px-3">
+          <div className="text-xs text-gray-500">Visual mockup preview</div>
         </div>
       </div>
     </div>
@@ -277,7 +261,7 @@ const DemoSection = () => {
           
           <div className="max-w-7xl mx-auto animate-fade-in">
             {/* Main Report Card */}
-            <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-200/50 overflow-hidden">
+            <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-200/50 overflow-hidden">
               {/* Header */}
               <div className="bg-gradient-to-r from-slate-900 via-gray-900 to-slate-900 p-8 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:20px_20px] animate-[scan_3s_ease-in-out_infinite]"></div>
@@ -295,15 +279,41 @@ const DemoSection = () => {
               
               {/* Content */}
               <div className="p-6 md:p-10">
-                {/* Core Metrics - Refined size */}
+                {/* Core Metrics */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
                   {insights.map((insight, index) => (
                     <InsightCard key={index} insight={insight} />
                   ))}
                 </div>
 
-                {/* First 5 Second Test - Comprehensive Analysis (Full Width) */}
-                <div className="bg-gradient-to-br from-orange-50/80 to-red-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-orange-200/50 mb-8">
+                {/* Emotional Intelligence Analysis */}
+                <div className="bg-gradient-to-br from-gray-50/80 to-slate-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-gray-200/50 mb-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 bg-gradient-to-r from-slate-600 to-slate-700 rounded-xl flex items-center justify-center">
+                      <Heart className="w-5 h-5 text-white" />
+                    </div>
+                    <h4 className="text-lg md:text-xl font-bold text-gray-900">Emotional Intelligence</h4>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <button className="text-gray-400 hover:text-gray-600">
+                          <HelpCircle className="w-4 h-4" />
+                        </button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p className="max-w-xs">Analysis of the emotional response your website triggers in visitors</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {emotionalAnalysis.map((emotion, index) => (
+                      <EmotionalAnalysisCard key={index} emotion={emotion} />
+                    ))}
+                  </div>
+                </div>
+
+                {/* First 5 Second Test */}
+                <div className="bg-gradient-to-br from-slate-50/80 to-gray-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-slate-200/50 mb-8">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
                       <Timer className="w-5 h-5 text-white" />
@@ -411,42 +421,25 @@ const DemoSection = () => {
                   </div>
                 </div>
 
-                {/* Priority Recommendations - Made responsive */}
+                {/* Priority Recommendations */}
                 <div className="bg-gradient-to-br from-slate-50/80 to-gray-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-gray-200/50 mb-8">
                   <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-xl flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl flex items-center justify-center">
                       <Zap className="w-5 h-5 text-white" />
                     </div>
                     Priority Recommendations
                   </h4>
                   
-                  {/* Medium Impact Recommendations */}
+                  {/* All Recommendations - No Premium Distinction */}
                   <div className="space-y-6 mb-8">
                     <h5 className="text-base md:text-lg font-semibold text-gray-800 flex items-center gap-2">
-                      <div className="w-6 h-6 bg-yellow-100 rounded-full flex items-center justify-center">
-                        <CheckCircle className="w-4 h-4 text-yellow-600" />
+                      <div className="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center">
+                        <CheckCircle className="w-4 h-4 text-slate-600" />
                       </div>
-                      Medium Impact Changes
+                      Recommended Changes
                     </h5>
-                    {mediumImpactRecommendations.map((rec, index) => (
-                      <RecommendationCard key={index} rec={rec} isPremium={false} />
-                    ))}
-                  </div>
-
-                  {/* High Impact Recommendations - Marked as Premium with blur */}
-                  <div className="space-y-6 mb-8">
-                    <h5 className="text-base md:text-lg font-semibold text-gray-800 flex items-center gap-2">
-                      <div className="w-6 h-6 bg-amber-100 rounded-full flex items-center justify-center">
-                        <Crown className="w-4 h-4 text-amber-600" />
-                      </div>
-                      High Impact Changes
-                      <div className="flex items-center gap-1 bg-amber-100/80 backdrop-blur-sm px-2 py-1 rounded-full border border-amber-200/50">
-                        <Lock className="w-3 h-3 text-amber-600" />
-                        <span className="text-xs font-medium text-amber-700">Premium</span>
-                      </div>
-                    </h5>
-                    {highImpactRecommendations.map((rec, index) => (
-                      <RecommendationCard key={index} rec={rec} isPremium={true} />
+                    {[...highImpactRecommendations, ...mediumImpactRecommendations].map((rec, index) => (
+                      <RecommendationCard key={index} rec={rec} />
                     ))}
                   </div>
 
@@ -480,46 +473,6 @@ const DemoSection = () => {
                           </div>
                         ))}
                       </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Premium In-depth Analysis Feature - Enhanced with Emotional Analysis */}
-                <div className="bg-gradient-to-r from-amber-50/80 to-yellow-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border-2 border-amber-200/50 border-dashed">
-                  <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
-                    <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
-                        <Crown className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h5 className="text-lg md:text-xl font-bold text-gray-900 mb-1 flex items-center gap-2">
-                          Premium In-depth Analysis
-                          <Lock className="w-4 h-4 text-amber-600" />
-                        </h5>
-                        <p className="text-sm md:text-base text-gray-600">Unlock advanced insights including emotional analysis, user journey mapping, and high-impact recommendations</p>
-                      </div>
-                    </div>
-                    <button className="w-full md:w-auto px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
-                      Upgrade Now
-                    </button>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <Heart className="w-5 h-5 text-rose-600 flex-shrink-0" />
-                      <span className="text-sm font-medium text-gray-700">Emotional Impact Analysis</span>
-                    </div>
-                    <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <Users className="w-5 h-5 text-indigo-600 flex-shrink-0" />
-                      <span className="text-sm font-medium text-gray-700">User Journey Mapping</span>
-                    </div>
-                    <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <AlertCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-                      <span className="text-sm font-medium text-gray-700">High-Impact Recommendations</span>
-                    </div>
-                    <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <FileText className="w-5 h-5 text-purple-600 flex-shrink-0" />
-                      <span className="text-sm font-medium text-gray-700">Report - PDF Export</span>
                     </div>
                   </div>
                 </div>

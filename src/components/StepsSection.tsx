@@ -5,19 +5,19 @@ const StepsSection = () => {
   const steps = [
     {
       icon: Eye,
-      number: "01",
+      number: "Step 1",
       title: "We Scan Your Website",
       description: "Our AI analyzes your entire website to understand visitor behavior patterns and identify confusion points."
     },
     {
       icon: BarChart3,
-      number: "02", 
+      number: "Step 2", 
       title: "Generate Detailed Report",
       description: "Get a comprehensive report showing exactly where visitors get stuck and why they leave."
     },
     {
       icon: Lightbulb,
-      number: "03",
+      number: "Step 3",
       title: "Implement Clear Solutions",
       description: "Receive specific, actionable recommendations to transform confusion into clarity and boost conversions."
     }
@@ -42,7 +42,7 @@ const StepsSection = () => {
                 <div className="w-20 h-20 bg-white rounded-2xl shadow-lg mx-auto flex items-center justify-center group-hover:shadow-xl transition-shadow duration-300">
                   <step.icon className="w-8 h-8 text-blue-600" />
                 </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                <div className="absolute -top-4 -left-16 text-blue-600 text-sm font-medium italic tracking-wide">
                   {step.number}
                 </div>
               </div>

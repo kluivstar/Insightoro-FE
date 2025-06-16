@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
-import { TrendingDown, TrendingUp, Zap } from 'lucide-react';
+import { TrendingUp, Zap } from 'lucide-react';
 
 const HeroSection = () => {
   const [email, setEmail] = useState('');
@@ -38,7 +38,7 @@ const HeroSection = () => {
           {/* Status badge */}
           <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-full border border-blue-200/30 mb-8 shadow-lg">
             <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-gray-700">Feel what your visitors feel</span>
+            <span className="text-sm font-medium text-gray-700">Experience What Your Visitors Feel</span>
           </div>
           
           {/* Main headline - more modern typography */}
@@ -80,29 +80,8 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Visual metaphor - more compact and modern */}
-          <div className="flex justify-center items-center gap-8 md:gap-16">
-            <div className="text-center group">
-              <div className="relative">
-                <div className="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <TrendingDown className="w-7 h-7 text-red-600" />
-                </div>
-                <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-600 rounded-full flex items-center justify-center animate-bounce">
-                  <span className="text-white text-xs font-bold">!</span>
-                </div>
-              </div>
-              <p className="text-gray-700 font-medium text-sm">Visitors feel lost<br />and leave quickly</p>
-            </div>
-            
-            <div className="flex flex-col items-center">
-              <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mb-3 shadow-lg animate-pulse">
-                <Zap className="w-7 h-7 text-white" />
-              </div>
-              <div className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Insightoro
-              </div>
-            </div>
-            
+          {/* Visual metaphor - simplified */}
+          <div className="flex justify-center items-center">
             <div className="text-center group">
               <div className="relative">
                 <div className="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg group-hover:shadow-xl transition-all duration-300">
