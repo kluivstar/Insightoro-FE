@@ -1,3 +1,4 @@
+
 import { Eye, Heart, Star, AlertCircle, CheckCircle, Target, Zap, ThumbsUp, HelpCircle, Users, Timer, Activity, FileText } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
 
@@ -38,13 +39,6 @@ const insights = [
     icon: AlertCircle,
     tooltip: "Elements that may confuse visitors and prevent them from taking action"
   }
-];
-
-const emotionalAnalysis = [
-  { emotion: "Trust", level: 78, color: "gray", impact: "Higher trust leads to 32% more conversions and reduces cart abandonment by 40%" },
-  { emotion: "Clarity", level: 92, color: "gray", impact: "Clear messaging reduces bounce rate by 45% and increases page engagement by 2.3x" },
-  { emotion: "Engagement", level: 85, color: "gray", impact: "Strong engagement increases time on site by 60% and improves lead generation by 35%" },
-  { emotion: "Urgency", level: 65, color: "gray", impact: "Optimal urgency can boost immediate actions by 25% and email signups by 18%" }
 ];
 
 const highImpactRecommendations = [
@@ -128,7 +122,7 @@ const firstFiveSecondData = [
 const InsightCard = ({ insight }) => (
   <div className="bg-gradient-to-br from-white to-gray-50/50 p-5 rounded-2xl border border-gray-200/60 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
     <div className="flex items-center gap-3 mb-4">
-      <div className={`w-10 h-10 bg-gradient-to-r from-slate-600 to-slate-700 rounded-xl flex items-center justify-center shadow-lg`}>
+      <div className={`w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center shadow-lg backdrop-blur-sm border border-gray-700/20`}>
         <insight.icon className="w-5 h-5 text-white" />
       </div>
       <div className="flex-1">
@@ -153,26 +147,10 @@ const InsightCard = ({ insight }) => (
     </div>
     <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
       <div 
-        className="h-full bg-gradient-to-r from-slate-500 to-slate-600 rounded-full transition-all duration-1000"
+        className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-1000"
         style={{ width: `${insight.score}%` }}
       ></div>
     </div>
-  </div>
-);
-
-const EmotionalAnalysisCard = ({ emotion }) => (
-  <div className="bg-white/90 backdrop-blur-sm p-4 rounded-xl border border-gray-200/80">
-    <div className="flex items-center justify-between mb-2">
-      <span className="text-sm font-semibold text-gray-700">{emotion.emotion}</span>
-      <span className="text-lg font-bold text-gray-900">{emotion.level}%</span>
-    </div>
-    <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
-      <div 
-        className="h-full bg-gradient-to-r from-slate-400 to-slate-500 rounded-full transition-all duration-1000"
-        style={{ width: `${emotion.level}%` }}
-      ></div>
-    </div>
-    <p className="text-xs text-gray-700 font-medium">{emotion.impact}</p>
   </div>
 );
 
@@ -185,15 +163,15 @@ const FirstFiveSecondCard = ({ item }) => (
     
     <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-3">
       <div 
-        className="h-full bg-gradient-to-r from-slate-500 to-slate-600 rounded-full transition-all duration-1000"
+        className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-1000"
         style={{ width: `${item.score}%` }}
       ></div>
     </div>
     
     <p className="text-xs text-gray-700 mb-3">{item.description}</p>
     
-    <div className="bg-slate-50/80 backdrop-blur-sm p-3 rounded-lg border border-slate-200/50 mb-3">
-      <div className="text-xs font-semibold text-slate-800 mb-1">Business Impact:</div>
+    <div className="bg-orange-50/80 backdrop-blur-sm p-3 rounded-lg border border-orange-200/50 mb-3">
+      <div className="text-xs font-semibold text-orange-800 mb-1">Business Impact:</div>
       <div className="text-xs text-gray-700 font-medium">{item.businessImpact}</div>
     </div>
     
@@ -206,16 +184,16 @@ const FirstFiveSecondCard = ({ item }) => (
 
 const RecommendationCard = ({ rec }) => (
   <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6 p-4 md:p-6 rounded-xl border bg-white/90 backdrop-blur-sm border border-gray-200/80">
-    <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-slate-100">
-      <CheckCircle className="w-5 h-5 text-slate-600" />
+    <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-green-100">
+      <CheckCircle className="w-5 h-5 text-green-600" />
     </div>
     <div className="flex-1 w-full">
       <p className="text-gray-800 font-medium mb-3 text-sm md:text-base">{rec.text}</p>
       <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-3">
-        <span className="px-2 md:px-3 py-1 rounded-full text-xs font-medium border bg-slate-100/80 backdrop-blur-sm text-slate-700 border-slate-200/50">
+        <span className="px-2 md:px-3 py-1 rounded-full text-xs font-medium border bg-green-100/80 backdrop-blur-sm text-green-700 border-green-200/50">
           {rec.impact} Impact
         </span>
-        <span className="px-2 md:px-3 py-1 bg-gray-100/80 backdrop-blur-sm text-gray-700 rounded-full text-xs font-medium border border-gray-200/50">
+        <span className="px-2 md:px-3 py-1 bg-blue-100/80 backdrop-blur-sm text-blue-700 rounded-full text-xs font-medium border border-blue-200/50">
           {rec.category}
         </span>
       </div>
@@ -286,36 +264,10 @@ const DemoSection = () => {
                   ))}
                 </div>
 
-                {/* Emotional Intelligence Analysis */}
-                <div className="bg-gradient-to-br from-gray-50/80 to-slate-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-gray-200/50 mb-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-r from-slate-600 to-slate-700 rounded-xl flex items-center justify-center">
-                      <Heart className="w-5 h-5 text-white" />
-                    </div>
-                    <h4 className="text-lg md:text-xl font-bold text-gray-900">Emotional Intelligence</h4>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <button className="text-gray-400 hover:text-gray-600">
-                          <HelpCircle className="w-4 h-4" />
-                        </button>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p className="max-w-xs">Analysis of the emotional response your website triggers in visitors</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </div>
-                  
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {emotionalAnalysis.map((emotion, index) => (
-                      <EmotionalAnalysisCard key={index} emotion={emotion} />
-                    ))}
-                  </div>
-                </div>
-
                 {/* First 5 Second Test */}
                 <div className="bg-gradient-to-br from-slate-50/80 to-gray-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-slate-200/50 mb-8">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center backdrop-blur-sm border border-gray-700/20">
                       <Timer className="w-5 h-5 text-white" />
                     </div>
                     <h4 className="text-lg md:text-xl font-bold text-gray-900">First 5 Second Test - Detailed Analysis</h4>
@@ -375,9 +327,9 @@ const DemoSection = () => {
                 </div>
 
                 {/* CTA Visibility Details */}
-                <div className="bg-gradient-to-br from-blue-50/80 to-cyan-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-blue-200/50 mb-8">
+                <div className="bg-gradient-to-br from-slate-50/80 to-gray-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-slate-200/50 mb-8">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center backdrop-blur-sm border border-gray-700/20">
                       <Target className="w-5 h-5 text-white" />
                     </div>
                     <h4 className="text-lg md:text-xl font-bold text-gray-900">CTA Visibility Analysis</h4>
@@ -414,17 +366,17 @@ const DemoSection = () => {
                       <span className="text-sm font-medium text-gray-700">Button Size</span>
                       <span className="text-sm font-bold text-yellow-600">Needs Work</span>
                     </div>
-                    <div className="p-3 bg-blue-100/70 backdrop-blur-sm rounded-lg border border-blue-200/50">
-                      <div className="text-xs font-semibold text-blue-800 mb-1">Business Impact:</div>
+                    <div className="p-3 bg-orange-100/70 backdrop-blur-sm rounded-lg border border-orange-200/50">
+                      <div className="text-xs font-semibold text-orange-800 mb-1">Business Impact:</div>
                       <div className="text-xs text-black font-medium">Improving CTA visibility typically increases conversion rates by 15-40% and reduces visitor hesitation by 60%</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Priority Recommendations */}
-                <div className="bg-gradient-to-br from-slate-50/80 to-gray-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-gray-200/50 mb-8">
+                <div className="bg-gradient-to-br from-amber-50/80 to-orange-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-amber-200/50 mb-8">
                   <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center backdrop-blur-sm border border-gray-700/20">
                       <Zap className="w-5 h-5 text-white" />
                     </div>
                     Priority Recommendations
@@ -433,8 +385,8 @@ const DemoSection = () => {
                   {/* All Recommendations - No Premium Distinction */}
                   <div className="space-y-6 mb-8">
                     <h5 className="text-base md:text-lg font-semibold text-gray-800 flex items-center gap-2">
-                      <div className="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center">
-                        <CheckCircle className="w-4 h-4 text-slate-600" />
+                      <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                        <CheckCircle className="w-4 h-4 text-green-600" />
                       </div>
                       Recommended Changes
                     </h5>
