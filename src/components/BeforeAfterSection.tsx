@@ -44,11 +44,11 @@ const BeforeAfterSection = () => {
         </div>
         
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-8 items-center">
-            {/* Before Section - Made wider */}
+          <div className="grid lg:grid-cols-3 gap-8 items-stretch">
+            {/* Before Section - Square shaped */}
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-red-100/30 to-red-200/20 rounded-2xl blur-xl transition-all duration-500"></div>
-              <div className="relative bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-red-100/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
+              <div className="relative bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-red-100/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 aspect-square flex flex-col">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-red-100 to-red-200 rounded-xl flex items-center justify-center shadow-lg">
                     <TrendingDown className="w-5 h-5 text-red-600" />
@@ -59,7 +59,7 @@ const BeforeAfterSection = () => {
                   </div>
                 </div>
                 
-                <div className="space-y-3">
+                <div className="space-y-3 flex-1">
                   {beforeItems.map((item, index) => (
                     <div key={index} className="p-3 bg-red-50/80 backdrop-blur-sm rounded-lg border border-red-100/50 hover:bg-red-50 transition-colors duration-300">
                       <p className="text-gray-800 font-medium text-sm leading-relaxed mb-2">{item.text}</p>
@@ -94,10 +94,10 @@ const BeforeAfterSection = () => {
               </div>
             </div>
             
-            {/* After Section - Made wider */}
+            {/* After Section - Square shaped */}
             <div className="relative group lg:order-none order-3">
               <div className="absolute inset-0 bg-gradient-to-br from-green-100/30 to-green-200/20 rounded-2xl blur-xl transition-all duration-500"></div>
-              <div className="relative bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-green-100/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
+              <div className="relative bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-green-100/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 aspect-square flex flex-col">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center shadow-lg">
                     <TrendingUp className="w-5 h-5 text-green-600" />
@@ -108,7 +108,7 @@ const BeforeAfterSection = () => {
                   </div>
                 </div>
                 
-                <div className="space-y-3">
+                <div className="space-y-3 flex-1">
                   {afterItems.map((item, index) => (
                     <div key={index} className="p-3 bg-green-50/80 backdrop-blur-sm rounded-lg border border-green-100/50 hover:bg-green-50 transition-colors duration-300">
                       <p className="text-gray-800 font-medium text-sm leading-relaxed mb-2">{item.text}</p>

@@ -69,15 +69,15 @@ const SignatureFeaturesSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className={`relative p-6 rounded-lg bg-gradient-to-br ${feature.bgGradient} border border-white/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group overflow-hidden`}
+              className={`relative p-8 rounded-2xl bg-gradient-to-br ${feature.bgGradient} border border-white/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group overflow-hidden aspect-square flex flex-col`}
             >
               {/* Minimal hover effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
               
-              <div className="relative z-10">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className={`w-14 h-14 bg-gradient-to-r ${feature.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
-                    <feature.icon className="w-7 h-7 text-white" />
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className={`w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
+                    <feature.icon className="w-8 h-8 text-white" />
                   </div>
                   
                   <div className="flex-1">
@@ -90,11 +90,11 @@ const SignatureFeaturesSection = () => {
                   </div>
                 </div>
                 
-                <p className="text-gray-700 leading-relaxed text-base mb-4">
+                <p className="text-gray-700 leading-relaxed text-base mb-6 flex-1">
                   {feature.description}
                 </p>
                 
-                <div className="flex items-center gap-2 p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-white/80">
+                <div className="flex items-center gap-2 p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-white/80 mt-auto">
                   <TrendingUp className="w-4 h-4 text-blue-600" />
                   <span className="text-sm font-semibold text-blue-800">{feature.businessImpact}</span>
                 </div>

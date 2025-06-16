@@ -1,3 +1,4 @@
+
 import { Clock } from 'lucide-react';
 
 const EmotionalJourneySection = () => {
@@ -76,7 +77,7 @@ const EmotionalJourneySection = () => {
                 <div className="relative z-10">
                   {/* Time indicator */}
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="text-2xl">{step.icon}</div>
+                    <div className="text-2xl text-white">{step.icon}</div>
                     <div className="text-sm font-bold text-blue-600 bg-blue-50/80 backdrop-blur-sm px-3 py-1 rounded-full border border-blue-200/50">
                       {step.time}
                     </div>

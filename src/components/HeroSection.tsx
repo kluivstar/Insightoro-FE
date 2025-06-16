@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
-import { TrendingUp, Zap } from 'lucide-react';
 
 const HeroSection = () => {
   const [email, setEmail] = useState('');
@@ -78,21 +77,6 @@ const HeroSection = () => {
               <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
               Join 500+ business owners • No spam, just insights
             </p>
-          </div>
-
-          {/* Visual metaphor - simplified */}
-          <div className="flex justify-center items-center">
-            <div className="text-center group">
-              <div className="relative">
-                <div className="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <TrendingUp className="w-7 h-7 text-green-600" />
-                </div>
-                <div className="absolute -top-1 -right-1 w-5 h-5 bg-green-600 rounded-full flex items-center justify-center animate-pulse">
-                  <span className="text-white text-xs">✓</span>
-                </div>
-              </div>
-              <p className="text-gray-700 font-medium text-sm">Visitors understand<br />and take action</p>
-            </div>
           </div>
         </div>
       </div>
