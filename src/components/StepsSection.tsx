@@ -126,7 +126,7 @@ const StepsSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50/20">
+    <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/20 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
@@ -137,54 +137,61 @@ const StepsSection = () => {
           </p>
         </div>
         
-        <div className="max-w-7xl mx-auto space-y-16">
-          {steps.map((step, index) => (
-            <div key={index} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-              {/* Content Side */}
-              <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 aspect-square flex flex-col">
-                  {/* Step indicator */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+        <div className="max-w-7xl mx-auto relative">
+          {/* Connecting Lines */}
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-blue-300 to-blue-200 transform -translate-y-1/2 z-0"></div>
+          
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 relative z-10">
+            {steps.map((step, index) => (
+              <div key={index} className="flex flex-col items-center">
+                {/* Step Number */}
+                <div className="text-center mb-6">
+                  <div className="inline-block px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full shadow-lg mb-4 relative">
+                    <span className="text-white font-serif text-lg font-bold italic">
                       {step.number}
-                    </div>
+                    </span>
+                    {/* Connection dot */}
+                    <div className="absolute top-1/2 -right-2 w-4 h-4 bg-blue-500 rounded-full transform -translate-y-1/2 hidden lg:block"></div>
                   </div>
-                  
+                </div>
+
+                {/* Content Card */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-full aspect-square flex flex-col">
                   {/* Icon and title */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg">
-                      <step.icon className="w-7 h-7 text-white" />
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg">
+                      <step.icon className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl font-semibold text-gray-900">
+                    <h3 className="text-xl font-semibold text-gray-900">
                       {step.title}
                     </h3>
                   </div>
                   
                   <div className="flex-1 flex flex-col">
-                    <p className="text-gray-600 leading-relaxed mb-4 text-lg">
+                    <p className="text-gray-600 leading-relaxed mb-3 text-base">
                       {step.description}
                     </p>
                     
-                    <p className="text-gray-500 leading-relaxed">
+                    <p className="text-gray-500 leading-relaxed text-sm">
                       {step.detailedDescription}
                     </p>
                   </div>
                 </div>
-              </div>
-              
-              {/* Mockup Side */}
-              <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                <div className="relative aspect-square">
-                  <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-lg border border-blue-100/50 p-6">
-                    {step.mockupContent}
+
+                {/* Mockup */}
+                <div className="mt-8 w-full max-w-sm">
+                  <div className="relative aspect-square">
+                    <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-lg border border-blue-100/50 p-4">
+                      {step.mockupContent}
+                    </div>
+                    {/* Decorative elements */}
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-200 rounded-full opacity-30"></div>
+                    <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-indigo-200 rounded-full opacity-40"></div>
                   </div>
-                  {/* Decorative elements */}
-                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-200 rounded-full opacity-30"></div>
-                  <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-indigo-200 rounded-full opacity-40"></div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
