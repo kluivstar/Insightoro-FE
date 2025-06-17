@@ -1,6 +1,5 @@
 
 import HeroSection from '@/components/HeroSection';
-import SignatureFeaturesSection from '@/components/SignatureFeaturesSection';
 import EmotionalJourneySection from '@/components/EmotionalJourneySection';
 import BeforeAfterSection from '@/components/BeforeAfterSection';
 import StepsSection from '@/components/StepsSection';
@@ -15,7 +14,6 @@ const Index = () => {
       <BeforeAfterSection />
       <StepsSection />
       <DemoSection />
-      <SignatureFeaturesSection />
       <EmailFooter />
     </div>
   );

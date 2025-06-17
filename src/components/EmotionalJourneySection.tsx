@@ -8,30 +8,45 @@ const EmotionalJourneySection = () => {
       title: "First Glance",
       description: "Visitors form instant judgments about credibility and relevance",
       emotion: "Curiosity vs Skepticism",
-      color: "from-gray-50 to-gray-100/50",
-      borderColor: "border-gray-200/60",
-      icon: "⚪",
-      textColor: "text-gray-700"
+      questions: [
+        "What is this website about?",
+        "Does this look professional?",
+        "Can I trust this company?"
+      ],
+      color: "from-blue-50 to-blue-100/50",
+      borderColor: "border-blue-200/60",
+      icon: "👀",
+      textColor: "text-blue-700"
     },
     {
       time: "3-8 seconds", 
       title: "Value Recognition",
       description: "They're scanning for clear value propositions and social proof",
       emotion: "Interest vs Confusion",
-      color: "from-gray-50 to-gray-100/50",
-      borderColor: "border-gray-200/60", 
-      icon: "⚪",
-      textColor: "text-gray-700"
+      questions: [
+        "What's in it for me?",
+        "How is this different?",
+        "Do others trust this?"
+      ],
+      color: "from-blue-50 to-blue-100/50",
+      borderColor: "border-blue-200/60", 
+      icon: "🔍",
+      textColor: "text-blue-700"
     },
     {
       time: "8-15 seconds",
       title: "Decision Point", 
       description: "The critical moment where they decide to engage or leave forever",
       emotion: "Confidence vs Doubt",
-      color: "from-gray-50 to-gray-100/50",
-      borderColor: "border-gray-200/60",
-      icon: "⚪", 
-      textColor: "text-gray-700"
+      questions: [
+        "Should I stay or leave?",
+        "What should I do next?",
+        "Is this worth my time?"
+      ],
+      color: "from-blue-50 to-blue-100/50",
+      borderColor: "border-blue-200/60",
+      icon: "⚡", 
+      textColor: "text-blue-700"
     }
   ];
 
@@ -77,7 +92,7 @@ const EmotionalJourneySection = () => {
                 <div className="relative z-10">
                   {/* Time indicator */}
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="text-2xl text-white">{step.icon}</div>
+                    <div className="text-2xl">{step.icon}</div>
                     <div className="text-sm font-bold text-blue-600 bg-blue-50/80 backdrop-blur-sm px-3 py-1 rounded-full border border-blue-200/50">
                       {step.time}
                     </div>
@@ -90,6 +105,18 @@ const EmotionalJourneySection = () => {
                   <p className={`text-base ${step.textColor} leading-relaxed mb-4`}>
                     {step.description}
                   </p>
+                  
+                  {/* Customer questions */}
+                  <div className="mb-4">
+                    <div className="text-xs font-semibold text-gray-800 mb-2">What they're thinking:</div>
+                    <ul className="space-y-1">
+                      {step.questions.map((question, qIndex) => (
+                        <li key={qIndex} className="text-sm text-gray-700 italic">
+                          "{question}"
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                   
                   {/* Emotional state indicator */}
                   <div className="bg-white/70 backdrop-blur-sm p-3 rounded-lg border border-white/80">
