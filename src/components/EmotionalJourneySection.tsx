@@ -12,11 +12,7 @@ const EmotionalJourneySection = () => {
         "What is this website about?",
         "Does this look professional?",
         "Can I trust this company?"
-      ],
-      color: "from-blue-50 to-blue-100/50",
-      borderColor: "border-blue-200/60",
-      icon: "👀",
-      textColor: "text-blue-700"
+      ]
     },
     {
       time: "3-8 seconds", 
@@ -27,11 +23,7 @@ const EmotionalJourneySection = () => {
         "What's in it for me?",
         "How is this different?",
         "Do others trust this?"
-      ],
-      color: "from-blue-50 to-blue-100/50",
-      borderColor: "border-blue-200/60", 
-      icon: "🔍",
-      textColor: "text-blue-700"
+      ]
     },
     {
       time: "8-15 seconds",
@@ -42,11 +34,7 @@ const EmotionalJourneySection = () => {
         "Should I stay or leave?",
         "What should I do next?",
         "Is this worth my time?"
-      ],
-      color: "from-blue-50 to-blue-100/50",
-      borderColor: "border-blue-200/60",
-      icon: "⚡", 
-      textColor: "text-blue-700"
+      ]
     }
   ];
 
@@ -85,33 +73,32 @@ const EmotionalJourneySection = () => {
                 <div className="hidden md:block absolute top-16 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-300 to-transparent z-10"></div>
               )}
               
-              <div className={`relative bg-gradient-to-br ${step.color} backdrop-blur-sm p-6 rounded-2xl border ${step.borderColor} shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full`}>
+              <div className="relative bg-gradient-to-br from-gray-900 to-black backdrop-blur-sm p-8 rounded-2xl border border-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full">
                 {/* Decorative background element */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-200/10 to-indigo-200/10 rounded-full blur-xl"></div>
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-full blur-xl"></div>
                 
                 <div className="relative z-10">
                   {/* Time indicator */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="text-2xl">{step.icon}</div>
-                    <div className="text-sm font-bold text-blue-600 bg-blue-50/80 backdrop-blur-sm px-3 py-1 rounded-full border border-blue-200/50">
+                  <div className="mb-6">
+                    <div className="text-sm font-bold text-blue-400 bg-blue-500/10 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-500/20 inline-block">
                       {step.time}
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-xl font-bold text-white mb-4">
                     {step.title}
                   </h3>
                   
-                  <p className={`text-base ${step.textColor} leading-relaxed mb-4`}>
+                  <p className="text-gray-300 leading-relaxed mb-6">
                     {step.description}
                   </p>
                   
                   {/* Customer questions */}
-                  <div className="mb-4">
-                    <div className="text-xs font-semibold text-gray-800 mb-2">What they're thinking:</div>
-                    <ul className="space-y-1">
+                  <div className="mb-6">
+                    <div className="text-xs font-semibold text-gray-400 mb-3">What they're thinking:</div>
+                    <ul className="space-y-2">
                       {step.questions.map((question, qIndex) => (
-                        <li key={qIndex} className="text-sm text-gray-700 italic">
+                        <li key={qIndex} className="text-sm text-gray-300 italic">
                           "{question}"
                         </li>
                       ))}
@@ -119,9 +106,9 @@ const EmotionalJourneySection = () => {
                   </div>
                   
                   {/* Emotional state indicator */}
-                  <div className="bg-white/70 backdrop-blur-sm p-3 rounded-lg border border-white/80">
-                    <div className="text-xs font-semibold text-gray-800 mb-1">Emotional State:</div>
-                    <div className="text-sm font-medium text-gray-700">{step.emotion}</div>
+                  <div className="bg-white/5 backdrop-blur-sm p-4 rounded-lg border border-white/10">
+                    <div className="text-xs font-semibold text-gray-400 mb-2">Emotional State:</div>
+                    <div className="text-sm font-medium text-white">{step.emotion}</div>
                   </div>
                 </div>
                 

@@ -1,5 +1,5 @@
 
-import { Eye, BarChart3, Lightbulb } from 'lucide-react';
+import { Eye, BarChart3, Lightbulb, ArrowRight } from 'lucide-react';
 
 const StepsSection = () => {
   const steps = [
@@ -41,8 +41,8 @@ const StepsSection = () => {
       icon: BarChart3,
       number: "Step 2", 
       title: "Generate Detailed Report",
-      description: "Get a comprehensive report showing exactly where visitors get stuck and why they leave.",
-      detailedDescription: "Our system generates a detailed breakdown of your website's first impression performance, highlighting critical issues and opportunities for improvement with actionable insights.",
+      description: "Get a comprehensive report that allows your business to experience exactly what visitors see and feel when they land on your site.",
+      detailedDescription: "Our system generates a detailed breakdown of your website's first impression performance, highlighting critical issues and opportunities for improvement with actionable insights that help you see through your visitors' eyes.",
       mockupContent: (
         <div className="w-full h-full bg-white rounded-lg p-4 flex flex-col">
           <div className="flex items-center justify-between mb-4">
@@ -137,61 +137,66 @@ const StepsSection = () => {
           </p>
         </div>
         
-        <div className="max-w-7xl mx-auto relative">
-          {/* Connecting Lines */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-blue-300 to-blue-200 transform -translate-y-1/2 z-0"></div>
-          
-          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 relative z-10">
-            {steps.map((step, index) => (
-              <div key={index} className="flex flex-col items-center">
-                {/* Step Number */}
-                <div className="text-center mb-6">
-                  <div className="inline-block px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full shadow-lg mb-4 relative">
-                    <span className="text-white font-serif text-lg font-bold italic">
-                      {step.number}
-                    </span>
-                    {/* Connection dot */}
-                    <div className="absolute top-1/2 -right-2 w-4 h-4 bg-blue-500 rounded-full transform -translate-y-1/2 hidden lg:block"></div>
-                  </div>
+        <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
+          {steps.map((step, index) => (
+            <div key={index} className="relative">
+              {/* Connecting Arrow */}
+              {index < steps.length - 1 && (
+                <div className="hidden lg:flex absolute -bottom-12 left-1/2 transform -translate-x-1/2 items-center justify-center">
+                  <ArrowRight className="w-6 h-6 text-blue-400 rotate-90" />
                 </div>
-
-                {/* Content Card */}
-                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-full aspect-square flex flex-col">
-                  {/* Icon and title */}
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg">
-                      <step.icon className="w-6 h-6 text-white" />
+              )}
+              
+              <div className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
+                {/* Content */}
+                <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} space-y-6`}>
+                  {/* Step Number */}
+                  <div className="inline-block">
+                    <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full px-6 py-3 shadow-lg">
+                      <span className="text-white font-serif text-lg font-bold italic tracking-wide">
+                        {step.number}
+                      </span>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      {step.title}
-                    </h3>
                   </div>
-                  
-                  <div className="flex-1 flex flex-col">
-                    <p className="text-gray-600 leading-relaxed mb-3 text-base">
-                      {step.description}
-                    </p>
+
+                  {/* Content Card */}
+                  <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    {/* Icon and title */}
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg">
+                        <step.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900">
+                        {step.title}
+                      </h3>
+                    </div>
                     
-                    <p className="text-gray-500 leading-relaxed text-sm">
-                      {step.detailedDescription}
-                    </p>
+                    <div className="space-y-4">
+                      <p className="text-gray-600 leading-relaxed text-lg">
+                        {step.description}
+                      </p>
+                      
+                      <p className="text-gray-500 leading-relaxed">
+                        {step.detailedDescription}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
                 {/* Mockup */}
-                <div className="mt-8 w-full max-w-sm">
-                  <div className="relative aspect-square">
-                    <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-lg border border-blue-100/50 p-4">
+                <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} flex justify-center`}>
+                  <div className="relative w-full max-w-md aspect-square">
+                    <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-xl border border-blue-100/50 p-6">
                       {step.mockupContent}
                     </div>
                     {/* Decorative elements */}
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-200 rounded-full opacity-30"></div>
-                    <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-indigo-200 rounded-full opacity-40"></div>
+                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-blue-200 rounded-full opacity-30"></div>
+                    <div className="absolute -bottom-3 -left-3 w-6 h-6 bg-indigo-200 rounded-full opacity-40"></div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
