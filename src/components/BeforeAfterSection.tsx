@@ -1,5 +1,5 @@
 
-import { ArrowRight, ArrowDown, X, Check, TrendingDown, TrendingUp, Sparkles } from 'lucide-react';
+import { X, Check, TrendingDown, TrendingUp, Sparkles } from 'lucide-react';
 
 const BeforeAfterSection = () => {
   const beforeItems = [
@@ -44,7 +44,7 @@ const BeforeAfterSection = () => {
         </div>
         
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-8 items-stretch">
+          <div className="grid lg:grid-cols-2 gap-12 items-stretch">
             {/* Before Section - Square shaped */}
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-red-100/30 to-red-200/20 rounded-2xl blur-xl transition-all duration-500"></div>
@@ -72,30 +72,8 @@ const BeforeAfterSection = () => {
               </div>
             </div>
             
-            {/* Enhanced Animated Arrow - Desktop (Right) / Mobile (Down) */}
-            <div className="flex justify-center lg:order-none order-2">
-              <div className="relative">
-                {/* Multiple pulse rings */}
-                <div className="absolute inset-0 w-20 h-20 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 rounded-full animate-ping"></div>
-                <div className="absolute inset-1 w-18 h-18 bg-gradient-to-r from-blue-500/15 to-indigo-500/15 rounded-full animate-pulse delay-75"></div>
-                
-                {/* Main arrow container with enhanced styling */}
-                <div className="relative w-20 h-20 bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600 rounded-full flex items-center justify-center shadow-2xl transform hover:scale-110 transition-all duration-500 hover:shadow-blue-500/25">
-                  {/* Desktop: Right Arrow */}
-                  <ArrowRight className="hidden lg:block w-8 h-8 text-white animate-[bounce_1s_ease-in-out_infinite] transform translate-x-1" />
-                  {/* Mobile: Down Arrow */}
-                  <ArrowDown className="lg:hidden w-8 h-8 text-white animate-[bounce_1s_ease-in-out_infinite] transform translate-y-1" />
-                </div>
-                
-                {/* Enhanced scanning effect */}
-                <div className="absolute inset-0 w-20 h-20 rounded-full overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent w-full h-full animate-[scan_3s_linear_infinite] transform -skew-x-12"></div>
-                </div>
-              </div>
-            </div>
-            
             {/* After Section - Square shaped */}
-            <div className="relative group lg:order-none order-3">
+            <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-green-100/30 to-green-200/20 rounded-2xl blur-xl transition-all duration-500"></div>
               <div className="relative bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-green-100/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 aspect-square flex flex-col">
                 <div className="flex items-center gap-3 mb-6">
