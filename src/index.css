@@ -100,11 +100,24 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Lettera Text", system-ui, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Manrope", "Inter", system-ui, sans-serif;
+    line-height: 1.6;
   }
 
+  /* Headings use Lettera Text serif for impact */
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Lettera Text", system-ui, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Lettera Text", serif;
+    line-height: 1.2;
+  }
+
+  /* Buttons, UI elements, and navigation use sans-serif */
+  button, input, select, textarea, nav {
+    font-family: "Manrope", "Inter", system-ui, sans-serif;
+  }
+
+  /* Paragraphs maintain readable line-height */
+  p {
+    line-height: 1.6;
   }
 
   /* Smooth scrolling */
