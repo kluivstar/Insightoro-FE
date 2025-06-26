@@ -1,6 +1,6 @@
-
 import { Eye, Heart, Star, AlertCircle, CheckCircle, Target, Zap, ThumbsUp, HelpCircle, Users, Timer, Activity, FileText } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
+import { useState, useEffect } from 'react';
 
 const insights = [
   { 
@@ -87,6 +87,14 @@ const quickWins = [
   "Add urgency indicator to special offer"
 ];
 
+// Emotional first impressions data
+const emotionalImpressions = [
+  { emotion: "Confused", percentage: 23, description: "Layout feels cluttered and overwhelming" },
+  { emotion: "Skeptical", percentage: 31, description: "Missing trust signals and social proof" },
+  { emotion: "Curious", percentage: 28, description: "Intrigued but needs clearer value proposition" },
+  { emotion: "Confident", percentage: 18, description: "Ready to engage and take action" }
+];
+
 // New detailed First 5 Second Test data
 const firstFiveSecondData = [
   { 
@@ -119,40 +127,60 @@ const firstFiveSecondData = [
   }
 ];
 
-const InsightCard = ({ insight }) => (
-  <div className="bg-gradient-to-br from-white to-gray-50/50 p-5 rounded-2xl border border-gray-200/60 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
-    <div className="flex items-center gap-3 mb-4">
-      <div className={`w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center shadow-lg backdrop-blur-sm border border-gray-700/20`}>
-        <insight.icon className="w-5 h-5 text-white" />
+const InsightCard = ({ insight, index }) => {
+  const [animatedScore, setAnimatedScore] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const interval = setInterval(() => {
+        setAnimatedScore(prev => {
+          if (prev >= insight.score) {
+            clearInterval(interval);
+            return insight.score;
+          }
+          return prev + 2;
+        });
+      }, 30);
+    }, index * 200);
+
+    return () => clearTimeout(timer);
+  }, [insight.score, index]);
+
+  return (
+    <div className="bg-gradient-to-br from-white to-gray-50/50 p-5 rounded-2xl border border-gray-200/60 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
+      <div className="flex items-center gap-3 mb-4">
+        <div className={`w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center shadow-lg backdrop-blur-sm border border-gray-700/20`}>
+          <insight.icon className="w-5 h-5 text-white" />
+        </div>
+        <div className="flex-1">
+          <div className="text-2xl font-bold text-gray-900">{animatedScore}</div>
+          <div className="text-xs text-gray-500 font-medium">/ 100</div>
+        </div>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button className="text-gray-400 hover:text-gray-600">
+              <HelpCircle className="w-4 h-4" />
+            </button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p className="max-w-xs">{insight.tooltip}</p>
+          </TooltipContent>
+        </Tooltip>
       </div>
-      <div className="flex-1">
-        <div className="text-2xl font-bold text-gray-900">{insight.score}</div>
-        <div className="text-xs text-gray-500 font-medium">/ 100</div>
+      <p className="text-sm font-semibold text-gray-700 mb-2">{insight.category}</p>
+      <div className="flex items-center gap-2 mb-3">
+        <Activity className="w-4 h-4 text-gray-400" />
+        <span className="text-xs text-gray-500">{insight.metricLabel}: {insight.metric}</span>
       </div>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <button className="text-gray-400 hover:text-gray-600">
-            <HelpCircle className="w-4 h-4" />
-          </button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p className="max-w-xs">{insight.tooltip}</p>
-        </TooltipContent>
-      </Tooltip>
+      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+        <div 
+          className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-1000"
+          style={{ width: `${animatedScore}%` }}
+        ></div>
+      </div>
     </div>
-    <p className="text-sm font-semibold text-gray-700 mb-2">{insight.category}</p>
-    <div className="flex items-center gap-2 mb-3">
-      <Activity className="w-4 h-4 text-gray-400" />
-      <span className="text-xs text-gray-500">{insight.metricLabel}: {insight.metric}</span>
-    </div>
-    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-      <div 
-        className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-1000"
-        style={{ width: `${insight.score}%` }}
-      ></div>
-    </div>
-  </div>
-);
+  );
+};
 
 const FirstFiveSecondCard = ({ item }) => (
   <div className="bg-white/90 backdrop-blur-sm p-5 rounded-xl border border-gray-200/80">
@@ -182,36 +210,48 @@ const FirstFiveSecondCard = ({ item }) => (
   </div>
 );
 
-const RecommendationCard = ({ rec }) => (
-  <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6 p-4 md:p-6 rounded-xl border bg-white/90 backdrop-blur-sm border border-gray-200/80">
-    <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-green-100">
-      <CheckCircle className="w-5 h-5 text-green-600" />
-    </div>
-    <div className="flex-1 w-full">
-      <p className="text-gray-800 font-medium mb-3 text-sm md:text-base">{rec.text}</p>
-      <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-3">
-        <span className="px-2 md:px-3 py-1 rounded-full text-xs font-medium border bg-green-100/80 backdrop-blur-sm text-green-700 border-green-200/50">
-          {rec.impact} Impact
-        </span>
-        <span className="px-2 md:px-3 py-1 bg-blue-100/80 backdrop-blur-sm text-blue-700 rounded-full text-xs font-medium border border-blue-200/50">
-          {rec.category}
-        </span>
+const RecommendationCard = ({ rec, index }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, index * 300);
+
+    return () => clearTimeout(timer);
+  }, [index]);
+
+  return (
+    <div className={`flex flex-col md:flex-row items-start gap-4 md:gap-6 p-4 md:p-6 rounded-xl border bg-white/90 backdrop-blur-sm border border-gray-200/80 transition-all duration-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+      <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-green-100">
+        <CheckCircle className="w-5 h-5 text-green-600" />
       </div>
-      <div className="bg-gradient-to-r from-gray-100/80 to-gray-200/80 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-gray-300/50">
-        <div className="flex flex-col md:flex-row md:items-center gap-2 text-xs md:text-sm text-gray-600 mb-2">
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-gray-400 rounded-full"></div>
-            <span className="font-medium">Affected Section:</span>
+      <div className="flex-1 w-full">
+        <p className="text-gray-800 font-medium mb-3 text-sm md:text-base">{rec.text}</p>
+        <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-3">
+          <span className="px-2 md:px-3 py-1 rounded-full text-xs font-medium border bg-green-100/80 backdrop-blur-sm text-green-700 border-green-200/50">
+            {rec.impact} Impact
+          </span>
+          <span className="px-2 md:px-3 py-1 bg-blue-100/80 backdrop-blur-sm text-blue-700 rounded-full text-xs font-medium border border-blue-200/50">
+            {rec.category}
+          </span>
+        </div>
+        <div className="bg-gradient-to-r from-gray-100/80 to-gray-200/80 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-gray-300/50">
+          <div className="flex flex-col md:flex-row md:items-center gap-2 text-xs md:text-sm text-gray-600 mb-2">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-gray-400 rounded-full"></div>
+              <span className="font-medium">Affected Section:</span>
+            </div>
+            <span className="md:ml-0">{rec.mockup}</span>
           </div>
-          <span className="md:ml-0">{rec.mockup}</span>
-        </div>
-        <div className="bg-white/60 backdrop-blur-sm h-6 md:h-8 rounded border border-gray-300/50 flex items-center px-2 md:px-3">
-          <div className="text-xs text-gray-500">Visual mockup preview</div>
+          <div className="bg-white/60 backdrop-blur-sm h-6 md:h-8 rounded border border-gray-300/50 flex items-center px-2 md:px-3">
+            <div className="text-xs text-gray-500">Visual mockup preview</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const DemoSection = () => {
   return (
@@ -235,12 +275,16 @@ const DemoSection = () => {
               Get a comprehensive analysis of your visitor's emotional and visual journey, 
               with specific recommendations to improve clarity and drive conversions.
             </p>
+            {/* Reduced font size for desktop */}
+            <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto mt-4">
+              Your website might be pushing people away in seconds.
+            </p>
           </div>
           
           <div className="max-w-7xl mx-auto animate-fade-in">
             {/* Main Report Card */}
             <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-200/50 overflow-hidden">
-              {/* Header */}
+              {/* Header - Removed Overall Clarity Score */}
               <div className="bg-gradient-to-r from-slate-900 via-gray-900 to-slate-900 p-8 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:20px_20px] animate-[scan_3s_ease-in-out_infinite]"></div>
                 <div className="flex items-center justify-between relative z-10">
@@ -248,19 +292,15 @@ const DemoSection = () => {
                     <h3 className="text-2xl font-bold text-white mb-2">Visitor Experience Analysis</h3>
                     <p className="text-gray-300">yourwebsite.com • Analyzed 3 minutes ago</p>
                   </div>
-                  <div className="text-right">
-                    <div className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent mb-1">86</div>
-                    <div className="text-sm text-gray-300 font-medium">Overall Clarity Score</div>
-                  </div>
                 </div>
               </div>
               
               {/* Content */}
               <div className="p-6 md:p-10">
-                {/* Core Metrics */}
+                {/* Core Metrics with animated progress bars */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
                   {insights.map((insight, index) => (
-                    <InsightCard key={index} insight={insight} />
+                    <InsightCard key={index} insight={insight} index={index} />
                   ))}
                 </div>
 
@@ -373,7 +413,41 @@ const DemoSection = () => {
                   </div>
                 </div>
 
-                {/* Priority Recommendations */}
+                {/* Emotional First Impressions Section - NEW */}
+                <div className="bg-gradient-to-br from-purple-50/80 to-pink-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-purple-200/50 mb-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center backdrop-blur-sm border border-gray-700/20">
+                      <Heart className="w-5 h-5 text-white" />
+                    </div>
+                    <h4 className="text-lg md:text-xl font-bold text-gray-900">Emotional First Impressions</h4>
+                    <span className="text-sm text-gray-600">— "If I landed on this page, I'd feel…"</span>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {emotionalImpressions.map((impression, index) => (
+                      <div key={index} className="bg-white/80 backdrop-blur-sm p-4 rounded-lg border border-white/80">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm font-bold text-gray-800">{impression.emotion}</span>
+                          <span className="text-lg font-bold text-purple-600">{impression.percentage}%</span>
+                        </div>
+                        <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
+                          <div 
+                            className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-1000"
+                            style={{ width: `${impression.percentage}%` }}
+                          ></div>
+                        </div>
+                        <p className="text-xs text-gray-600">{impression.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="mt-6 bg-gradient-to-r from-orange-100/80 to-purple-100/80 backdrop-blur-sm p-4 rounded-xl border border-orange-300/50">
+                    <div className="text-sm font-bold text-gray-900 mb-2">Key Insight:</div>
+                    <div className="text-sm text-gray-700">54% of visitors feel confused or skeptical upon arrival. Improving clarity and trust signals could convert 30-40% more visitors into engaged prospects.</div>
+                  </div>
+                </div>
+
+                {/* Priority Recommendations with slide-in animation */}
                 <div className="bg-gradient-to-br from-amber-50/80 to-orange-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-amber-200/50 mb-8">
                   <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                     <div className="w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center backdrop-blur-sm border border-gray-700/20">
@@ -382,7 +456,7 @@ const DemoSection = () => {
                     Priority Recommendations
                   </h4>
                   
-                  {/* All Recommendations - No Premium Distinction */}
+                  {/* All Recommendations with slide-in animation */}
                   <div className="space-y-6 mb-8">
                     <h5 className="text-base md:text-lg font-semibold text-gray-800 flex items-center gap-2">
                       <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
@@ -391,7 +465,7 @@ const DemoSection = () => {
                       Recommended Changes
                     </h5>
                     {[...highImpactRecommendations, ...mediumImpactRecommendations].map((rec, index) => (
-                      <RecommendationCard key={index} rec={rec} />
+                      <RecommendationCard key={index} rec={rec} index={index} />
                     ))}
                   </div>
 

@@ -68,19 +68,14 @@ const EmotionalJourneySection = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {journeySteps.map((step, index) => (
             <div key={index} className="group relative">
-              {/* Connection line for desktop */}
-              {index < journeySteps.length - 1 && (
-                <div className="hidden md:block absolute top-16 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-300 to-transparent z-10"></div>
-              )}
-              
               <div className="relative bg-gradient-to-br from-gray-900 to-black backdrop-blur-sm p-8 rounded-2xl border border-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full">
                 {/* Decorative background element */}
                 <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-full blur-xl"></div>
                 
                 <div className="relative z-10">
-                  {/* Time indicator */}
+                  {/* Time indicator - Changed to white with white border */}
                   <div className="mb-6">
-                    <div className="text-sm font-bold text-blue-400 bg-blue-500/10 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-500/20 inline-block">
+                    <div className="text-sm font-bold text-white bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 inline-block">
                       {step.time}
                     </div>
                   </div>
