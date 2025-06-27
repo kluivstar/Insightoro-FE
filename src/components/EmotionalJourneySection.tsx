@@ -49,14 +49,14 @@ const EmotionalJourneySection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-5 py-2.5 rounded-full mb-8 border border-gray-200/50 shadow-lg">
-            <Clock className="w-4 h-4 text-indigo-600" />
-            <span className="text-sm font-semibold text-gray-700">Experience What Your Visitors Feel</span>
+            <Clock className="w-4 h-4 text-orange-600" />
+            <span className="text-sm font-semibold text-orange-600">Experience What Your Visitors Feel</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
             The Emotional Journey of
             <br />
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 via-red-600 to-orange-700 bg-clip-text text-transparent">
               Every First Visit
             </span>
           </h2>
@@ -70,12 +70,12 @@ const EmotionalJourneySection = () => {
             <div key={index} className="group relative">
               <div className="relative bg-gradient-to-br from-gray-900 to-black backdrop-blur-sm p-8 rounded-2xl border border-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full">
                 {/* Decorative background element */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-full blur-xl"></div>
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-full blur-xl"></div>
                 
                 <div className="relative z-10">
-                  {/* Time indicator - Changed to white with white border */}
+                  {/* Time indicator - White text and border */}
                   <div className="mb-6">
-                    <div className="text-sm font-bold text-white bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 inline-block">
+                    <div className="text-sm font-bold text-white bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white inline-block">
                       {step.time}
                     </div>
                   </div>
@@ -108,7 +108,7 @@ const EmotionalJourneySection = () => {
                 </div>
                 
                 {/* Animated gradient border on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/0 via-indigo-500/20 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500/0 via-red-500/20 to-orange-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               </div>
             </div>
           ))}

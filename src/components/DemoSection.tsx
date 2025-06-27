@@ -1,16 +1,16 @@
-import { Eye, Heart, Star, AlertCircle, CheckCircle, Target, Zap, ThumbsUp, HelpCircle, Users, Timer, Activity, FileText } from 'lucide-react';
+import { Eye, Heart, Star, AlertCircle, CheckCircle, Target, Zap, ThumbsUp, HelpCircle, Users, Timer, Activity, FileText, Shield } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
 import { useState, useEffect } from 'react';
 
 const insights = [
   { 
-    category: "Visual Clarity", 
-    score: 92, 
-    metric: "2.3s", 
-    metricLabel: "Clarity Time",
+    category: "First 3 Seconds Test", 
+    score: 88, 
+    metric: "2.1s", 
+    metricLabel: "Recognition Time",
     color: "blue", 
-    icon: Eye,
-    tooltip: "How quickly visitors understand your main message and value proposition"
+    icon: Timer,
+    tooltip: "Does the page instantly communicate its purpose and value? Includes headline clarity analysis."
   },
   { 
     category: "CTA Visibility", 
@@ -22,15 +22,6 @@ const insights = [
     tooltip: "How well your call-to-action buttons stand out and grab attention"
   },
   { 
-    category: "First 5 Second Test", 
-    score: 85, 
-    metric: "4.2s", 
-    metricLabel: "Recognition Time",
-    color: "blue", 
-    icon: Timer,
-    tooltip: "Whether visitors can understand what you do and why it matters within 5 seconds"
-  },
-  { 
     category: "Confusion Triggers", 
     score: 88, 
     metric: "A-", 
@@ -38,6 +29,15 @@ const insights = [
     color: "blue", 
     icon: AlertCircle,
     tooltip: "Elements that may confuse visitors and prevent them from taking action"
+  },
+  { 
+    category: "Trust Experience Score", 
+    score: 82, 
+    metric: "B+", 
+    metricLabel: "Trust Grade",
+    color: "blue", 
+    icon: Shield,
+    tooltip: "Does the site look trustworthy at first glance? Based on polish, social proof, HTTPS, and design consistency."
   }
 ];
 
@@ -95,8 +95,8 @@ const emotionalImpressions = [
   { emotion: "Confident", percentage: 18, description: "Ready to engage and take action" }
 ];
 
-// New detailed First 5 Second Test data
-const firstFiveSecondData = [
+// New detailed First 3 Seconds Test data
+const firstThreeSecondData = [
   { 
     metric: "Message Clarity", 
     score: 88, 
@@ -105,11 +105,11 @@ const firstFiveSecondData = [
     scanData: "Headline readability: 8th grade level, Key benefits visible in 2.1 seconds"
   },
   { 
-    metric: "Visual Hierarchy", 
+    metric: "Emotional Tone", 
     score: 82, 
-    description: "Eye-tracking shows optimal content flow",
-    businessImpact: "Good hierarchy increases page engagement by 40% and time on site by 1.8 minutes",
-    scanData: "F-pattern compliance: 82%, Primary CTA noticed in 3.4 seconds"
+    description: "The emotional impression visitors get from your page",
+    businessImpact: "Positive emotional tone increases engagement by 40% and trust by 25%",
+    scanData: "Tone analysis: Professional yet approachable, Confidence score: 82/100"
   },
   { 
     metric: "Brand Recognition", 
@@ -182,7 +182,7 @@ const InsightCard = ({ insight, index }) => {
   );
 };
 
-const FirstFiveSecondCard = ({ item }) => (
+const FirstThreeSecondCard = ({ item }) => (
   <div className="bg-white/90 backdrop-blur-sm p-5 rounded-xl border border-gray-200/80">
     <div className="flex items-center justify-between mb-3">
       <h5 className="text-sm font-bold text-gray-800">{item.metric}</h5>
@@ -304,13 +304,13 @@ const DemoSection = () => {
                   ))}
                 </div>
 
-                {/* First 5 Second Test */}
+                {/* First 3 Seconds Test */}
                 <div className="bg-gradient-to-br from-slate-50/80 to-gray-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-slate-200/50 mb-8">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center backdrop-blur-sm border border-gray-700/20">
                       <Timer className="w-5 h-5 text-white" />
                     </div>
-                    <h4 className="text-lg md:text-xl font-bold text-gray-900">First 5 Second Test - Detailed Analysis</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-gray-900">First 3 Seconds Test - Detailed Analysis</h4>
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <button className="text-gray-400 hover:text-gray-600">
@@ -318,16 +318,16 @@ const DemoSection = () => {
                         </button>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p className="max-w-xs">Comprehensive analysis of how visitors process your page in the critical first 5 seconds</p>
+                        <p className="max-w-xs">Comprehensive analysis of how visitors process your page in the critical first 3 seconds</p>
                       </TooltipContent>
                     </Tooltip>
                   </div>
                   
                   <div className="text-center mb-6">
-                    <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-2">4.2s</div>
+                    <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-2">2.1s</div>
                     <div className="text-sm text-gray-600 mb-2">Average recognition time</div>
                     <div className="text-xs text-orange-600 font-medium bg-orange-100/70 backdrop-blur-sm px-3 py-2 rounded-full inline-block border border-orange-200/50 mb-4">
-                      85% visitors understand your value proposition quickly
+                      88% visitors understand your value proposition quickly
                     </div>
                     <div className="text-xs text-gray-600">
                       <strong>Business Impact:</strong> Fast recognition reduces bounce rate by 42% and increases page engagement by 2.1x
@@ -336,8 +336,8 @@ const DemoSection = () => {
 
                   {/* Detailed metrics grid */}
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
-                    {firstFiveSecondData.map((item, index) => (
-                      <FirstFiveSecondCard key={index} item={item} />
+                    {firstThreeSecondData.map((item, index) => (
+                      <FirstThreeSecondCard key={index} item={item} />
                     ))}
                   </div>
 
@@ -410,40 +410,6 @@ const DemoSection = () => {
                       <div className="text-xs font-semibold text-orange-800 mb-1">Business Impact:</div>
                       <div className="text-xs text-black font-medium">Improving CTA visibility typically increases conversion rates by 15-40% and reduces visitor hesitation by 60%</div>
                     </div>
-                  </div>
-                </div>
-
-                {/* Emotional First Impressions Section - NEW */}
-                <div className="bg-gradient-to-br from-purple-50/80 to-pink-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-purple-200/50 mb-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center backdrop-blur-sm border border-gray-700/20">
-                      <Heart className="w-5 h-5 text-white" />
-                    </div>
-                    <h4 className="text-lg md:text-xl font-bold text-gray-900">Emotional First Impressions</h4>
-                    <span className="text-sm text-gray-600">— "If I landed on this page, I'd feel…"</span>
-                  </div>
-                  
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {emotionalImpressions.map((impression, index) => (
-                      <div key={index} className="bg-white/80 backdrop-blur-sm p-4 rounded-lg border border-white/80">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-sm font-bold text-gray-800">{impression.emotion}</span>
-                          <span className="text-lg font-bold text-purple-600">{impression.percentage}%</span>
-                        </div>
-                        <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
-                          <div 
-                            className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-1000"
-                            style={{ width: `${impression.percentage}%` }}
-                          ></div>
-                        </div>
-                        <p className="text-xs text-gray-600">{impression.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="mt-6 bg-gradient-to-r from-orange-100/80 to-purple-100/80 backdrop-blur-sm p-4 rounded-xl border border-orange-300/50">
-                    <div className="text-sm font-bold text-gray-900 mb-2">Key Insight:</div>
-                    <div className="text-sm text-gray-700">54% of visitors feel confused or skeptical upon arrival. Improving clarity and trust signals could convert 30-40% more visitors into engaged prospects.</div>
                   </div>
                 </div>
 
