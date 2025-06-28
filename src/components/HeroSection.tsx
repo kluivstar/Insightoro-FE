@@ -40,8 +40,8 @@ const HeroSection = () => {
             <span className="text-sm font-medium text-gray-700">Experience What Your Visitors Feel</span>
           </div>
           
-          {/* Main headline - more modern typography with reduced size */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-[1.1] tracking-tight">
+          {/* Main headline - increased font size */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-8 leading-[1.1] tracking-tight">
             Your website might be{' '}
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 bg-clip-text text-transparent relative inline-block">
               pushing people away
