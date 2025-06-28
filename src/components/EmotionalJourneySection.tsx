@@ -1,3 +1,4 @@
+
 import { Clock } from 'lucide-react';
 
 const EmotionalJourneySection = () => {
@@ -67,32 +68,32 @@ const EmotionalJourneySection = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {journeySteps.map((step, index) => (
             <div key={index} className="group relative">
-              <div className="relative bg-white p-8 border-2 border-gray-300 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full">
+              <div className="relative bg-gradient-to-br from-gray-900 to-black backdrop-blur-sm p-8 rounded-2xl border border-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full">
                 {/* Decorative background element */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-500/10 to-red-500/10 blur-xl"></div>
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-full blur-xl"></div>
                 
                 <div className="relative z-10">
-                  {/* Time indicator */}
+                  {/* Time indicator - White text and border */}
                   <div className="mb-6">
-                    <div className="text-sm font-bold text-gray-900 bg-gray-100 px-4 py-2 border border-gray-300 inline-block">
+                    <div className="text-sm font-bold text-white bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white inline-block">
                       {step.time}
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl font-bold text-white mb-4">
                     {step.title}
                   </h3>
                   
-                  <p className="text-gray-600 leading-relaxed mb-6">
+                  <p className="text-gray-300 leading-relaxed mb-6">
                     {step.description}
                   </p>
                   
                   {/* Customer questions */}
                   <div className="mb-6">
-                    <div className="text-xs font-semibold text-gray-500 mb-3">What they're thinking:</div>
+                    <div className="text-xs font-semibold text-gray-400 mb-3">What they're thinking:</div>
                     <ul className="space-y-2">
                       {step.questions.map((question, qIndex) => (
-                        <li key={qIndex} className="text-sm text-gray-600 italic">
+                        <li key={qIndex} className="text-sm text-gray-300 italic">
                           "{question}"
                         </li>
                       ))}
@@ -100,11 +101,14 @@ const EmotionalJourneySection = () => {
                   </div>
                   
                   {/* Emotional state indicator */}
-                  <div className="bg-gray-50 p-4 border border-gray-200">
-                    <div className="text-xs font-semibold text-gray-500 mb-2">Emotional State:</div>
-                    <div className="text-sm font-medium text-gray-900">{step.emotion}</div>
+                  <div className="bg-white/5 backdrop-blur-sm p-4 rounded-lg border border-white/10">
+                    <div className="text-xs font-semibold text-gray-400 mb-2">Emotional State:</div>
+                    <div className="text-sm font-medium text-white">{step.emotion}</div>
                   </div>
                 </div>
+                
+                {/* Animated gradient border on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500/0 via-red-500/20 to-orange-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               </div>
             </div>
           ))}
