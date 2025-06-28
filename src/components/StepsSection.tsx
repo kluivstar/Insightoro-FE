@@ -5,7 +5,6 @@ const StepsSection = () => {
   const steps = [
     {
       icon: Eye,
-      number: "Step 1",
       title: "We Scan Your Website",
       description: "Our AI analyzes your entire website to understand visitor behavior patterns and identify confusion points.",
       detailedDescription: "Using advanced behavioral analysis algorithms, we examine every element of your homepage - from visual hierarchy to content placement. We identify friction points that cause visitors to hesitate or leave.",
@@ -39,7 +38,6 @@ const StepsSection = () => {
     },
     {
       icon: BarChart3,
-      number: "Step 2", 
       title: "Generate Detailed Report",
       description: "Get a comprehensive report that allows your business to experience exactly what visitors see and feel when they land on your site.",
       detailedDescription: "Our system generates a detailed breakdown of your website's first impression performance, highlighting critical issues and opportunities for improvement with actionable insights that help you see through your visitors' eyes.",
@@ -85,7 +83,6 @@ const StepsSection = () => {
     },
     {
       icon: Lightbulb,
-      number: "Step 3",
       title: "Implement Clear Solutions",
       description: "Receive specific, actionable recommendations to transform confusion into clarity and boost conversions.",
       detailedDescription: "Get prioritized recommendations based on impact potential. Each suggestion comes with clear implementation guidance to help you optimize your visitor experience effectively.",
@@ -137,62 +134,47 @@ const StepsSection = () => {
           </p>
         </div>
         
-        <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <div key={index} className="relative">
-              {/* Connecting Arrow */}
+              {/* Connecting Line */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:flex absolute -bottom-12 left-1/2 transform -translate-x-1/2 items-center justify-center">
-                  <ArrowRight className="w-6 h-6 text-blue-400 rotate-90" />
-                </div>
+                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-300 z-10"></div>
               )}
               
-              <div className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-                {/* Content */}
-                <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} space-y-6`}>
-                  {/* Step Number */}
-                  <div className="inline-block">
-                    <div className="rounded-full px-6 py-3">
-                      <span className="text-black font-serif text-lg font-bold italic tracking-wide">
-                        {step.number}
-                      </span>
-                    </div>
+              {/* Card with border */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200 h-full">
+                {/* Icon and title */}
+                <div className="flex flex-col items-center text-center mb-6">
+                  <div className="w-16 h-16 rounded-xl flex items-center justify-center shadow-lg mb-4 border border-gray-200">
+                    <step.icon className="w-8 h-8 text-blue-500" />
                   </div>
-
-                  {/* Content Card */}
-                  <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    {/* Icon and title */}
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg">
-                        <step.icon className="w-6 h-6 text-blue-500" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-gray-900">
-                        {step.title}
-                      </h3>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <p className="text-gray-600 leading-relaxed text-lg">
-                        {step.description}
-                      </p>
-                      
-                      <p className="text-gray-500 leading-relaxed">
-                        {step.detailedDescription}
-                      </p>
-                    </div>
-                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {step.title}
+                  </h3>
                 </div>
-
-                {/* Mockup */}
-                <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} flex justify-center`}>
-                  <div className="relative w-full max-w-md aspect-square">
-                    <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-xl border border-blue-100/50 p-6">
+                
+                {/* Mockup - placed above description */}
+                <div className="mb-6">
+                  <div className="relative w-full aspect-square max-w-xs mx-auto">
+                    <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-lg border border-blue-100/50 p-4">
                       {step.mockupContent}
                     </div>
                     {/* Decorative elements */}
-                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-blue-200 rounded-full opacity-30"></div>
-                    <div className="absolute -bottom-3 -left-3 w-6 h-6 bg-indigo-200 rounded-full opacity-40"></div>
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-200 rounded-full opacity-30"></div>
+                    <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-indigo-200 rounded-full opacity-40"></div>
                   </div>
+                </div>
+                
+                {/* Description */}
+                <div className="space-y-4 text-center">
+                  <p className="text-gray-600 leading-relaxed">
+                    {step.description}
+                  </p>
+                  
+                  <p className="text-gray-500 leading-relaxed text-sm">
+                    {step.detailedDescription}
+                  </p>
                 </div>
               </div>
             </div>
