@@ -1,3 +1,4 @@
+
 import { Eye, Heart, Star, AlertCircle, CheckCircle, Target, Zap, ThumbsUp, HelpCircle, Users, Timer, Activity, FileText, Shield } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
 import { useState, useEffect } from 'react';
@@ -221,6 +222,13 @@ const RecommendationCard = ({ rec, index }) => {
     return () => clearTimeout(timer);
   }, [index]);
 
+  const getCategoryColor = (category) => {
+    if (category === 'Conversion') {
+      return 'bg-gradient-to-r from-orange-100 to-red-100 text-orange-700 border-orange-200';
+    }
+    return 'bg-blue-100/80 backdrop-blur-sm text-blue-700 border border-blue-200/50';
+  };
+
   return (
     <div className={`flex flex-col md:flex-row items-start gap-4 md:gap-6 p-4 md:p-6 rounded-xl border bg-white/90 backdrop-blur-sm border border-gray-200/80 transition-all duration-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
       <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-green-100">
@@ -232,7 +240,7 @@ const RecommendationCard = ({ rec, index }) => {
           <span className="px-2 md:px-3 py-1 rounded-full text-xs font-medium border bg-green-100/80 backdrop-blur-sm text-green-700 border-green-200/50">
             {rec.impact} Impact
           </span>
-          <span className="px-2 md:px-3 py-1 bg-blue-100/80 backdrop-blur-sm text-blue-700 rounded-full text-xs font-medium border border-blue-200/50">
+          <span className={`px-2 md:px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(rec.category)}`}>
             {rec.category}
           </span>
         </div>
@@ -267,7 +275,7 @@ const DemoSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight">
               Deep Insights,
               <br />
-              <span className="bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                 Actionable Results
               </span>
             </h2>

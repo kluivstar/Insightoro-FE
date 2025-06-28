@@ -152,8 +152,8 @@ const StepsSection = () => {
                 <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} space-y-6`}>
                   {/* Step Number */}
                   <div className="inline-block">
-                    <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full px-6 py-3 shadow-lg">
-                      <span className="text-white font-serif text-lg font-bold italic tracking-wide">
+                    <div className="rounded-full px-6 py-3">
+                      <span className="text-black font-serif text-lg font-bold italic tracking-wide">
                         {step.number}
                       </span>
                     </div>
@@ -163,8 +163,8 @@ const StepsSection = () => {
                   <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
                     {/* Icon and title */}
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg">
-                        <step.icon className="w-6 h-6 text-white" />
+                      <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg">
+                        <step.icon className="w-6 h-6 text-blue-500" />
                       </div>
                       <h3 className="text-2xl font-bold text-gray-900">
                         {step.title}
