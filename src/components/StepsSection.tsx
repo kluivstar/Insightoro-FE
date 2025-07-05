@@ -129,7 +129,7 @@ const StepsSection = () => {
         {/* Timeline layout */}
         <div className="max-w-7xl mx-auto space-y-16">
           {steps.map((step, index) => (
-            <div key={index} className="flex flex-col lg:flex-row items-center gap-12">
+            <div key={index} className={`flex flex-col lg:flex-row items-center gap-12 ${index === 1 ? 'lg:flex-row-reverse' : ''}`}>
               {/* Step number indicator */}
               <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
                 {index + 1}
@@ -146,7 +146,7 @@ const StepsSection = () => {
               
               {/* Content - Title and description */}
               <div className="flex-1 lg:max-w-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
                   {step.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
