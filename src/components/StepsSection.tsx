@@ -126,42 +126,27 @@ const StepsSection = () => {
           </p>
         </div>
         
-        {/* Timeline layout */}
-        <div className="max-w-7xl mx-auto space-y-16">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
-            <div key={index} className="flex flex-col lg:flex-row items-center gap-12">
-              {/* Step number indicator */}
-              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                {index + 1}
-              </div>
-              
-              {/* Image/Mockup */}
-              <div className="flex-1 max-w-md">
+            <div key={index} className="bg-white border border-gray-300 shadow-lg hover:shadow-xl transition-all duration-300 h-full rounded-lg">
+              {/* Image/Mockup first */}
+              <div className="p-6 border-b border-gray-300">
                 <div className="w-full aspect-square">
-                  <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100/50 p-4 rounded-xl">
+                  <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100/50 p-4 rounded-lg">
                     {step.mockupContent}
                   </div>
                 </div>
               </div>
               
-              {/* Content - Title and description */}
-              <div className="flex-1 lg:max-w-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              {/* Title and description */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                   {step.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-sm">
+                <p className="text-gray-600 leading-relaxed">
                   {step.description}
                 </p>
               </div>
-              
-              {/* Arrow pointing to next step (except for last step) */}
-              {index < steps.length - 1 && (
-                <div className="flex-shrink-0 text-gray-300">
-                  <svg className="w-8 h-8 transform rotate-90 lg:rotate-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              )}
             </div>
           ))}
         </div>
