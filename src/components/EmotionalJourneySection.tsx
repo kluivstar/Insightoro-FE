@@ -68,14 +68,14 @@ const EmotionalJourneySection = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {journeySteps.map((step, index) => (
             <div key={index} className="group relative">
-              <div className="relative bg-white backdrop-blur-sm p-8 border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full">
+              <div className="relative bg-white p-8 border border-gray-200 shadow-xl rounded-lg transition-all duration-300 overflow-hidden h-full">
                 {/* Decorative background element */}
                 <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-full blur-xl"></div>
                 
                 <div className="relative z-10">
                   {/* Time indicator */}
                   <div className="mb-6">
-                    <div className="text-sm font-bold text-gray-800 bg-gray-100 px-4 py-2 border border-gray-300 inline-block">
+                    <div className="text-sm font-bold text-gray-800 bg-gray-100 px-4 py-2 border border-gray-300 rounded-md inline-block">
                       {step.time}
                     </div>
                   </div>
@@ -101,14 +101,11 @@ const EmotionalJourneySection = () => {
                   </div>
                   
                   {/* Emotional state indicator */}
-                  <div className="bg-gray-50 p-4 border border-gray-200">
+                  <div className="bg-gray-50 p-4 border border-gray-200 rounded-md">
                     <div className="text-xs font-semibold text-gray-500 mb-2">Emotional State:</div>
                     <div className="text-sm font-medium text-gray-900">{step.emotion}</div>
                   </div>
                 </div>
-                
-                {/* Animated gradient border on hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-red-500/20 to-orange-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               </div>
             </div>
           ))}
