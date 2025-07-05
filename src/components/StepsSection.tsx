@@ -128,9 +128,9 @@ const StepsSection = () => {
         
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
-            <div key={index} className="bg-white border-2 border-gray-300 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+            <div key={index} className="bg-white border border-gray-300 shadow-lg hover:shadow-xl transition-all duration-300 h-full" style={{borderRadius: '2px'}}>
               {/* Image/Mockup first */}
-              <div className="p-6 border-b-2 border-gray-300">
+              <div className="p-6 border-b border-gray-300">
                 <div className="w-full aspect-square">
                   <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100/50 p-4">
                     {step.mockupContent}
