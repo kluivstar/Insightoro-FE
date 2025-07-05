@@ -73,9 +73,9 @@ const EmotionalJourneySection = () => {
                 <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-full blur-xl"></div>
                 
                 <div className="relative z-10">
-                  {/* Time indicator */}
+                  {/* Time indicator with orange-red background */}
                   <div className="mb-6">
-                    <div className="text-sm font-bold text-gray-800 bg-gray-100 px-4 py-2 border border-gray-300 rounded-md inline-block">
+                    <div className="text-sm font-bold text-white bg-gradient-to-r from-orange-500 to-red-500 px-4 py-2 rounded-md inline-block">
                       {step.time}
                     </div>
                   </div>

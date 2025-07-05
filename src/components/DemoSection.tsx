@@ -1,7 +1,6 @@
-
 import { Eye, Heart, Star, AlertCircle, CheckCircle, Target, Zap, ThumbsUp, HelpCircle, Users, Timer, Activity, FileText, Shield } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const insights = [
   { 
@@ -130,54 +129,89 @@ const firstThreeSecondData = [
 
 const InsightCard = ({ insight, index }) => {
   const [animatedScore, setAnimatedScore] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const interval = setInterval(() => {
-        setAnimatedScore(prev => {
-          if (prev >= insight.score) {
-            clearInterval(interval);
-            return insight.score;
-          }
-          return prev + 2;
-        });
-      }, 30);
-    }, index * 200);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
 
-    return () => clearTimeout(timer);
-  }, [insight.score, index]);
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isVisible) {
+      const timer = setTimeout(() => {
+        const interval = setInterval(() => {
+          setAnimatedScore(prev => {
+            if (prev >= insight.score) {
+              clearInterval(interval);
+              return insight.score;
+            }
+            return prev + 2;
+          });
+        }, 30);
+      }, index * 200);
+
+      return () => clearTimeout(timer);
+    }
+  }, [insight.score, index, isVisible]);
 
   return (
-    <div className="bg-gradient-to-br from-white to-gray-50/50 p-5 rounded-2xl border border-gray-200/60 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
-      <div className="flex items-center gap-3 mb-4">
-        <div className={`w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center shadow-lg backdrop-blur-sm border border-gray-700/20`}>
-          <insight.icon className="w-5 h-5 text-white" />
+    <div 
+      ref={cardRef}
+      className={`transform transition-all duration-700 ${
+        isVisible 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 translate-y-8'
+      }`}
+      style={{ transitionDelay: `${index * 150}ms` }}
+    >
+      <div className="bg-gradient-to-br from-white to-gray-50/50 p-5 rounded-2xl border border-gray-200/60 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
+        <div className="flex items-center gap-3 mb-4">
+          <div className={`w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center shadow-lg backdrop-blur-sm border border-gray-700/20`}>
+            <insight.icon className="w-5 h-5 text-white" />
+          </div>
+          <div className="flex-1">
+            <div className="text-2xl font-bold text-gray-900">{animatedScore}</div>
+            <div className="text-xs text-gray-500 font-medium">/ 100</div>
+          </div>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button className="text-gray-400 hover:text-gray-600">
+                <HelpCircle className="w-4 h-4" />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p className="max-w-xs">{insight.tooltip}</p>
+            </TooltipContent>
+          </Tooltip>
         </div>
-        <div className="flex-1">
-          <div className="text-2xl font-bold text-gray-900">{animatedScore}</div>
-          <div className="text-xs text-gray-500 font-medium">/ 100</div>
+        <p className="text-sm font-semibold text-gray-700 mb-2">{insight.category}</p>
+        <div className="flex items-center gap-2 mb-3">
+          <Activity className="w-4 h-4 text-gray-400" />
+          <span className="text-xs text-gray-500">{insight.metricLabel}: {insight.metric}</span>
         </div>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <button className="text-gray-400 hover:text-gray-600">
-              <HelpCircle className="w-4 h-4" />
-            </button>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p className="max-w-xs">{insight.tooltip}</p>
-          </TooltipContent>
-        </Tooltip>
-      </div>
-      <p className="text-sm font-semibold text-gray-700 mb-2">{insight.category}</p>
-      <div className="flex items-center gap-2 mb-3">
-        <Activity className="w-4 h-4 text-gray-400" />
-        <span className="text-xs text-gray-500">{insight.metricLabel}: {insight.metric}</span>
-      </div>
-      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-        <div 
-          className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-1000"
-          style={{ width: `${animatedScore}%` }}
-        ></div>
+        <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div 
+            className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-1000"
+            style={{ width: `${animatedScore}%` }}
+          ></div>
+        </div>
       </div>
     </div>
   );
@@ -305,7 +339,7 @@ const DemoSection = () => {
               
               {/* Content */}
               <div className="p-6 md:p-10">
-                {/* Core Metrics with animated progress bars */}
+                {/* Core Metrics with animated progress bars and scroll reveal */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
                   {insights.map((insight, index) => (
                     <InsightCard key={index} insight={insight} index={index} />
