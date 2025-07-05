@@ -48,7 +48,7 @@ const EmotionalJourneySection = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-5 py-2.5 rounded-full mb-8 border border-gray-200/50 shadow-lg">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 to-red-500/10 backdrop-blur-sm px-5 py-2.5 rounded-full mb-8 border border-orange-200/50 shadow-lg">
             <Clock className="w-4 h-4 text-orange-600" />
             <span className="text-sm font-semibold text-orange-600">Experience What Your Visitors Feel</span>
           </div>
@@ -68,14 +68,14 @@ const EmotionalJourneySection = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {journeySteps.map((step, index) => (
             <div key={index} className="group relative">
-              <div className="relative bg-white p-8 border border-gray-200 shadow-xl rounded-lg transition-all duration-300 overflow-hidden h-full">
+              <div className="relative bg-white p-8 border border-gray-200 shadow-xl rounded-xl transition-all duration-300 overflow-hidden h-full">
                 {/* Decorative background element */}
                 <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-full blur-xl"></div>
                 
                 <div className="relative z-10">
-                  {/* Time indicator with orange-red background */}
+                  {/* Time indicator with black background */}
                   <div className="mb-6">
-                    <div className="text-sm font-bold text-white bg-gradient-to-r from-orange-500 to-red-500 px-4 py-2 rounded-md inline-block">
+                    <div className="text-sm font-bold text-white bg-black px-4 py-2 rounded-md inline-block">
                       {step.time}
                     </div>
                   </div>
