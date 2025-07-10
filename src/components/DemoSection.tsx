@@ -1,6 +1,7 @@
-import { Eye, Heart, Star, AlertCircle, CheckCircle, Target, Zap, ThumbsUp, HelpCircle, Users, Timer, Activity, FileText, Shield } from 'lucide-react';
+import { Eye, Heart, Star, AlertCircle, CheckCircle, Target, Zap, ThumbsUp, HelpCircle, Users, Timer, Activity, FileText, Shield, ChevronDown } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
 import { useState, useEffect, useRef } from 'react';
+import Collapsible from 'react-collapsible';
 
 const insights = [
   { 
@@ -29,6 +30,15 @@ const insights = [
     color: "purple", 
     icon: Shield,
     tooltip: "Does the site look trustworthy at first glance? Based on polish, social proof, HTTPS, and design consistency."
+  },
+  { 
+    category: "CTA Visibility Analysis", 
+    score: 85, 
+    metric: "B+", 
+    metricLabel: "Visibility Score",
+    color: "orange", 
+    icon: Target,
+    tooltip: "How easily visitors can find and interact with your call-to-action buttons"
   }
 ];
 
@@ -167,26 +177,37 @@ const InsightCard = ({ insight, index }) => {
       case 'blue':
         return {
           gradient: 'from-blue-500 to-blue-600',
-          icon: 'from-blue-800 to-blue-900',
-          border: 'border-blue-700/20'
+          icon: 'from-gray-800 to-gray-900',
+          border: 'border-blue-700/20',
+          background: 'from-orange-50/30 to-sky-50/30'
         };
       case 'green':
         return {
           gradient: 'from-green-500 to-green-600',
-          icon: 'from-green-800 to-green-900',
-          border: 'border-green-700/20'
+          icon: 'from-gray-800 to-gray-900',
+          border: 'border-green-700/20',
+          background: 'from-sky-50/30 to-orange-50/30'
         };
       case 'purple':
         return {
           gradient: 'from-purple-500 to-purple-600',
-          icon: 'from-purple-800 to-purple-900',
-          border: 'border-purple-700/20'
+          icon: 'from-gray-800 to-gray-900',
+          border: 'border-purple-700/20',
+          background: 'from-orange-50/30 to-sky-50/30'
+        };
+      case 'orange':
+        return {
+          gradient: 'from-orange-500 to-orange-600',
+          icon: 'from-gray-800 to-gray-900',
+          border: 'border-orange-700/20',
+          background: 'from-sky-50/30 to-orange-50/30'
         };
       default:
         return {
           gradient: 'from-gray-500 to-gray-600',
           icon: 'from-gray-800 to-gray-900',
-          border: 'border-gray-700/20'
+          border: 'border-gray-700/20',
+          background: 'from-orange-50/30 to-sky-50/30'
         };
     }
   };
@@ -203,7 +224,7 @@ const InsightCard = ({ insight, index }) => {
       }`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
-      <div className="bg-gradient-to-br from-white to-gray-50/50 p-5 rounded-2xl border border-gray-200/60 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
+      <div className={`bg-gradient-to-br ${colorScheme.background} to-white p-5 rounded-2xl border border-gray-200/60 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm`}>
         <div className="flex items-center gap-3 mb-4">
           <div className={`w-10 h-10 bg-gradient-to-r ${colorScheme.icon} rounded-xl flex items-center justify-center shadow-lg backdrop-blur-sm border ${colorScheme.border}`}>
             <insight.icon className="w-5 h-5 text-white" />
@@ -230,7 +251,7 @@ const InsightCard = ({ insight, index }) => {
         </div>
         <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
           <div 
-            className={`h-full bg-gradient-to-r ${colorScheme.gradient} rounded-full transition-all duration-1000`}
+            className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-1000"
             style={{ width: `${animatedScore}%` }}
           ></div>
         </div>
@@ -362,7 +383,7 @@ const DemoSection = () => {
               {/* Content */}
               <div className="p-6 md:p-10">
                 {/* Core Metrics with animated progress bars and scroll reveal */}
-                <div className="grid md:grid-cols-3 gap-5 mb-12">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
                   {insights.map((insight, index) => (
                     <InsightCard key={index} insight={insight} index={index} />
                   ))}
@@ -486,17 +507,27 @@ const DemoSection = () => {
                     Priority Recommendations
                   </h4>
                   
-                  {/* All Recommendations with slide-in animation */}
+                   {/* Collapsible Recommendations */}
                   <div className="space-y-6 mb-8">
-                    <h5 className="text-base md:text-lg font-semibold text-gray-800 flex items-center gap-2">
-                      <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                        <CheckCircle className="w-4 h-4 text-green-600" />
+                    <Collapsible 
+                      trigger={
+                        <div className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+                          <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                            <CheckCircle className="w-4 h-4 text-green-600" />
+                          </div>
+                          <h5 className="text-base md:text-lg font-semibold text-gray-800">View Recommended Changes</h5>
+                          <ChevronDown className="w-5 h-5 text-gray-600 animate-bounce" />
+                        </div>
+                      }
+                      triggerClassName="w-full"
+                      className="w-full"
+                    >
+                      <div className="space-y-6 mt-4">
+                        {[...highImpactRecommendations, ...mediumImpactRecommendations].map((rec, index) => (
+                          <RecommendationCard key={index} rec={rec} index={index} />
+                        ))}
                       </div>
-                      Recommended Changes
-                    </h5>
-                    {[...highImpactRecommendations, ...mediumImpactRecommendations].map((rec, index) => (
-                      <RecommendationCard key={index} rec={rec} index={index} />
-                    ))}
+                    </Collapsible>
                   </div>
 
                   {/* What's Working Well & Quick Wins */}

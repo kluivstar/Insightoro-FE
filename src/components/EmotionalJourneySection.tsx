@@ -48,15 +48,15 @@ const EmotionalJourneySection = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 to-red-500/10 backdrop-blur-sm px-5 py-2.5 rounded-full mb-8 border border-orange-200/50 shadow-lg">
-            <Clock className="w-4 h-4 text-orange-600" />
-            <span className="text-sm font-semibold text-orange-600">Experience What Your Visitors Feel</span>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 backdrop-blur-sm px-5 py-2.5 rounded-full mb-8 border border-indigo-200/50 shadow-lg">
+            <Clock className="w-4 h-4 text-indigo-600" />
+            <span className="text-sm font-semibold text-indigo-900">Experience What Your Visitors Feel</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
             The Emotional Journey of
             <br />
-            <span className="bg-gradient-to-r from-orange-600 via-red-600 to-orange-700 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent">
               Every First Visit
             </span>
           </h2>
@@ -70,12 +70,12 @@ const EmotionalJourneySection = () => {
             <div key={index} className="group relative">
               <div className="relative bg-white p-8 border border-gray-200 shadow-xl rounded-xl transition-all duration-300 overflow-hidden h-full">
                 {/* Decorative background element */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-full blur-xl"></div>
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-full blur-xl"></div>
                 
                 <div className="relative z-10">
                   {/* Time indicator with black background */}
                   <div className="mb-6">
-                    <div className="text-xs font-bold text-white bg-black px-3 py-1.5 rounded-md inline-block">
+                    <div className="text-xs font-bold text-white bg-black px-2 py-1 rounded-md inline-block">
                       {step.time}
                     </div>
                   </div>
