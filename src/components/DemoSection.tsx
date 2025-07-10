@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 
 const insights = [
   { 
-    category: "First 3 Seconds Test", 
+    category: "First 10 Seconds Test", 
     score: 88, 
     metric: "2.1s", 
     metricLabel: "Recognition Time",
@@ -13,20 +13,11 @@ const insights = [
     tooltip: "Does the page instantly communicate its purpose and value? Includes headline clarity analysis."
   },
   { 
-    category: "CTA Visibility", 
-    score: 78, 
-    metric: "68%", 
-    metricLabel: "Visibility Score",
-    color: "blue", 
-    icon: Target,
-    tooltip: "How well your call-to-action buttons stand out and grab attention"
-  },
-  { 
     category: "Confusion Triggers", 
     score: 88, 
     metric: "A-", 
     metricLabel: "Clarity Grade",
-    color: "blue", 
+    color: "green", 
     icon: AlertCircle,
     tooltip: "Elements that may confuse visitors and prevent them from taking action"
   },
@@ -35,7 +26,7 @@ const insights = [
     score: 82, 
     metric: "B+", 
     metricLabel: "Trust Grade",
-    color: "blue", 
+    color: "purple", 
     icon: Shield,
     tooltip: "Does the site look trustworthy at first glance? Based on polish, social proof, HTTPS, and design consistency."
   }
@@ -171,6 +162,37 @@ const InsightCard = ({ insight, index }) => {
     }
   }, [insight.score, index, isVisible]);
 
+  const getColorScheme = (color) => {
+    switch (color) {
+      case 'blue':
+        return {
+          gradient: 'from-blue-500 to-blue-600',
+          icon: 'from-blue-800 to-blue-900',
+          border: 'border-blue-700/20'
+        };
+      case 'green':
+        return {
+          gradient: 'from-green-500 to-green-600',
+          icon: 'from-green-800 to-green-900',
+          border: 'border-green-700/20'
+        };
+      case 'purple':
+        return {
+          gradient: 'from-purple-500 to-purple-600',
+          icon: 'from-purple-800 to-purple-900',
+          border: 'border-purple-700/20'
+        };
+      default:
+        return {
+          gradient: 'from-gray-500 to-gray-600',
+          icon: 'from-gray-800 to-gray-900',
+          border: 'border-gray-700/20'
+        };
+    }
+  };
+
+  const colorScheme = getColorScheme(insight.color);
+
   return (
     <div 
       ref={cardRef}
@@ -183,7 +205,7 @@ const InsightCard = ({ insight, index }) => {
     >
       <div className="bg-gradient-to-br from-white to-gray-50/50 p-5 rounded-2xl border border-gray-200/60 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
         <div className="flex items-center gap-3 mb-4">
-          <div className={`w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center shadow-lg backdrop-blur-sm border border-gray-700/20`}>
+          <div className={`w-10 h-10 bg-gradient-to-r ${colorScheme.icon} rounded-xl flex items-center justify-center shadow-lg backdrop-blur-sm border ${colorScheme.border}`}>
             <insight.icon className="w-5 h-5 text-white" />
           </div>
           <div className="flex-1">
@@ -196,7 +218,7 @@ const InsightCard = ({ insight, index }) => {
                 <HelpCircle className="w-4 h-4" />
               </button>
             </TooltipTrigger>
-            <TooltipContent>
+            <TooltipContent className="z-50 relative">
               <p className="max-w-xs">{insight.tooltip}</p>
             </TooltipContent>
           </Tooltip>
@@ -208,7 +230,7 @@ const InsightCard = ({ insight, index }) => {
         </div>
         <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
           <div 
-            className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-1000"
+            className={`h-full bg-gradient-to-r ${colorScheme.gradient} rounded-full transition-all duration-1000`}
             style={{ width: `${animatedScore}%` }}
           ></div>
         </div>
@@ -340,7 +362,7 @@ const DemoSection = () => {
               {/* Content */}
               <div className="p-6 md:p-10">
                 {/* Core Metrics with animated progress bars and scroll reveal */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+                <div className="grid md:grid-cols-3 gap-5 mb-12">
                   {insights.map((insight, index) => (
                     <InsightCard key={index} insight={insight} index={index} />
                   ))}
@@ -352,15 +374,15 @@ const DemoSection = () => {
                     <div className="w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center backdrop-blur-sm border border-gray-700/20">
                       <Timer className="w-5 h-5 text-white" />
                     </div>
-                    <h4 className="text-lg md:text-xl font-bold text-gray-900">First 3 Seconds Test - Detailed Analysis</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-gray-900">First 10 Seconds Test - Detailed Analysis</h4>
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <button className="text-gray-400 hover:text-gray-600">
                           <HelpCircle className="w-4 h-4" />
                         </button>
                       </TooltipTrigger>
-                      <TooltipContent>
-                        <p className="max-w-xs">Comprehensive analysis of how visitors process your page in the critical first 3 seconds</p>
+                      <TooltipContent className="z-50 relative">
+                        <p className="max-w-xs">Comprehensive analysis of how visitors process your page in the critical first 10 seconds</p>
                       </TooltipContent>
                     </Tooltip>
                   </div>

@@ -61,11 +61,11 @@ const EmotionalJourneySection = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Understanding what happens in your visitor's mind during those critical first 15 seconds
+            Understanding what happens in your visitor's mind during those critical first 10 seconds
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {journeySteps.map((step, index) => (
             <div key={index} className="group relative">
               <div className="relative bg-white p-8 border border-gray-200 shadow-xl rounded-xl transition-all duration-300 overflow-hidden h-full">
@@ -75,7 +75,7 @@ const EmotionalJourneySection = () => {
                 <div className="relative z-10">
                   {/* Time indicator with black background */}
                   <div className="mb-6">
-                    <div className="text-sm font-bold text-white bg-black px-4 py-2 rounded-md inline-block">
+                    <div className="text-xs font-bold text-white bg-black px-3 py-1.5 rounded-md inline-block">
                       {step.time}
                     </div>
                   </div>

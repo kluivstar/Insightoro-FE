@@ -74,8 +74,8 @@ const EmailFooter = () => {
                 <Shield className="w-6 h-6 text-black" />
               </div>
               <div>
-                <div className="text-white font-semibold">Launching Soon</div>
-                <div className="text-gray-400 text-sm">Be the first to know</div>
+                <div className="text-white font-semibold">Be the First</div>
+                <div className="text-gray-400 text-sm">Join the new insightful tool</div>
               </div>
             </div>
             

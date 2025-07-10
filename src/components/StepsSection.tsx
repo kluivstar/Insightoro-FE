@@ -128,42 +128,46 @@ const StepsSection = () => {
         
         {/* Timeline layout */}
         <div className="max-w-7xl mx-auto space-y-16">
-          {steps.map((step, index) => (
-            <div key={index} className="flex flex-col lg:flex-row items-center gap-12">
-              {/* Step number indicator */}
-              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                {index + 1}
-              </div>
-              
-              {/* Image/Mockup */}
-              <div className="flex-1 max-w-md">
-                <div className="w-full aspect-square">
-                  <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100/50 p-4 rounded-xl">
-                    {step.mockupContent}
+          {steps.map((step, index) => {
+            const isReversed = index === 1; // Middle step (index 1) is reversed
+            
+            return (
+              <div key={index} className={`flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-8 lg:gap-12`}>
+                {/* Step number indicator */}
+                <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                  {index + 1}
+                </div>
+                
+                {/* Image/Mockup - responsive sizing */}
+                <div className="flex-1 w-full max-w-sm md:max-w-md lg:max-w-lg">
+                  <div className="w-full aspect-square">
+                    <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100/50 p-2 md:p-4 rounded-xl">
+                      {step.mockupContent}
+                    </div>
                   </div>
                 </div>
-              </div>
-              
-              {/* Content - Title and description */}
-              <div className="flex-1 lg:max-w-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-sm">
-                  {step.description}
-                </p>
-              </div>
-              
-              {/* Arrow pointing to next step (except for last step) */}
-              {index < steps.length - 1 && (
-                <div className="flex-shrink-0 text-gray-300">
-                  <svg className="w-8 h-8 transform rotate-90 lg:rotate-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                  </svg>
+                
+                {/* Content - Title and description with more gap */}
+                <div className="flex-1 lg:max-w-lg">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-xs">
+                    {step.description}
+                  </p>
                 </div>
-              )}
-            </div>
-          ))}
+                
+                {/* Arrow pointing to next step (except for last step) */}
+                {index < steps.length - 1 && (
+                  <div className="flex-shrink-0 text-gray-300 lg:hidden">
+                    <svg className="w-8 h-8 transform rotate-90" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
