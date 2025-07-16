@@ -55,6 +55,21 @@ const HeroSection = () => {
             Insightoro reveals the emotional journey of your first-time visitors — what they see, feel, and experience before they decide to stay or leave.
           </p>
           
+          {/* Call to action buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <Button 
+              onClick={() => {
+                const demoSection = document.getElementById('demo-section');
+                if (demoSection) {
+                  demoSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="h-16 px-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl animate-bounce"
+            >
+              Try Now
+            </Button>
+          </div>
+
           {/* Modern email capture */}
           <div className="max-w-md mx-auto mb-16">
             <form onSubmit={handleEmailSubmit} className="flex gap-3 p-1.5 bg-white/90 backdrop-blur-md rounded-2xl border border-gray-200/50 shadow-xl">

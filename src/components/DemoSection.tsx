@@ -522,6 +522,14 @@ const DemoSection = () => {
                     <h3 className="text-2xl font-bold text-white mb-2">Visitor Experience Analysis</h3>
                     <p className="text-gray-300">yourwebsite.com • Analyzed 3 minutes ago</p>
                   </div>
+                  <Button
+                    onClick={() => setCurrentState('form')}
+                    variant="outline"
+                    className="bg-white/10 border-white/30 text-white hover:bg-white/20 px-6 py-3 rounded-xl flex items-center gap-2"
+                  >
+                    <RotateCcw className="w-4 h-4" />
+                    Scan Another Website
+                  </Button>
                 </div>
               </div>
               
@@ -596,52 +604,6 @@ const DemoSection = () => {
                   </div>
                 </div>
 
-                {/* CTA Visibility Details */}
-                <div className="bg-gradient-to-br from-slate-50/80 to-gray-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-slate-200/50 mb-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center backdrop-blur-sm border border-gray-700/20">
-                      <Target className="w-5 h-5 text-white" />
-                    </div>
-                    <h4 className="text-lg md:text-xl font-bold text-gray-900">CTA Visibility Analysis</h4>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <button className="text-gray-400 hover:text-gray-600">
-                          <HelpCircle className="w-4 h-4" />
-                        </button>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p className="max-w-xs">Evaluates how well your call-to-action buttons capture visitor attention and drive conversions</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </div>
-                  
-                  <div className="text-center mb-6">
-                    <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">78%</div>
-                    <div className="text-sm text-gray-600 mb-4">Good visibility with room for improvement</div>
-                    <div className="text-xs text-blue-600 font-medium bg-blue-100/70 backdrop-blur-sm px-3 py-2 rounded-full inline-block border border-blue-200/50">
-                      Potential 25-35% conversion uplift
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <span className="text-sm font-medium text-gray-700">Button Contrast</span>
-                      <span className="text-sm font-bold text-green-600">Excellent</span>
-                    </div>
-                    <div className="flex justify-between items-center p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <span className="text-sm font-medium text-gray-700">Placement Score</span>
-                      <span className="text-sm font-bold text-blue-600">Good</span>
-                    </div>
-                    <div className="flex justify-between items-center p-3 bg-white/80 backdrop-blur-sm rounded-lg border border-white/80">
-                      <span className="text-sm font-medium text-gray-700">Button Size</span>
-                      <span className="text-sm font-bold text-yellow-600">Needs Work</span>
-                    </div>
-                    <div className="p-3 bg-orange-100/70 backdrop-blur-sm rounded-lg border border-orange-200/50">
-                      <div className="text-xs font-semibold text-orange-800 mb-1">Business Impact:</div>
-                      <div className="text-xs text-black font-medium">Improving CTA visibility typically increases conversion rates by 15-40% and reduces visitor hesitation by 60%</div>
-                    </div>
-                  </div>
-                </div>
 
                 {/* Priority Recommendations with slide-in animation */}
                 <div className="bg-gradient-to-br from-amber-50/80 to-orange-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-amber-200/50 mb-8">
@@ -683,15 +645,19 @@ const DemoSection = () => {
                     </h5>
                     
                     <div className="grid gap-4">
-                      {['Conversion Flow Test', 'Trust Signals Analysis', 'Mobile Experience Audit'].map((item, index) => (
+                      {[
+                        { name: 'CTA Visibility Analysis', devices: ['desktop', 'mobile'] },
+                        { name: 'Confusion Triggers', devices: ['desktop'] },
+                        { name: 'Trust Experience Score', devices: ['mobile'] }
+                      ].map((item, index) => (
                         <div key={index} className="flex items-center justify-between p-4 bg-gray-100/60 rounded-lg border border-gray-200">
                           <div className="flex items-center gap-3">
                             <Lock className="w-4 h-4 text-gray-400" />
-                            <span className="font-medium text-gray-600">{item}</span>
+                            <span className="font-medium text-gray-600">{item.name}</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <Monitor className="w-4 h-4 text-blue-500" />
-                            <Smartphone className="w-4 h-4 text-blue-500" />
+                            {item.devices.includes('desktop') && <Monitor className="w-4 h-4 text-orange-500" />}
+                            {item.devices.includes('mobile') && <Smartphone className="w-4 h-4 text-sky-500" />}
                             <span className="text-xs text-gray-500 bg-gray-200 px-2 py-1 rounded">Pro Feature</span>
                           </div>
                         </div>
@@ -733,17 +699,6 @@ const DemoSection = () => {
                   </div>
                 </div>
 
-                {/* Scan Another Website Button */}
-                <div className="text-center">
-                  <Button
-                    onClick={() => setCurrentState('form')}
-                    variant="outline"
-                    className="bg-white/90 border-2 border-gray-300 hover:border-gray-400 py-3 px-8 text-base font-semibold rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
-                  >
-                    <RotateCcw className="w-5 h-5" />
-                    Scan Another Website
-                  </Button>
-                </div>
               </div>
             </div>
           </div>

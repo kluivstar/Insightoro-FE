@@ -13,7 +13,9 @@ const Index = () => {
       <EmotionalJourneySection />
       <BeforeAfterSection />
       <StepsSection />
-      <DemoSection />
+      <div id="demo-section">
+        <DemoSection />
+      </div>
       <EmailFooter />
     </div>
   );
