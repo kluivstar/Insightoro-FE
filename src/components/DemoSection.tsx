@@ -1,4 +1,4 @@
-import { Eye, Search, Sparkles, Loader2, CheckCircle, Timer, Target, Zap, ThumbsUp, HelpCircle, AlertCircle, Activity, Shield, ChevronDown } from 'lucide-react';
+import { Eye, Search, Sparkles, Loader2, CheckCircle, Timer, Target, Zap, ThumbsUp, HelpCircle, AlertCircle, Activity, Shield, ChevronDown, RotateCcw, Lock, Monitor, Smartphone } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
@@ -319,7 +319,13 @@ const RecommendationCard = ({ rec, index }) => {
               <div className="w-3 h-3 bg-gray-400 rounded-full"></div>
               <span className="font-medium">Affected Section:</span>
             </div>
-            <span className="md:ml-0">{rec.mockup}</span>
+            <div className="flex items-center gap-2">
+              <span className="md:ml-0">{rec.mockup}</span>
+              <div className="flex items-center gap-1">
+                <Monitor className="w-3 h-3 text-blue-500" />
+                <Smartphone className="w-3 h-3 text-blue-500" />
+              </div>
+            </div>
           </div>
           <div className="bg-white/60 backdrop-blur-sm h-6 md:h-8 rounded border border-gray-300/50 flex items-center px-2 md:px-3">
             <div className="text-xs text-gray-500">Visual mockup preview</div>
@@ -336,10 +342,10 @@ const DemoSection = () => {
   const [currentStep, setCurrentStep] = useState(0);
 
   const progressSteps = [
-    { icon: '🔍', text: 'Analyzing visual hierarchy', delay: 1000 },
-    { icon: '🧠', text: 'Understanding user flow', delay: 2500 },
-    { icon: '❤️', text: 'Measuring emotional impact', delay: 4000 },
-    { icon: '⚡', text: 'Generating insights', delay: 5500 }
+    { icon: Search, text: 'Analyzing visual hierarchy', delay: 1000 },
+    { icon: Activity, text: 'Understanding user flow', delay: 2500 },
+    { icon: Target, text: 'Measuring emotional impact', delay: 4000 },
+    { icon: Zap, text: 'Generating insights', delay: 5500 }
   ];
 
   const handleScanSite = () => {
@@ -476,7 +482,7 @@ const DemoSection = () => {
                         : 'bg-gray-50 border border-gray-200'
                     }`}
                   >
-                    <div className="text-2xl">{step.icon}</div>
+                    <step.icon className="w-6 h-6 text-orange-600" />
                     <div className="flex-1 text-left">
                       <span className={`font-medium ${
                         currentStep > index ? 'text-green-700' : 'text-gray-700'
@@ -643,10 +649,10 @@ const DemoSection = () => {
                     <div className="w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center backdrop-blur-sm border border-gray-700/20">
                       <Zap className="w-5 h-5 text-white" />
                     </div>
-                    Priority Recommendations
+                    Signature Touches Analysis
                   </h4>
                   
-                   {/* Collapsible Recommendations */}
+                  {/* Detailed Signature Touches */}
                   <div className="space-y-6 mb-8">
                     <Collapsible 
                       trigger={
@@ -667,6 +673,30 @@ const DemoSection = () => {
                         ))}
                       </div>
                     </Collapsible>
+                  </div>
+
+                  {/* Other Signature Touches - Locked */}
+                  <div className="space-y-4 mb-8">
+                    <h5 className="text-base font-semibold text-gray-800 flex items-center gap-2">
+                      <Activity className="w-5 h-5 text-blue-600" />
+                      Other Signature Touches
+                    </h5>
+                    
+                    <div className="grid gap-4">
+                      {['Conversion Flow Test', 'Trust Signals Analysis', 'Mobile Experience Audit'].map((item, index) => (
+                        <div key={index} className="flex items-center justify-between p-4 bg-gray-100/60 rounded-lg border border-gray-200">
+                          <div className="flex items-center gap-3">
+                            <Lock className="w-4 h-4 text-gray-400" />
+                            <span className="font-medium text-gray-600">{item}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Monitor className="w-4 h-4 text-blue-500" />
+                            <Smartphone className="w-4 h-4 text-blue-500" />
+                            <span className="text-xs text-gray-500 bg-gray-200 px-2 py-1 rounded">Pro Feature</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
                   {/* What's Working Well & Quick Wins */}
@@ -701,6 +731,18 @@ const DemoSection = () => {
                       </div>
                     </div>
                   </div>
+                </div>
+
+                {/* Scan Another Website Button */}
+                <div className="text-center">
+                  <Button
+                    onClick={() => setCurrentState('form')}
+                    variant="outline"
+                    className="bg-white/90 border-2 border-gray-300 hover:border-gray-400 py-3 px-8 text-base font-semibold rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
+                  >
+                    <RotateCcw className="w-5 h-5" />
+                    Scan Another Website
+                  </Button>
                 </div>
               </div>
             </div>
