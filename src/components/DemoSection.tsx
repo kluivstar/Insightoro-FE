@@ -1,6 +1,7 @@
-import { Eye, Heart, Star, AlertCircle, CheckCircle, Target, Zap, ThumbsUp, HelpCircle, Users, Timer, Activity, FileText, Shield, ChevronDown } from 'lucide-react';
-import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
+import { Eye, Search, Sparkles, Loader2, CheckCircle, Timer, Target, Zap, ThumbsUp, HelpCircle, AlertCircle, Activity, Shield, ChevronDown } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
 import Collapsible from 'react-collapsible';
 
 const insights = [
@@ -88,15 +89,6 @@ const quickWins = [
   "Add urgency indicator to special offer"
 ];
 
-// Emotional first impressions data
-const emotionalImpressions = [
-  { emotion: "Confused", percentage: 23, description: "Layout feels cluttered and overwhelming" },
-  { emotion: "Skeptical", percentage: 31, description: "Missing trust signals and social proof" },
-  { emotion: "Curious", percentage: 28, description: "Intrigued but needs clearer value proposition" },
-  { emotion: "Confident", percentage: 18, description: "Ready to engage and take action" }
-];
-
-// New detailed First 3 Seconds Test data
 const firstThreeSecondData = [
   { 
     metric: "Message Clarity", 
@@ -339,33 +331,180 @@ const RecommendationCard = ({ rec, index }) => {
 };
 
 const DemoSection = () => {
+  const [currentState, setCurrentState] = useState('form'); // 'form', 'loading', 'results'
+  const [url, setUrl] = useState('');
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const progressSteps = [
+    { icon: '🔍', text: 'Analyzing visual hierarchy', delay: 1000 },
+    { icon: '🧠', text: 'Understanding user flow', delay: 2500 },
+    { icon: '❤️', text: 'Measuring emotional impact', delay: 4000 },
+    { icon: '⚡', text: 'Generating insights', delay: 5500 }
+  ];
+
+  const handleScanSite = () => {
+    if (url.trim()) {
+      setCurrentState('loading');
+      setCurrentStep(0);
+      
+      // Animate through steps
+      progressSteps.forEach((step, index) => {
+        setTimeout(() => {
+          setCurrentStep(index + 1);
+        }, step.delay);
+      });
+
+      // Show results after all steps
+      setTimeout(() => {
+        setCurrentState('results');
+      }, 7000);
+    }
+  };
+
+  const handleTryDemo = () => {
+    setCurrentState('loading');
+    setCurrentStep(0);
+    
+    // Animate through steps
+    progressSteps.forEach((step, index) => {
+      setTimeout(() => {
+        setCurrentStep(index + 1);
+      }, step.delay);
+    });
+
+    // Show results after all steps
+    setTimeout(() => {
+      setCurrentState('results');
+    }, 7000);
+  };
+
+  if (currentState === 'form') {
+    return (
+      <section className="py-32 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-20 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight">
+              Ready to See What
+              <br />
+              <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                Visitors Really Think?
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
+              Get a comprehensive analysis of your visitor's emotional and visual journey in seconds.
+            </p>
+          </div>
+
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-200/50 p-8 md:p-12">
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <Search className="h-6 w-6 text-gray-400" />
+                </div>
+                <input
+                  type="url"
+                  value={url}
+                  onChange={(e) => setUrl(e.target.value)}
+                  placeholder="Enter your website URL (e.g., https://yoursite.com)"
+                  className="w-full pl-12 pr-4 py-6 text-lg border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                />
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                <Button
+                  onClick={handleScanSite}
+                  className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-6 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  Scan Site
+                </Button>
+                
+                <Button
+                  onClick={handleTryDemo}
+                  variant="outline"
+                  className="flex-1 border-2 border-gray-300 hover:border-gray-400 py-6 text-lg font-semibold rounded-2xl transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  <Sparkles className="w-5 h-5" />
+                  Try Demo Results
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (currentState === 'loading') {
+    return (
+      <section className="py-32 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-200/50 p-12">
+              {/* Animated Scanner */}
+              <div className="relative mb-8">
+                <div className="w-32 h-32 mx-auto relative">
+                  {/* Rotating gradient rings */}
+                  <div className="absolute inset-0 rounded-full border-4 border-transparent bg-gradient-to-r from-blue-500 to-purple-500 animate-spin">
+                    <div className="absolute inset-2 rounded-full bg-white"></div>
+                  </div>
+                  <div className="absolute inset-2 rounded-full border-4 border-transparent bg-gradient-to-r from-purple-500 to-pink-500 animate-spin" style={{ animationDirection: 'reverse', animationDuration: '3s' }}>
+                    <div className="absolute inset-2 rounded-full bg-white"></div>
+                  </div>
+                  
+                  {/* Eye icon with bounce */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center animate-bounce">
+                      <Eye className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Scanning your website</h3>
+              <p className="text-gray-600 mb-8">This usually takes 10-15 seconds</p>
+
+              {/* Progress Steps */}
+              <div className="space-y-4">
+                {progressSteps.map((step, index) => (
+                  <div 
+                    key={index}
+                    className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-500 ${
+                      currentStep > index 
+                        ? 'bg-green-50 border border-green-200' 
+                        : currentStep === index + 1 
+                        ? 'bg-blue-50 border border-blue-200' 
+                        : 'bg-gray-50 border border-gray-200'
+                    }`}
+                  >
+                    <div className="text-2xl">{step.icon}</div>
+                    <div className="flex-1 text-left">
+                      <span className={`font-medium ${
+                        currentStep > index ? 'text-green-700' : 'text-gray-700'
+                      }`}>
+                        {step.text}
+                      </span>
+                    </div>
+                    {currentStep > index && (
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                    )}
+                    {currentStep === index + 1 && (
+                      <Loader2 className="w-5 h-5 text-blue-600 animate-spin" />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // For results state, we'll show the original demo results
   return (
     <TooltipProvider>
       <section className="py-32 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-20 animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 backdrop-blur-sm px-6 py-3 rounded-full mb-8 border border-indigo-200/50">
-              <Star className="w-5 h-5 text-indigo-600" />
-              <span className="text-sm font-semibold text-indigo-900">Your Visitor Experience Report</span>
-            </div>
-            
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight">
-              Deep Insights,
-              <br />
-              <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-                Actionable Results
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Get a comprehensive analysis of your visitor's emotional and visual journey, 
-              with specific recommendations to improve clarity and drive conversions.
-            </p>
-            {/* Reduced font size for desktop */}
-            <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto mt-4">
-              Your website might be pushing people away in seconds.
-            </p>
-          </div>
-          
           <div className="max-w-7xl mx-auto animate-fade-in">
             {/* Main Report Card */}
             <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-200/50 overflow-hidden">
