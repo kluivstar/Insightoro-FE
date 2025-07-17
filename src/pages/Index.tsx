@@ -14,9 +14,13 @@ const Index = () => {
       <Header />
       <div className="pt-16">
         <HeroSection />
-        <EmotionalJourneySection />
+        <div id="emotional-journey">
+          <EmotionalJourneySection />
+        </div>
         <BeforeAfterSection />
-        <StepsSection />
+        <div id="how-it-works">
+          <StepsSection />
+        </div>
         <div id="demo-section">
           <DemoSection />
         </div>

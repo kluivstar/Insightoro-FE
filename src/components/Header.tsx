@@ -18,28 +18,32 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <a href="#emotional-journey" className="text-gray-600 hover:text-gray-900 transition-colors">
               Features
             </a>
             <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors">
               How it Works
             </a>
-            <a href="#demo" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <a href="#demo-section" className="text-gray-600 hover:text-gray-900 transition-colors">
               Demo
             </a>
-            <Button 
-              variant="outline" 
-              size="sm"
-              className="border-gray-300 hover:border-gray-400"
-            >
-              Sign In
-            </Button>
-            <Button 
-              size="sm"
-              className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700"
-            >
-              Get Started
-            </Button>
+            <a href="/sign-in">
+              <Button 
+                variant="outline" 
+                size="sm"
+                className="border-gray-300 hover:border-gray-400"
+              >
+                Sign In
+              </Button>
+            </a>
+            <a href="/get-started">
+              <Button 
+                size="sm"
+                className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700"
+              >
+                Get Started
+              </Button>
+            </a>
           </nav>
 
           {/* Mobile menu button */}
@@ -58,29 +62,33 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200/50">
             <nav className="flex flex-col space-y-4">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors py-2">
+              <a href="#emotional-journey" className="text-gray-600 hover:text-gray-900 transition-colors py-2">
                 Features
               </a>
               <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors py-2">
                 How it Works
               </a>
-              <a href="#demo" className="text-gray-600 hover:text-gray-900 transition-colors py-2">
+              <a href="#demo-section" className="text-gray-600 hover:text-gray-900 transition-colors py-2">
                 Demo
               </a>
               <div className="flex flex-col space-y-2 pt-4">
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  className="border-gray-300 hover:border-gray-400"
-                >
-                  Sign In
-                </Button>
-                <Button 
-                  size="sm"
-                  className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700"
-                >
-                  Get Started
-                </Button>
+                <a href="/sign-in">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    className="border-gray-300 hover:border-gray-400 w-full"
+                  >
+                    Sign In
+                  </Button>
+                </a>
+                <a href="/get-started">
+                  <Button 
+                    size="sm"
+                    className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 w-full"
+                  >
+                    Get Started
+                  </Button>
+                </a>
               </div>
             </nav>
           </div>
