@@ -55,35 +55,20 @@ const HeroSection = () => {
             Insightoro reveals the emotional journey of your first-time visitors — what they see, feel, and experience before they decide to stay or leave.
           </p>
           
-          {/* Call to action buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <Button 
-              onClick={() => {
-                const demoSection = document.getElementById('demo-section');
-                if (demoSection) {
-                  demoSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="h-16 px-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl animate-bounce"
-            >
-              Try Now
-            </Button>
-          </div>
-
           {/* Modern email capture */}
-          <div className="max-w-md mx-auto mb-16">
+          <div className="max-w-md mx-auto mb-8">
             <form onSubmit={handleEmailSubmit} className="flex gap-3 p-1.5 bg-white/90 backdrop-blur-md rounded-2xl border border-gray-200/50 shadow-xl">
               <Input
                 type="email"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 h-14 text-base border-0 bg-transparent focus:ring-0 focus:outline-none placeholder:text-gray-500"
+                className="flex-1 h-12 text-base border-0 bg-transparent focus:ring-0 focus:outline-none placeholder:text-gray-500"
                 required
               />
               <Button 
                 type="submit"
-                className="h-14 px-8 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl"
+                className="h-12 px-6 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl"
               >
                 Get Early Access
               </Button>
@@ -92,6 +77,21 @@ const HeroSection = () => {
               <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
               Join 500+ business owners • No spam, just insights
             </p>
+          </div>
+
+          {/* Try Now Button */}
+          <div className="flex justify-center mb-16">
+            <Button 
+              onClick={() => {
+                const demoSection = document.getElementById('demo-section');
+                if (demoSection) {
+                  demoSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg transition-all duration-300 hover:shadow-xl animate-float-slow flex items-center justify-center"
+            >
+              ⬇️
+            </Button>
           </div>
         </div>
       </div>

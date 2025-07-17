@@ -1,4 +1,4 @@
-import { Eye, Search, Sparkles, Loader2, CheckCircle, Timer, Target, Zap, ThumbsUp, HelpCircle, AlertCircle, Activity, Shield, ChevronDown, RotateCcw, Lock, Monitor, Smartphone } from 'lucide-react';
+import { Search, Sparkles, Loader2, CheckCircle, Timer, Target, Zap, ThumbsUp, HelpCircle, AlertCircle, Activity, Shield, ChevronDown, RotateCcw, Lock, Monitor, Smartphone } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
@@ -457,10 +457,10 @@ const DemoSection = () => {
                     <div className="absolute inset-2 rounded-full bg-white"></div>
                   </div>
                   
-                  {/* Eye icon with bounce */}
+                   {/* Scanner icon with bounce */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center animate-bounce">
-                      <Eye className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 bg-gradient-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center animate-bounce">
+                      <Search className="w-8 h-8 text-white" />
                     </div>
                   </div>
                 </div>
@@ -604,6 +604,33 @@ const DemoSection = () => {
                   </div>
                 </div>
 
+                {/* Other Signature Touches - Locked */}
+                <div className="space-y-4 mb-8">
+                  <h5 className="text-base font-semibold text-gray-800 flex items-center gap-2">
+                    <Activity className="w-5 h-5 text-blue-600" />
+                    Other Signature Touches
+                  </h5>
+                  
+                  <div className="grid gap-4">
+                    {[
+                      { name: 'CTA Visibility Analysis', devices: ['desktop', 'mobile'] },
+                      { name: 'Confusion Triggers', devices: ['desktop'] },
+                      { name: 'Trust Experience Score', devices: ['mobile'] }
+                    ].map((item, index) => (
+                      <div key={index} className="flex items-center justify-between p-4 bg-gray-100/60 rounded-lg border border-gray-200">
+                        <div className="flex items-center gap-3">
+                          <Lock className="w-4 h-4 text-gray-400" />
+                          <span className="font-medium text-gray-600">{item.name}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          {item.devices.includes('desktop') && <Monitor className="w-4 h-4 text-orange-500" />}
+                          {item.devices.includes('mobile') && <Smartphone className="w-4 h-4 text-sky-500" />}
+                          <span className="text-xs text-gray-500 bg-gray-200 px-2 py-1 rounded">Pro Feature</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
                 {/* Priority Recommendations with slide-in animation */}
                 <div className="bg-gradient-to-br from-amber-50/80 to-orange-50/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-amber-200/50 mb-8">
@@ -611,7 +638,7 @@ const DemoSection = () => {
                     <div className="w-10 h-10 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center backdrop-blur-sm border border-gray-700/20">
                       <Zap className="w-5 h-5 text-white" />
                     </div>
-                    Signature Touches Analysis
+                    Priority Recommendations
                   </h4>
                   
                   {/* Detailed Signature Touches */}
@@ -637,33 +664,6 @@ const DemoSection = () => {
                     </Collapsible>
                   </div>
 
-                  {/* Other Signature Touches - Locked */}
-                  <div className="space-y-4 mb-8">
-                    <h5 className="text-base font-semibold text-gray-800 flex items-center gap-2">
-                      <Activity className="w-5 h-5 text-blue-600" />
-                      Other Signature Touches
-                    </h5>
-                    
-                    <div className="grid gap-4">
-                      {[
-                        { name: 'CTA Visibility Analysis', devices: ['desktop', 'mobile'] },
-                        { name: 'Confusion Triggers', devices: ['desktop'] },
-                        { name: 'Trust Experience Score', devices: ['mobile'] }
-                      ].map((item, index) => (
-                        <div key={index} className="flex items-center justify-between p-4 bg-gray-100/60 rounded-lg border border-gray-200">
-                          <div className="flex items-center gap-3">
-                            <Lock className="w-4 h-4 text-gray-400" />
-                            <span className="font-medium text-gray-600">{item.name}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            {item.devices.includes('desktop') && <Monitor className="w-4 h-4 text-orange-500" />}
-                            {item.devices.includes('mobile') && <Smartphone className="w-4 h-4 text-sky-500" />}
-                            <span className="text-xs text-gray-500 bg-gray-200 px-2 py-1 rounded">Pro Feature</span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
 
                   {/* What's Working Well & Quick Wins */}
                   <div className="grid md:grid-cols-2 gap-6">
