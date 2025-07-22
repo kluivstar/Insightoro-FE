@@ -10,7 +10,7 @@ const Footer = () => {
             <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
               Insightoro
             </h3>
-            <p className="text-gray-400 mb-6 max-w-md">
+            <p className="text-white mb-6 max-w-md">
               Understand your visitors' emotional journey and optimize your website for better conversions.
             </p>
             <div className="flex space-x-4">
@@ -31,23 +31,23 @@ const Footer = () => {
 
           {/* Product */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">Product</h4>
+            <h4 className="font-semibold mb-4 text-white underline">Product</h4>
             <ul className="space-y-2">
-              <li><a href="#emotional-journey" className="text-slate-300 hover:text-white transition-colors underline">Features</a></li>
-              <li><a href="/pricing" className="text-slate-300 hover:text-white transition-colors underline">Pricing</a></li>
-              <li><a href="#demo-section" className="text-slate-300 hover:text-white transition-colors underline">Demo</a></li>
-              <li><a href="/api" className="text-slate-300 hover:text-white transition-colors underline">API</a></li>
+              <li><a href="#emotional-journey" className="text-slate-300 hover:text-white transition-colors">Features</a></li>
+              <li><a href="/pricing" className="text-slate-300 hover:text-white transition-colors">Pricing</a></li>
+              <li><a href="#demo-section" className="text-slate-300 hover:text-white transition-colors">Demo</a></li>
+              <li><a href="/api" className="text-slate-300 hover:text-white transition-colors">API</a></li>
             </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">Company</h4>
+            <h4 className="font-semibold mb-4 text-white underline">Company</h4>
             <ul className="space-y-2">
-              <li><a href="/about" className="text-slate-300 hover:text-white transition-colors underline">About</a></li>
-              <li><a href="/blog" className="text-slate-300 hover:text-white transition-colors underline">Blog</a></li>
-              <li><a href="/careers" className="text-slate-300 hover:text-white transition-colors underline">Careers</a></li>
-              <li><a href="/contact" className="text-slate-300 hover:text-white transition-colors underline">Contact</a></li>
+              <li><a href="/about" className="text-slate-300 hover:text-white transition-colors">About</a></li>
+              <li><a href="/blog" className="text-slate-300 hover:text-white transition-colors">Blog</a></li>
+              <li><a href="/careers" className="text-slate-300 hover:text-white transition-colors">Careers</a></li>
+              <li><a href="/contact" className="text-slate-300 hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
         </div>
